@@ -1,0 +1,17 @@
+CloudScale AI Systems Q3 FY2026 Earnings Release
+
+CloudScale AI Systems today reported financial results for the third quarter ended September 30, 2026.
+Total revenue was $2.40 billion, up 36% year over year.
+Gross margin was 74.5%.
+Operating margin was 28.0%.
+Net income was $480 million, or $3.15 per diluted share.
+Free cash flow was $520 million.
+Cash and cash equivalents totaled $3.8 billion, while total debt stood at $800 million.
+
+Risks and Other Items
+The company experienced strong enterprise adoption across global tier-1 hyperscalers.
+Foreign exchange headwinds reduced reported revenue by approximately 0.5 percentage points.
+
+Outlook
+For the fourth quarter, the company expects revenue between $2.60 billion and $2.75 billion and operating margin of approximately 29%.
+Management is confident in accelerating AI enterprise workload demand.

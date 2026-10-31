@@ -1,0 +1,26 @@
+{
+  "name": "earnings-desk-fullstack",
+  "version": "1.0.0",
+  "description": "Full-Stack Financial Earnings Desk with LangGraph Multi-Agent Architecture, Express, React, Node, and SQLite",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "node server/server.js",
+    "server": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); const s = spawn('node', ['server/server.js'], { stdio: 'inherit' }); const c = spawn('npm', ['--prefix', 'client', 'run', 'dev'], { stdio: 'inherit', shell: true }); process.on('SIGINT', () => { s.kill(); c.kill(); process.exit(); });\"",
+    "test:agents": "pytest earnings_desk/tests/test_pipeline.py"
+  },
+  "keywords": [
+    "earnings",
+    "multi-agent",
+    "langgraph",
+    "express",
+    "react",
+    "node",
+    "sqlite"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

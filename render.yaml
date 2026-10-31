@@ -1,0 +1,15 @@
+# Render Blueprint Specification for Earnings Desk
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: earnings-desk
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
