@@ -351,29 +351,29 @@ export default function App() {
         {/* Analysis Desk View */}
         {currentPage === 'desk' && (
           initialLoading ? (
-            <div style={{ textAlign: 'center', padding: '100px 20px', color: '#94a3b8' }}>
-              <div style={{ fontSize: '3rem', marginBottom: 20 }}>📊</div>
-              <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc' }}>
-                Initializing JH Analytics Earnings Desk...
+            <div style={{ textAlign: 'center', padding: '100px 20px', color: '#cbd5e1' }}>
+              <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>📊</div>
+              <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff' }}>
+                Initializing <span className="text-gold-gradient">JH Analytics</span> Earnings Desk...
               </div>
-              <div style={{ fontSize: '0.9rem', marginTop: 8 }}>
+              <div style={{ fontSize: '0.92rem', color: '#cbd5e1', marginTop: 8 }}>
                 Connecting to Express API and SQLite database
               </div>
             </div>
           ) : !currentReport ? (
             <div className="glass-panel" style={{ padding: '80px 32px', textAlign: 'center' }}>
-              <FileText size={56} color="#38bdf8" style={{ margin: '0 auto 20px' }} />
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', marginBottom: 12 }}>
+              <FileText size={56} color="#c084fc" style={{ margin: '0 auto 20px' }} />
+              <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', marginBottom: 12 }}>
                 No Earnings Reports Found in Database
               </h2>
-              <p style={{ color: '#94a3b8', maxWidth: 540, margin: '0 auto 28px', fontSize: '0.95rem' }}>
+              <p style={{ color: '#cbd5e1', maxWidth: 540, margin: '0 auto 28px', fontSize: '0.95rem' }}>
                 Load pre-packaged portfolio samples or upload a new earnings press release to run the multi-agent analysis.
               </p>
               <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <button onClick={handleLoadSample} className="btn btn-primary">
+                <button onClick={handleLoadSample} className="btn btn-gold">
                   Load Acme Technologies Sample
                 </button>
-                <button onClick={() => setIsNewModalOpen(true)} className="btn btn-secondary">
+                <button onClick={() => setIsNewModalOpen(true)} className="btn btn-purple">
                   Upload or Paste Report
                 </button>
               </div>
@@ -387,7 +387,7 @@ export default function App() {
               <div style={{
                 display: 'flex',
                 gap: 10,
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                borderBottom: '1px solid rgba(168, 85, 247, 0.25)',
                 overflowX: 'auto',
                 paddingBottom: 6
               }}>
@@ -402,21 +402,25 @@ export default function App() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 10,
-                        padding: '12px 22px',
-                        borderRadius: '10px 10px 0 0',
+                        padding: '12px 24px',
+                        borderRadius: '12px 12px 0 0',
                         border: 'none',
-                        background: isActive ? 'rgba(30, 41, 59, 0.8)' : 'transparent',
-                        color: isActive ? '#38bdf8' : '#94a3b8',
-                        fontWeight: isActive ? 700 : 500,
+                        background: isActive
+                          ? 'linear-gradient(180deg, rgba(168, 85, 247, 0.24) 0%, rgba(13, 19, 38, 0.88) 100%)'
+                          : 'transparent',
+                        color: isActive ? '#ffffff' : '#cbd5e1',
+                        fontWeight: isActive ? 800 : 500,
                         fontSize: '0.92rem',
-                        borderBottom: isActive ? '3px solid #38bdf8' : '3px solid transparent',
+                        borderBottom: isActive ? '3px solid #fbbf24' : '3px solid transparent',
                         cursor: 'pointer',
                         whiteSpace: 'nowrap',
-                        transition: 'all 0.2s ease',
-                        boxShadow: isActive ? '0 -4px 14px rgba(0,0,0,0.2)' : 'none'
+                        transition: 'all 0.25s ease',
+                        boxShadow: isActive
+                          ? '0 -4px 18px rgba(168, 85, 247, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)'
+                          : 'none'
                       }}
                     >
-                      <Icon size={17} />
+                      <Icon size={17} color={isActive ? '#fbbf24' : '#c084fc'} />
                       <span>{tab.label}</span>
                     </button>
                   );

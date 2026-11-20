@@ -65,26 +65,27 @@ export default function NewReportModal({
     }}>
       <div className="glass-panel" style={{
         width: '100%',
-        maxWidth: 850,
+        maxWidth: 860,
         maxHeight: '92vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
-        border: '1px solid #38bdf8'
+        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(245, 158, 11, 0.35)',
+        border: '1px solid rgba(251, 191, 36, 0.45)',
+        background: 'rgba(12, 16, 36, 0.95)'
       }}>
         {/* Header */}
         <div style={{
-          padding: '18px 24px',
-          borderBottom: '1px solid #1e293b',
+          padding: '20px 28px',
+          borderBottom: '1px solid rgba(251, 191, 36, 0.25)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
           <div>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff' }}>
               Analyze New Earnings Report
             </h3>
-            <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+            <p style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
               Multi-agent extraction, analysis across 4 specialist agents, and Editor synthesis
             </p>
           </div>
@@ -93,7 +94,7 @@ export default function NewReportModal({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#94a3b8',
+              color: '#cbd5e1',
               fontSize: '1.4rem',
               cursor: 'pointer'
             }}
@@ -104,9 +105,9 @@ export default function NewReportModal({
 
         {/* Preset helper bar */}
         <div style={{
-          padding: '12px 24px',
-          background: 'rgba(15, 23, 42, 0.6)',
-          borderBottom: '1px solid #1e293b',
+          padding: '14px 28px',
+          background: 'rgba(9, 13, 28, 0.85)',
+          borderBottom: '1px solid rgba(251, 191, 36, 0.2)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -118,8 +119,10 @@ export default function NewReportModal({
               onClick={() => setActiveTab('paste')}
               className="btn btn-sm"
               style={{
-                background: activeTab === 'paste' ? '#0284c7' : '#1e293b',
-                color: '#fff'
+                background: activeTab === 'paste' ? 'linear-gradient(135deg, #7c3aed, #a855f7)' : 'rgba(30, 41, 59, 0.7)',
+                color: '#ffffff',
+                border: activeTab === 'paste' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: 700
               }}
             >
               <FileText size={14} /> Paste Report Text
@@ -128,8 +131,10 @@ export default function NewReportModal({
               onClick={() => setActiveTab('upload')}
               className="btn btn-sm"
               style={{
-                background: activeTab === 'upload' ? '#0284c7' : '#1e293b',
-                color: '#fff'
+                background: activeTab === 'upload' ? 'linear-gradient(135deg, #7c3aed, #a855f7)' : 'rgba(30, 41, 59, 0.7)',
+                color: '#ffffff',
+                border: activeTab === 'upload' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: 700
               }}
             >
               <Upload size={14} /> Upload Files
@@ -139,7 +144,7 @@ export default function NewReportModal({
           <button
             onClick={handleLoadSample}
             type="button"
-            className="btn btn-secondary btn-sm"
+            className="btn btn-gold btn-sm"
           >
             <RefreshCw size={14} /> Load Acme Q3 vs Q2 Sample
           </button>

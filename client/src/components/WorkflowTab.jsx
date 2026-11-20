@@ -65,95 +65,88 @@ export default function WorkflowTab({ report }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       {/* Overview Card */}
-      <div className="glass-panel" style={{ padding: 22 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-          <GitBranch size={22} color="#38bdf8" />
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc' }}>
-            LangGraph Fan-Out / Fan-In Multi-Agent Architecture
+      <div className="glass-panel tile-interactive tile-purple" style={{ padding: 24 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
+          <GitBranch size={24} color="#c084fc" />
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff' }}>
+            Multi-Agent Fan-Out / Fan-In Graph Architecture
           </h3>
         </div>
-        <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: 1.65 }}>
           Rather than relying on a single monolithic LLM prone to mathematical hallucinations, the desk uses an orchestrated graph of specialist agents.
           Click on any agent node below to inspect its internal logic, role, and coordination protocol.
         </p>
       </div>
 
-      {/* Interactive Visual Graph */}
-      <div className="glass-panel" style={{ padding: '36px 24px', overflowX: 'auto' }}>
+      {/* Interactive Visual Graph with Glowing Tiles */}
+      <div className="glass-panel" style={{ padding: '38px 26px', overflowX: 'auto' }}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          minWidth: 960,
+          minWidth: 980,
           gap: 16
         }}>
           {/* 1. Input Report */}
-          <div style={{ textAlign: 'center', width: 140 }}>
-            <div style={{
-              padding: '16px 12px',
-              borderRadius: 8,
-              background: '#0a1220',
-              border: '1px solid #1a2b47',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.4)'
+          <div style={{ textAlign: 'center', width: 145 }}>
+            <div className="tile-interactive tile-silver" style={{
+              padding: '18px 14px',
+              borderRadius: 12
             }}>
-              <div style={{ fontSize: '1.6rem', marginBottom: 6 }}>📄</div>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>Earnings Report</div>
-              <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Press release text</div>
+              <div style={{ fontSize: '1.8rem', marginBottom: 6 }}>📄</div>
+              <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#ffffff' }}>Earnings Report</div>
+              <div style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>Press release text</div>
             </div>
           </div>
 
-          <ArrowRight size={22} color="#38bdf8" />
+          <ArrowRight size={22} color="#c084fc" />
 
           {/* 2. Extraction Node */}
-          <div style={{ textAlign: 'center', width: 160 }}>
+          <div style={{ textAlign: 'center', width: 165 }}>
             <div
               onClick={() => setSelectedAgentNode('Extraction')}
+              className="tile-interactive tile-purple"
               style={{
-                padding: '16px 12px',
-                borderRadius: 8,
-                background: '#042f2e',
-                border: '1px solid #14b8a6',
-                cursor: 'pointer',
-                boxShadow: '0 4px 16px rgba(20, 184, 166, 0.25)',
-                transition: 'all 0.2s ease'
+                padding: '18px 14px',
+                borderRadius: 12,
+                cursor: 'pointer'
               }}
-              className="hover:scale-105"
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginBottom: 4 }}>
-                <CheckCircle2 size={16} color="#2dd4bf" />
-                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f8fafc' }}>Extraction</span>
+                <CheckCircle2 size={16} color="#c084fc" />
+                <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#ffffff' }}>Extraction</span>
               </div>
               <div style={{
-                background: 'rgba(0,0,0,0.3)',
-                padding: '2px 6px',
-                borderRadius: 4,
-                fontSize: '0.72rem',
-                color: '#5eead4',
-                marginBottom: 6
+                background: 'rgba(0,0,0,0.4)',
+                padding: '3px 8px',
+                borderRadius: 6,
+                fontSize: '0.74rem',
+                color: '#e9d5ff',
+                marginBottom: 6,
+                fontWeight: 700
               }}>
                 ⏱ {getTimingText('Extraction')}
               </div>
-              <div style={{ fontSize: '0.7rem', color: '#99f6e4' }}>
+              <div style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>
                 {getHeadline('Extraction')}
               </div>
             </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center' }}>
-            <span style={{ fontSize: '0.68rem', color: '#38bdf8', fontWeight: 700, textTransform: 'uppercase' }}>Fan-Out</span>
-            <div style={{ width: 28, height: 2, background: '#38bdf8' }} />
+            <span style={{ fontSize: '0.7rem', color: '#fbbf24', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fan-Out</span>
+            <div style={{ width: 32, height: 2, background: 'linear-gradient(90deg, #c084fc, #fbbf24)' }} />
           </div>
 
-          {/* 3. 4 Parallel Analysts */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: 230 }}>
+          {/* 3. 4 Parallel Analysts (Tiles) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 240 }}>
             {/* Revenue */}
             <div
               onClick={() => setSelectedAgentNode('Revenue')}
+              className="tile-interactive tile-gold"
               style={{
-                padding: '10px 14px',
-                borderRadius: 8,
-                background: '#064e3b',
-                border: '1px solid #10b981',
+                padding: '12px 16px',
+                borderRadius: 10,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -161,10 +154,10 @@ export default function WorkflowTab({ report }) {
               }}
             >
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#6ee7b7' }}>📈 Revenue Analyst</div>
-                <div style={{ fontSize: '0.68rem', color: '#a7f3d0' }}>YoY, Margins, FCF</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#fbbf24' }}>📈 Revenue Analyst</div>
+                <div style={{ fontSize: '0.7rem', color: '#cbd5e1' }}>YoY, Margins, FCF</div>
               </div>
-              <span className="ref-pill" style={{ background: '#022c22', color: '#6ee7b7' }}>
+              <span className="ref-pill" style={{ background: '#78350f', color: '#fef08a' }}>
                 {getTimingText('Revenue')}
               </span>
             </div>
@@ -172,22 +165,22 @@ export default function WorkflowTab({ report }) {
             {/* Risk */}
             <div
               onClick={() => setSelectedAgentNode('Risk')}
+              className="tile-interactive tile-silver"
               style={{
-                padding: '10px 14px',
-                borderRadius: 8,
-                background: '#4c0519',
-                border: '1px solid #f43f5e',
+                padding: '12px 16px',
+                borderRadius: 10,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                borderColor: 'rgba(244, 63, 94, 0.4)'
               }}
             >
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#fda4af' }}>⚠️ Risk Analyst</div>
-                <div style={{ fontSize: '0.68rem', color: '#fecdd3' }}>Leverage, Red flags</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#fb7185' }}>⚠️ Risk Analyst</div>
+                <div style={{ fontSize: '0.7rem', color: '#cbd5e1' }}>Leverage, Red flags</div>
               </div>
-              <span className="ref-pill" style={{ background: '#200108', color: '#fda4af' }}>
+              <span className="ref-pill" style={{ background: '#4c0519', color: '#fda4af' }}>
                 {getTimingText('Risk')}
               </span>
             </div>
@@ -195,11 +188,10 @@ export default function WorkflowTab({ report }) {
             {/* Outlook */}
             <div
               onClick={() => setSelectedAgentNode('Outlook')}
+              className="tile-interactive tile-purple"
               style={{
-                padding: '10px 14px',
-                borderRadius: 8,
-                background: '#082f49',
-                border: '1px solid #0ea5e9',
+                padding: '12px 16px',
+                borderRadius: 10,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -207,10 +199,10 @@ export default function WorkflowTab({ report }) {
               }}
             >
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#7dd3fc' }}>🔭 Outlook Analyst</div>
-                <div style={{ fontSize: '0.68rem', color: '#bae6fd' }}>Guidance, Sequential</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#c084fc' }}>🔭 Outlook Analyst</div>
+                <div style={{ fontSize: '0.7rem', color: '#cbd5e1' }}>Guidance, Sequential</div>
               </div>
-              <span className="ref-pill" style={{ background: '#02182b', color: '#7dd3fc' }}>
+              <span className="ref-pill" style={{ background: '#3b0764', color: '#e9d5ff' }}>
                 {getTimingText('Outlook')}
               </span>
             </div>
@@ -218,11 +210,10 @@ export default function WorkflowTab({ report }) {
             {/* Comparison */}
             <div
               onClick={() => setSelectedAgentNode('Comparison')}
+              className="tile-interactive tile-silver"
               style={{
-                padding: '10px 14px',
-                borderRadius: 8,
-                background: '#3b0764',
-                border: '1px solid #a855f7',
+                padding: '12px 16px',
+                borderRadius: 10,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -230,68 +221,63 @@ export default function WorkflowTab({ report }) {
               }}
             >
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#d8b4fe' }}>🔄 Comparison Agent</div>
-                <div style={{ fontSize: '0.68rem', color: '#e9d5ff' }}>QoQ deltas & trends</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#ffffff' }}>🔄 Comparison Agent</div>
+                <div style={{ fontSize: '0.7rem', color: '#cbd5e1' }}>QoQ deltas & trends</div>
               </div>
-              <span className="ref-pill" style={{ background: '#1c0330', color: '#d8b4fe' }}>
+              <span className="ref-pill" style={{ background: '#334155', color: '#ffffff' }}>
                 {getTimingText('Comparison')}
               </span>
             </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center' }}>
-            <span style={{ fontSize: '0.68rem', color: '#38bdf8', fontWeight: 700, textTransform: 'uppercase' }}>Fan-In</span>
-            <div style={{ width: 28, height: 2, background: '#38bdf8' }} />
+            <span style={{ fontSize: '0.7rem', color: '#fbbf24', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fan-In</span>
+            <div style={{ width: 32, height: 2, background: 'linear-gradient(90deg, #fbbf24, #c084fc)' }} />
           </div>
 
           {/* 4. Editor Node */}
-          <div style={{ textAlign: 'center', width: 170 }}>
+          <div style={{ textAlign: 'center', width: 175 }}>
             <div
               onClick={() => setSelectedAgentNode('Editor')}
+              className="tile-interactive tile-gold"
               style={{
-                padding: '16px 12px',
-                borderRadius: 8,
-                background: '#451a03',
-                border: '1px solid #f59e0b',
-                cursor: 'pointer',
-                boxShadow: '0 4px 16px rgba(245, 158, 11, 0.25)',
-                transition: 'all 0.2s ease'
+                padding: '18px 14px',
+                borderRadius: 12,
+                cursor: 'pointer'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginBottom: 4 }}>
-                <span style={{ fontSize: '1.2rem' }}>🧑‍💼</span>
-                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#fef3c7' }}>Editor Manager</span>
+                <span style={{ fontSize: '1.25rem' }}>🧑‍💼</span>
+                <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#ffffff' }}>Editor Manager</span>
               </div>
               <div style={{
-                background: 'rgba(0,0,0,0.3)',
-                padding: '2px 6px',
-                borderRadius: 4,
-                fontSize: '0.72rem',
-                color: '#fde68a',
-                marginBottom: 6
+                background: 'rgba(0,0,0,0.4)',
+                padding: '3px 8px',
+                borderRadius: 6,
+                fontSize: '0.74rem',
+                color: '#fef08a',
+                marginBottom: 6,
+                fontWeight: 700
               }}>
                 ⏱ {getTimingText('Editor')}
               </div>
-              <div style={{ fontSize: '0.7rem', color: '#fcd34d' }}>
+              <div style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>
                 {getHeadline('Editor')}
               </div>
             </div>
           </div>
 
-          <ArrowRight size={22} color="#10b981" />
+          <ArrowRight size={22} color="#fbbf24" />
 
           {/* 5. Grounded Note Output */}
-          <div style={{ textAlign: 'center', width: 140 }}>
-            <div style={{
-              padding: '16px 12px',
-              borderRadius: 8,
-              background: '#0a1220',
-              border: '1px solid #10b981',
-              boxShadow: '0 4px 14px rgba(16, 185, 129, 0.2)'
+          <div style={{ textAlign: 'center', width: 145 }}>
+            <div className="tile-interactive tile-gold" style={{
+              padding: '18px 14px',
+              borderRadius: 12
             }}>
-              <div style={{ fontSize: '1.6rem', marginBottom: 6 }}>📝</div>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc' }}>Analyst Note</div>
-              <div style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 700 }}>100% Provenance</div>
+              <div style={{ fontSize: '1.8rem', marginBottom: 6 }}>📝</div>
+              <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#ffffff' }}>Analyst Note</div>
+              <div style={{ fontSize: '0.72rem', color: '#fbbf24', fontWeight: 800 }}>100% Provenance</div>
             </div>
           </div>
         </div>
@@ -299,35 +285,34 @@ export default function WorkflowTab({ report }) {
 
       {/* Interactive Agent Inspector Drawer / Modal */}
       {selectedAgentNode && agentDetails[selectedAgentNode] && (
-        <div className="glass-panel" style={{
-          padding: 22,
-          border: '1px solid #38bdf8',
-          background: 'rgba(9, 16, 29, 0.95)'
+        <div className="glass-panel tile-interactive tile-gold" style={{
+          padding: 24,
+          background: 'rgba(15, 18, 38, 0.96)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <Cpu size={20} color="#38bdf8" />
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <Cpu size={22} color="#fbbf24" />
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff' }}>
                 {agentDetails[selectedAgentNode].title}
               </h4>
-              <span className="ref-pill" style={{ background: '#0284c7', color: '#fff' }}>
+              <span className="ref-pill" style={{ background: '#7e22ce', color: '#ffffff' }}>
                 {agentDetails[selectedAgentNode].fanMode}
               </span>
             </div>
             <button
               onClick={() => setSelectedAgentNode(null)}
-              style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+              style={{ background: 'transparent', border: 'none', color: '#cbd5e1', cursor: 'pointer', fontSize: '1.3rem' }}
             >
-              <X size={18} />
+              <X size={20} />
             </button>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.875rem', color: '#cbd5e1' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.9rem', color: '#ffffff' }}>
             <div>
-              <strong style={{ color: '#38bdf8' }}>Core Responsibility:</strong> {agentDetails[selectedAgentNode].role}
+              <strong style={{ color: '#fbbf24' }}>Core Responsibility:</strong> {agentDetails[selectedAgentNode].role}
             </div>
             <div>
-              <strong style={{ color: '#38bdf8' }}>Execution Logic:</strong> {agentDetails[selectedAgentNode].mechanism}
+              <strong style={{ color: '#c084fc' }}>Execution Logic:</strong> {agentDetails[selectedAgentNode].mechanism}
             </div>
           </div>
         </div>
@@ -335,9 +320,9 @@ export default function WorkflowTab({ report }) {
 
       {/* Execution Trace Table */}
       <div className="glass-panel" style={{ overflow: 'hidden' }}>
-        <div style={{ padding: '16px 20px', borderBottom: '1px solid #1a2b47', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Clock size={18} color="#38bdf8" />
-          <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#f8fafc' }}>
+        <div style={{ padding: '18px 24px', borderBottom: '1px solid rgba(168, 85, 247, 0.25)', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <Clock size={19} color="#c084fc" />
+          <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff' }}>
             Multi-Agent Node Execution Log & Timings
           </h4>
         </div>

@@ -1,23 +1,24 @@
 import React from 'react';
-import { ShieldCheck, BarChart3, Database, Globe } from 'lucide-react';
+import { ShieldCheck, BarChart3, Database, Globe, Sparkles } from 'lucide-react';
 
 export default function Footer({ onNavigate, currentPage }) {
   return (
     <footer className="no-print" style={{
       marginTop: 'auto',
-      background: 'rgba(8, 14, 28, 0.85)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
-      borderTop: '1px solid rgba(56, 189, 248, 0.15)',
-      padding: '40px 24px 28px',
-      color: '#94a3b8'
+      background: 'rgba(8, 12, 26, 0.92)',
+      backdropFilter: 'blur(22px)',
+      WebkitBackdropFilter: 'blur(22px)',
+      borderTop: '1px solid rgba(168, 85, 247, 0.25)',
+      boxShadow: '0 -8px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(168, 85, 247, 0.1)',
+      padding: '44px 28px 32px',
+      color: '#cbd5e1'
     }}>
       <div style={{
         maxWidth: 1600,
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
-        gap: 32
+        gap: 36
       }}>
         {/* Main Footer Row */}
         <div style={{
@@ -25,55 +26,67 @@ export default function Footer({ onNavigate, currentPage }) {
           justifyContent: 'space-between',
           alignItems: 'flex-start',
           flexWrap: 'wrap',
-          gap: 32
+          gap: 36
         }}>
           {/* Brand & Mission */}
-          <div style={{ maxWidth: 440 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+          <div style={{ maxWidth: 460 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
               <div style={{
-                width: 32,
-                height: 32,
-                borderRadius: 8,
-                background: 'linear-gradient(135deg, #0284c7, #38bdf8)',
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #f59e0b 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 18
+                fontSize: 20,
+                boxShadow: '0 4px 16px rgba(168, 85, 247, 0.4), 0 0 8px rgba(245, 158, 11, 0.3)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
               }}>
                 📊
               </div>
               <div>
-                <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em' }}>
+                <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
                   Earnings Desk
                 </span>
-                <span style={{ marginLeft: 8, fontSize: '0.75rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <span
+                  className="text-gold-gradient"
+                  style={{
+                    marginLeft: 10,
+                    fontSize: '0.8rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em'
+                  }}
+                >
                   JH Analytics
                 </span>
               </div>
             </div>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
-              Precision institutional financial analysis desk by JH Analytics.
+            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.65 }}>
+              Precision institutional financial intelligence by JH Analytics.
               Every claim formulated across specialist agents strictly traces to extracted figures with 100% provenance verification.
             </p>
           </div>
 
           {/* Navigation Links */}
-          <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 52, flexWrap: 'wrap' }}>
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#cbd5e1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                 Navigation
               </div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.88rem' }}>
                 <li>
                   <button
                     onClick={() => onNavigate && onNavigate('home')}
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: currentPage === 'home' ? '#38bdf8' : '#94a3b8',
+                      color: currentPage === 'home' ? '#c084fc' : '#cbd5e1',
                       cursor: 'pointer',
                       padding: 0,
-                      fontWeight: currentPage === 'home' ? 600 : 400
+                      fontWeight: currentPage === 'home' ? 700 : 500,
+                      transition: 'color 0.2s ease'
                     }}
                   >
                     Home Overview
@@ -85,10 +98,11 @@ export default function Footer({ onNavigate, currentPage }) {
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: currentPage === 'desk' ? '#38bdf8' : '#94a3b8',
+                      color: currentPage === 'desk' ? '#fbbf24' : '#cbd5e1',
                       cursor: 'pointer',
                       padding: 0,
-                      fontWeight: currentPage === 'desk' ? 600 : 400
+                      fontWeight: currentPage === 'desk' ? 700 : 500,
+                      transition: 'color 0.2s ease'
                     }}
                   >
                     Analysis Desk
@@ -100,10 +114,11 @@ export default function Footer({ onNavigate, currentPage }) {
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: currentPage === 'about' ? '#38bdf8' : '#94a3b8',
+                      color: currentPage === 'about' ? '#ffffff' : '#cbd5e1',
                       cursor: 'pointer',
                       padding: 0,
-                      fontWeight: currentPage === 'about' ? 600 : 400
+                      fontWeight: currentPage === 'about' ? 700 : 500,
+                      transition: 'color 0.2s ease'
                     }}
                   >
                     About JH Analytics
@@ -113,37 +128,40 @@ export default function Footer({ onNavigate, currentPage }) {
             </div>
 
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#cbd5e1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                 Core Capabilities
               </div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem', color: '#94a3b8' }}>
-                <li>Zero-Hallucination Gate (100% Provenance)</li>
-                <li>Fan-Out / Fan-In Multi-Agent Architecture</li>
-                <li>What-If Sensitivity Stress Testing</li>
-                <li>Grounded Natural-Language Q&A</li>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.88rem', color: '#cbd5e1' }}>
+                <li>✦ Zero-Hallucination Gate (100% Provenance)</li>
+                <li>✦ Fan-Out / Fan-In Multi-Agent Architecture</li>
+                <li>✦ What-If Sensitivity Stress Testing</li>
+                <li>✦ Grounded Natural-Language Q&A</li>
               </ul>
             </div>
 
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#cbd5e1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#c084fc', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                 Deployment Status
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#10b981' }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10b981' }} />
-                  <span>Vercel Serverless Ready</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.88rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 7, color: '#34d399' }}>
+                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
+                  <span style={{ fontWeight: 600 }}>Vercel Serverless Ready</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#38bdf8' }}>
-                  <Database size={14} />
-                  <span>SQLite Embedded Database</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 7, color: '#e9d5ff' }}>
+                  <Database size={15} color="#c084fc" />
+                  <span style={{ fontWeight: 600 }}>SQLite Embedded Database</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div style={{ height: 1, background: 'rgba(255, 255, 255, 0.08)' }} />
+        {/* Divider with subtle purple and silver glow */}
+        <div style={{
+          height: 1,
+          background: 'linear-gradient(90deg, rgba(168, 85, 247, 0) 0%, rgba(168, 85, 247, 0.4) 30%, rgba(251, 191, 36, 0.4) 70%, rgba(168, 85, 247, 0) 100%)'
+        }} />
 
         {/* Bottom Copyright & Disclaimer */}
         <div style={{
@@ -152,12 +170,12 @@ export default function Footer({ onNavigate, currentPage }) {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: 16,
-          fontSize: '0.8rem'
+          fontSize: '0.85rem'
         }}>
-          <div style={{ color: '#cbd5e1' }}>
-            © {new Date().getFullYear()} <strong>JH Analytics</strong>. All rights reserved.
+          <div style={{ color: '#ffffff' }}>
+            © {new Date().getFullYear()} <strong className="text-gold-gradient">JH Analytics</strong>. All rights reserved.
           </div>
-          <div style={{ color: '#64748b' }}>
+          <div style={{ color: '#94a3b8', fontSize: '0.8rem' }}>
             Confidential institutional financial intelligence. All claims mathematically validated against primary report filings.
           </div>
         </div>

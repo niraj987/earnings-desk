@@ -29,21 +29,21 @@ export default function ClaimTracerTab({ report, preselectedRef }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       {/* Intro Box */}
-      <div className="glass-panel" style={{ padding: 22 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-          <Search size={22} color="#38bdf8" />
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc' }}>
+      <div className="glass-panel tile-interactive tile-purple" style={{ padding: 24 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
+          <Search size={24} color="#c084fc" />
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff' }}>
             Claim Provenance Tracer & Document Grounding Inspector
           </h3>
         </div>
-        <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: 1.65 }}>
           Zero hallucination audit trail: every statement synthesized by an analyst agent is formally anchored to primary extracted figures or verbatim press release sentences.
           Select any claim to view its full derivation tree and original source sentence.
         </p>
 
         {/* Claim Selector */}
-        <div style={{ marginTop: 16 }}>
-          <label style={{ display: 'block', fontSize: '0.8rem', color: '#64748b', marginBottom: 6, fontWeight: 600 }}>
+        <div style={{ marginTop: 18 }}>
+          <label style={{ display: 'block', fontSize: '0.8rem', color: '#cbd5e1', marginBottom: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Select a Claim to Inspect ({allClaims.length} available across 4 agents):
           </label>
           <select
@@ -51,14 +51,15 @@ export default function ClaimTracerTab({ report, preselectedRef }) {
             onChange={e => setSelectedClaimIndex(Number(e.target.value))}
             style={{
               width: '100%',
-              background: '#09101d',
-              color: '#f8fafc',
-              border: '1px solid #20324e',
+              background: 'rgba(9, 13, 28, 0.9)',
+              color: '#ffffff',
+              border: '1px solid rgba(168, 85, 247, 0.4)',
               borderRadius: 8,
-              padding: '10px 14px',
-              fontSize: '0.9rem',
+              padding: '12px 16px',
+              fontSize: '0.92rem',
               outline: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 0 14px rgba(168, 85, 247, 0.15)'
             }}
           >
             {allClaims.map((c, i) => (
@@ -72,19 +73,19 @@ export default function ClaimTracerTab({ report, preselectedRef }) {
 
       {/* Selected Claim Breakdown Card */}
       {activeClaim && (
-        <div className="glass-panel" style={{ padding: 24, borderTop: '4px solid #38bdf8' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div className="glass-panel tile-interactive tile-gold" style={{ padding: 26, borderTop: '4px solid #fbbf24' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span className="badge badge-positive" style={{ textTransform: 'none' }}>
                 <CheckCircle2 size={14} /> 100% Grounded
               </span>
-              <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
-                Formulated by <strong style={{ color: '#f8fafc' }}>{activeClaim.agent}</strong>
+              <span style={{ fontSize: '0.88rem', color: '#cbd5e1' }}>
+                Formulated by <strong style={{ color: '#ffffff' }}>{activeClaim.agent}</strong>
               </span>
             </div>
-            <div style={{ display: 'flex', gap: 4 }}>
+            <div style={{ display: 'flex', gap: 6 }}>
               {activeClaim.refs.map((r, i) => (
-                <span key={i} className="ref-pill" style={{ fontSize: '0.8rem', padding: '2px 8px' }}>
+                <span key={i} className="ref-pill" style={{ fontSize: '0.82rem', padding: '3px 10px' }}>
                   {r}
                 </span>
               ))}
@@ -92,42 +93,41 @@ export default function ClaimTracerTab({ report, preselectedRef }) {
           </div>
 
           <div style={{
-            fontSize: '1.15rem',
-            fontWeight: 600,
-            color: '#f8fafc',
-            lineHeight: 1.6,
-            background: 'rgba(9, 16, 29, 0.75)',
-            padding: '16px 20px',
-            borderRadius: 8,
-            border: '1px solid #1a2b47',
-            marginBottom: 20
+            fontSize: '1.2rem',
+            fontWeight: 700,
+            color: '#ffffff',
+            lineHeight: 1.65,
+            background: 'rgba(9, 13, 28, 0.85)',
+            padding: '18px 24px',
+            borderRadius: 10,
+            border: '1px solid rgba(251, 191, 36, 0.3)',
+            boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.15)',
+            marginBottom: 22
           }}>
             &ldquo;{activeClaim.text}&rdquo;
           </div>
 
           {/* Evidence Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 18 }}>
             {activeClaim.refs.map((refId, i) => {
               const item = registry[refId] || {};
               const isSentence = item.key === 'sentence' || refId.startsWith('S');
               const isDerived = refId.startsWith('R') || refId.startsWith('K') || refId.startsWith('O');
 
               return (
-                <div key={i} style={{
-                  background: '#09101d',
-                  border: '1px solid #1a2b47',
-                  borderRadius: 8,
-                  padding: '16px 18px',
+                <div key={i} className="tile-interactive tile-silver" style={{
+                  padding: '18px 20px',
+                  borderRadius: 10,
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: 8
+                  gap: 10
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span className="ref-pill" style={{ background: '#0284c7', color: '#fff', fontSize: '0.85rem' }}>
+                      <span className="ref-pill" style={{ background: '#7e22ce', color: '#ffffff', fontSize: '0.85rem' }}>
                         {refId}
                       </span>
-                      <span style={{ fontWeight: 700, color: '#f8fafc' }}>{item.label || refId}</span>
+                      <span style={{ fontWeight: 800, color: '#ffffff' }}>{item.label || refId}</span>
                     </div>
                     {!isSentence && (
                       <span style={{ fontSize: '1rem', fontWeight: 800, color: '#38bdf8' }}>
