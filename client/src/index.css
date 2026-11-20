@@ -90,6 +90,22 @@ code, pre, .mono {
   font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
 }
 
+/* =========================================================================
+   Navera Typography System
+   ========================================================================= */
+
+@font-face {
+  font-family: 'Navera';
+  src: local('Navera'), local('Nevera'), local('Navara');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+.font-navera {
+  font-family: 'Navera', 'Nevera', 'Navara', 'Syne', 'Outfit', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.025em;
+}
+
 button {
   cursor: pointer;
   font-family: inherit;

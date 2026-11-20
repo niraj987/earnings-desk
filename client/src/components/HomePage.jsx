@@ -109,8 +109,8 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             <span style={{ color: '#ffffff' }}>Financial Intelligence Desk</span>
           </div>
 
-          <h2 style={{
-            fontSize: '3rem',
+          <h2 className="font-navera" style={{
+            fontSize: '3.1rem',
             fontWeight: 900,
             letterSpacing: '-0.03em',
             lineHeight: 1.18,

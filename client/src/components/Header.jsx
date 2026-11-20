@@ -103,11 +103,11 @@ export default function Header({
               <TrendingUp size={24} color="#ffffff" />
             </div>
             <div>
-              <h1 style={{
-                fontSize: '1.4rem',
+              <h1 className="font-navera" style={{
+                fontSize: '1.45rem',
                 fontWeight: 800,
                 color: '#ffffff',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.025em',
                 lineHeight: 1.2,
                 textShadow: '0 0 15px rgba(255, 255, 255, 0.35)'
               }}>
