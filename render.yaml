@@ -4,7 +4,7 @@ services:
   - type: web
     name: earnings-desk
     env: docker
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./deploy/Dockerfile
     plan: free
     region: oregon
     autoDeploy: true
