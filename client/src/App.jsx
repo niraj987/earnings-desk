@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('desk'); // 'desk' | 'home' | 'about'
+  const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'desk' | 'about'
   const [reports, setReports] = useState([]);
   const [currentReportId, setCurrentReportId] = useState(null);
   const [currentReport, setCurrentReport] = useState(null);
