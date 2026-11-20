@@ -2,7 +2,21 @@ const { DatabaseSync } = require('node:sqlite');
 const path = require('path');
 const fs = require('fs');
 
-const DB_PATH = path.join(__dirname, 'earnings_desk.db');
+// Support serverless environments (e.g. Vercel where only /tmp is writable)
+let DB_PATH = path.join(__dirname, 'earnings_desk.db');
+if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  const tmpDb = path.join('/tmp', 'earnings_desk.db');
+  // If local template db exists and /tmp db does not, copy it over
+  if (!fs.existsSync(tmpDb) && fs.existsSync(DB_PATH)) {
+    try {
+      fs.copyFileSync(DB_PATH, tmpDb);
+    } catch (e) {
+      console.warn('Could not copy db to /tmp, will initialize fresh:', e.message);
+    }
+  }
+  DB_PATH = tmpDb;
+}
+
 const db = new DatabaseSync(DB_PATH);
 
 // Enable foreign keys and initialize schema

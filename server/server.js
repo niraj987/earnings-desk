@@ -208,7 +208,9 @@ if (fs.existsSync(clientDistPath)) {
 }
 
 // Auto-seed initial sample reports if database is empty or has fewer than presets
+let dbInitialized = false;
 async function initDatabase() {
+  if (dbInitialized) return;
   try {
     const existing = getAllReports();
     if (existing.length < 3) {
@@ -237,16 +239,29 @@ async function initDatabase() {
       }
       console.log('Database portfolio initialization complete!');
     }
+    dbInitialized = true;
   } catch (err) {
     console.warn('Initial seed skipped or deferred:', err.message);
   }
 }
 
-app.listen(PORT, async () => {
-  console.log(`====================================================`);
-  console.log(` Earnings Desk Full-Stack Server running on port ${PORT}`);
-  console.log(` SQLite Database: ${path.join(__dirname, 'earnings_desk.db')}`);
-  console.log(`====================================================`);
-  await initDatabase();
+// Serverless cold-start middleware
+app.use(async (req, res, next) => {
+  if (!dbInitialized && req.path.startsWith('/api')) {
+    await initDatabase();
+  }
+  next();
 });
+
+if (require.main === module) {
+  app.listen(PORT, async () => {
+    console.log(`====================================================`);
+    console.log(` Earnings Desk Full-Stack Server running on port ${PORT}`);
+    console.log(` SQLite Database: ${path.join(__dirname, 'earnings_desk.db')}`);
+    console.log(`====================================================`);
+    await initDatabase();
+  });
+}
+
+module.exports = app;
 
