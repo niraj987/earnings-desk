@@ -9,6 +9,9 @@ import ClaimTracerTab from './components/ClaimTracerTab';
 import QATab from './components/QATab';
 import DatabaseModal from './components/DatabaseModal';
 import NewReportModal from './components/NewReportModal';
+import HomePage from './components/HomePage';
+import AboutPage from './components/AboutPage';
+import Footer from './components/Footer';
 import {
   FileText,
   GitBranch,
@@ -21,6 +24,7 @@ import {
 } from 'lucide-react';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState('desk'); // 'desk' | 'home' | 'about'
   const [reports, setReports] = useState([]);
   const [currentReportId, setCurrentReportId] = useState(null);
   const [currentReport, setCurrentReport] = useState(null);
@@ -271,6 +275,18 @@ export default function App() {
     setActiveTab('tracer');
   };
 
+  const handleOpenDeskWithCompany = (companyName) => {
+    if (companyName) {
+      const matched = reports.find(r => r.company?.toLowerCase().includes(companyName.toLowerCase().split(' ')[0]));
+      if (matched) {
+        handleSelectReport(matched.id);
+      } else {
+        handleLoadPreset(companyName.toLowerCase().split(' ')[0]);
+      }
+    }
+    setCurrentPage('desk');
+  };
+
   const tabs = [
     { id: 'note', label: '📝 Analyst Note', icon: FileText },
     { id: 'workflow', label: '🕸 Workflow', icon: GitBranch },
@@ -284,6 +300,8 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* App Header */}
       <Header
+        currentPage={currentPage}
+        onNavigate={setCurrentPage}
         reports={reports}
         currentReportId={currentReportId}
         onSelectReport={handleSelectReport}
@@ -295,145 +313,170 @@ export default function App() {
         connected={connected}
       />
 
-      {/* Main Container */}
-      <main style={{ flex: 1, maxWidth: 1600, width: '100%', margin: '0 auto', padding: '24px' }}>
+      {/* Main Container - Spacious Padding & Layout */}
+      <main style={{ flex: 1, maxWidth: 1600, width: '100%', margin: '0 auto', padding: '36px 32px' }}>
         {error && (
           <div style={{
             background: 'rgba(244, 63, 94, 0.15)',
             border: '1px solid #f43f5e',
             color: '#f43f5e',
-            padding: '14px 20px',
-            borderRadius: 8,
-            marginBottom: 20,
+            padding: '16px 24px',
+            borderRadius: 12,
+            marginBottom: 28,
             display: 'flex',
             alignItems: 'center',
-            gap: 10
+            gap: 12
           }}>
-            <AlertCircle size={20} />
-            <span>{error}</span>
+            <AlertCircle size={22} />
+            <span style={{ fontWeight: 500 }}>{error}</span>
           </div>
         )}
 
-        {initialLoading ? (
-          <div style={{ textAlign: 'center', padding: '80px 20px', color: '#94a3b8' }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>📊</div>
-            <div style={{ fontSize: '1.2rem', fontWeight: 600, color: '#f8fafc' }}>
-              Initializing Earnings Intelligence Desk...
+        {/* Home Page View */}
+        {currentPage === 'home' && (
+          <HomePage
+            onOpenDesk={handleOpenDeskWithCompany}
+            onSelectCompany={handleOpenDeskWithCompany}
+            reports={reports}
+          />
+        )}
+
+        {/* About Page View */}
+        {currentPage === 'about' && (
+          <AboutPage
+            onOpenDesk={() => setCurrentPage('desk')}
+          />
+        )}
+
+        {/* Analysis Desk View */}
+        {currentPage === 'desk' && (
+          initialLoading ? (
+            <div style={{ textAlign: 'center', padding: '100px 20px', color: '#94a3b8' }}>
+              <div style={{ fontSize: '3rem', marginBottom: 20 }}>📊</div>
+              <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc' }}>
+                Initializing JH Analytics Earnings Desk...
+              </div>
+              <div style={{ fontSize: '0.9rem', marginTop: 8 }}>
+                Connecting to Express API and SQLite database
+              </div>
             </div>
-            <div style={{ fontSize: '0.85rem', marginTop: 6 }}>
-              Connecting to Express API and SQLite database
+          ) : !currentReport ? (
+            <div className="glass-panel" style={{ padding: '80px 32px', textAlign: 'center' }}>
+              <FileText size={56} color="#38bdf8" style={{ margin: '0 auto 20px' }} />
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', marginBottom: 12 }}>
+                No Earnings Reports Found in Database
+              </h2>
+              <p style={{ color: '#94a3b8', maxWidth: 540, margin: '0 auto 28px', fontSize: '0.95rem' }}>
+                Load pre-packaged portfolio samples or upload a new earnings press release to run the multi-agent analysis.
+              </p>
+              <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <button onClick={handleLoadSample} className="btn btn-primary">
+                  Load Acme Technologies Sample
+                </button>
+                <button onClick={() => setIsNewModalOpen(true)} className="btn btn-secondary">
+                  Upload or Paste Report
+                </button>
+              </div>
             </div>
-          </div>
-        ) : !currentReport ? (
-          <div className="glass-panel" style={{ padding: '60px 20px', textAlign: 'center' }}>
-            <FileText size={48} color="#38bdf8" style={{ margin: '0 auto 16px' }} />
-            <h2 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#f8fafc', marginBottom: 8 }}>
-              No Earnings Reports Found in Database
-            </h2>
-            <p style={{ color: '#94a3b8', maxWidth: 500, margin: '0 auto 20px', fontSize: '0.9rem' }}>
-              Load the pre-packaged Acme Technologies Q3/Q2 sample or paste a new report to run the multi-agent analysis.
-            </p>
-            <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
-              <button onClick={handleLoadSample} className="btn btn-primary">
-                Load Acme Technologies Sample
-              </button>
-              <button onClick={() => setIsNewModalOpen(true)} className="btn btn-secondary">
-                Upload or Paste Report
-              </button>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+              {/* Top Metrics Cards */}
+              <MetricsBanner report={currentReport} />
+
+              {/* Navigation Tabs Bar with Spacious Glass Styling */}
+              <div style={{
+                display: 'flex',
+                gap: 10,
+                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                overflowX: 'auto',
+                paddingBottom: 6
+              }}>
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '12px 22px',
+                        borderRadius: '10px 10px 0 0',
+                        border: 'none',
+                        background: isActive ? 'rgba(30, 41, 59, 0.8)' : 'transparent',
+                        color: isActive ? '#38bdf8' : '#94a3b8',
+                        fontWeight: isActive ? 700 : 500,
+                        fontSize: '0.92rem',
+                        borderBottom: isActive ? '3px solid #38bdf8' : '3px solid transparent',
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap',
+                        transition: 'all 0.2s ease',
+                        boxShadow: isActive ? '0 -4px 14px rgba(0,0,0,0.2)' : 'none'
+                      }}
+                    >
+                      <Icon size={17} />
+                      <span>{tab.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Tab Contents */}
+              <div>
+                {activeTab === 'note' && (
+                  <AnalystNoteTab
+                    report={currentReport}
+                    onSelectRef={handleSelectRefFromNote}
+                  />
+                )}
+
+                {activeTab === 'workflow' && (
+                  <WorkflowTab report={currentReport} />
+                )}
+
+                {activeTab === 'whatif' && (
+                  <WhatIfTab
+                    report={currentReport}
+                    onRunWhatIf={handleRunWhatIf}
+                    onResetFigures={handleResetFigures}
+                    loading={loading}
+                  />
+                )}
+
+                {activeTab === 'views' && (
+                  <AgentViewsTab
+                    report={currentReport}
+                    onSelectRef={handleSelectRefFromNote}
+                  />
+                )}
+
+                {activeTab === 'tracer' && (
+                  <ClaimTracerTab
+                    report={currentReport}
+                    preselectedRef={preselectedRef}
+                  />
+                )}
+
+                {activeTab === 'qa' && (
+                  <QATab
+                    report={currentReport}
+                    onAskQuestion={handleAskQuestion}
+                    loading={loading}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-        ) : (
-          <>
-            {/* Top Metrics Cards */}
-            <MetricsBanner report={currentReport} />
-
-            {/* Navigation Tabs Bar */}
-            <div style={{
-              display: 'flex',
-              gap: 8,
-              borderBottom: '1px solid #1e293b',
-              marginBottom: 24,
-              overflowX: 'auto',
-              paddingBottom: 4
-            }}>
-              {tabs.map((tab) => {
-                const Icon = tab.icon;
-                const isActive = activeTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '10px 18px',
-                      borderRadius: '8px 8px 0 0',
-                      border: 'none',
-                      background: isActive ? '#1e293b' : 'transparent',
-                      color: isActive ? '#38bdf8' : '#94a3b8',
-                      fontWeight: isActive ? 600 : 500,
-                      fontSize: '0.9rem',
-                      borderBottom: isActive ? '2px solid #38bdf8' : '2px solid transparent',
-                      cursor: 'pointer',
-                      whiteSpace: 'nowrap',
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    <Icon size={16} />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Tab Contents */}
-            <div>
-              {activeTab === 'note' && (
-                <AnalystNoteTab
-                  report={currentReport}
-                  onSelectRef={handleSelectRefFromNote}
-                />
-              )}
-
-              {activeTab === 'workflow' && (
-                <WorkflowTab report={currentReport} />
-              )}
-
-              {activeTab === 'whatif' && (
-                <WhatIfTab
-                  report={currentReport}
-                  onRunWhatIf={handleRunWhatIf}
-                  onResetFigures={handleResetFigures}
-                  loading={loading}
-                />
-              )}
-
-              {activeTab === 'views' && (
-                <AgentViewsTab
-                  report={currentReport}
-                  onSelectRef={handleSelectRefFromNote}
-                />
-              )}
-
-              {activeTab === 'tracer' && (
-                <ClaimTracerTab
-                  report={currentReport}
-                  preselectedRef={preselectedRef}
-                />
-              )}
-
-              {activeTab === 'qa' && (
-                <QATab
-                  report={currentReport}
-                  onAskQuestion={handleAskQuestion}
-                  loading={loading}
-                />
-              )}
-            </div>
-          </>
+          )
         )}
       </main>
+
+      {/* Institutional Footer */}
+      <Footer
+        currentPage={currentPage}
+        onNavigate={setCurrentPage}
+      />
 
       {/* Database Management Modal */}
       <DatabaseModal
