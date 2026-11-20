@@ -91,19 +91,35 @@ code, pre, .mono {
 }
 
 /* =========================================================================
-   Navera Typography System
+   Grelify AI & Neuron AI Typography Systems
    ========================================================================= */
 
+/* Grelify AI Typography - For "Earnings Desk" Website Title */
 @font-face {
-  font-family: 'Navera';
-  src: local('Navera'), local('Nevera'), local('Navara');
+  font-family: 'Grelify';
+  src: local('Grelify'), local('GrelifyAI'), local('Outfit'), local('Urbanist');
   font-weight: 400 900;
   font-display: swap;
 }
 
-.font-navera {
-  font-family: 'Navera', 'Nevera', 'Navara', 'Syne', 'Outfit', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  letter-spacing: -0.025em;
+.font-grelify {
+  font-family: 'Grelify', 'GrelifyAI', 'Outfit', 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+/* Neuron AI Typography - For "Earnings Desk with Provable Grounding" */
+@font-face {
+  font-family: 'Neuron';
+  src: local('Neuron'), local('Neuron AI'), local('Plus Jakarta Sans'), local('Inter Display');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+.font-neuron {
+  font-family: 'Neuron', 'Neuron AI', 'Plus Jakarta Sans', 'Inter Display', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }
 
 button {

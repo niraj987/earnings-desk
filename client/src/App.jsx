@@ -354,7 +354,7 @@ export default function App() {
           initialLoading ? (
             <div style={{ textAlign: 'center', padding: '100px 20px', color: '#cbd5e1' }}>
               <TrendingUp size={48} color="#fbbf24" style={{ margin: '0 auto 16px', display: 'block' }} />
-              <div className="font-navera" style={{ fontSize: '1.5rem', fontWeight: 800, color: '#ffffff' }}>
+              <div className="font-grelify" style={{ fontSize: '1.55rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.035em' }}>
                 Initializing <span className="text-gold-gradient">JH Analytics</span> Earnings Desk...
               </div>
               <div style={{ fontSize: '0.92rem', color: '#cbd5e1', marginTop: 8 }}>

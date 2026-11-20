@@ -45,7 +45,7 @@ export default function Footer({ onNavigate, currentPage }) {
                 <TrendingUp size={18} color="#ffffff" />
               </div>
               <div>
-                <span className="font-navera" style={{ fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.025em' }}>
+                <span className="font-grelify" style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.035em' }}>
                   Earnings Desk
                 </span>
                 <span

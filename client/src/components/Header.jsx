@@ -103,13 +103,13 @@ export default function Header({
               <TrendingUp size={24} color="#ffffff" />
             </div>
             <div>
-              <h1 className="font-navera" style={{
-                fontSize: '1.45rem',
+              <h1 className="font-grelify" style={{
+                fontSize: '1.5rem',
                 fontWeight: 800,
                 color: '#ffffff',
-                letterSpacing: '-0.025em',
-                lineHeight: 1.2,
-                textShadow: '0 0 15px rgba(255, 255, 255, 0.35)'
+                letterSpacing: '-0.035em',
+                lineHeight: 1.15,
+                textShadow: '0 0 16px rgba(255, 255, 255, 0.4)'
               }}>
                 Earnings Desk
               </h1>
