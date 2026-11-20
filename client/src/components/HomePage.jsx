@@ -118,7 +118,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             marginBottom: 22,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)'
           }}>
-            Institutional Earnings Desk with{' '}
+            Earnings Desk with{' '}
             <span className="text-gold-gradient">Provable Grounding</span>
           </h2>
 
@@ -293,7 +293,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             The JH Analytics Architecture
           </h3>
           <p style={{ fontSize: '0.95rem', color: '#cbd5e1', marginTop: 4 }}>
-            Four institutional mechanisms designed to eliminate financial misinformation and hallucination.
+            Four architectural mechanisms designed to eliminate financial misinformation and hallucination.
           </p>
         </div>
 

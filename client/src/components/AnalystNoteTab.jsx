@@ -111,7 +111,7 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
             {report.company} — <span className="text-gold-gradient">{report.period}</span> Analyst Research Note
           </h2>
           <p style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
-            Institutional Fan-Out / Fan-In Synthesis · Zero-Hallucination Provenance Guarantee
+            Multi-Agent Fan-Out / Fan-In Synthesis · Zero-Hallucination Provenance Guarantee
           </p>
         </div>
 

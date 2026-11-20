@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, BarChart3, Database, Globe, Sparkles } from 'lucide-react';
+import { ShieldCheck, BarChart3, Database, Globe, Sparkles, TrendingUp } from 'lucide-react';
 
 export default function Footer({ onNavigate, currentPage }) {
   return (
@@ -39,11 +39,10 @@ export default function Footer({ onNavigate, currentPage }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 20,
                 boxShadow: '0 4px 16px rgba(168, 85, 247, 0.4), 0 0 8px rgba(245, 158, 11, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.2)'
               }}>
-                📊
+                <TrendingUp size={18} color="#ffffff" />
               </div>
               <div>
                 <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
@@ -64,7 +63,7 @@ export default function Footer({ onNavigate, currentPage }) {
               </div>
             </div>
             <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.65 }}>
-              Precision institutional financial intelligence by JH Analytics.
+              Precision financial intelligence by JH Analytics.
               Every claim formulated across specialist agents strictly traces to extracted figures with 100% provenance verification.
             </p>
           </div>
@@ -176,7 +175,7 @@ export default function Footer({ onNavigate, currentPage }) {
             © {new Date().getFullYear()} <strong className="text-gold-gradient">JH Analytics</strong>. All rights reserved.
           </div>
           <div style={{ color: '#94a3b8', fontSize: '0.8rem' }}>
-            Confidential institutional financial intelligence. All claims mathematically validated against primary report filings.
+            Confidential financial intelligence. All claims mathematically validated against primary report filings.
           </div>
         </div>
       </div>

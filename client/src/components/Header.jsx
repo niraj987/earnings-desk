@@ -1,5 +1,5 @@
 import React from 'react';
-import { Database, Plus, RefreshCw, Printer, Sparkles, Activity, Home, BarChart3, Info } from 'lucide-react';
+import { Database, Plus, RefreshCw, Printer, Sparkles, Activity, Home, BarChart3, Info, TrendingUp } from 'lucide-react';
 
 export default function Header({
   currentPage = 'desk',
@@ -97,11 +97,10 @@ export default function Header({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 24,
               boxShadow: '0 4px 20px rgba(168, 85, 247, 0.45), 0 0 12px rgba(245, 158, 11, 0.35)',
               border: '1px solid rgba(255, 255, 255, 0.25)'
             }}>
-              📊
+              <TrendingUp size={24} color="#ffffff" />
             </div>
             <div>
               <h1 style={{
@@ -117,21 +116,14 @@ export default function Header({
               <div
                 className="text-gold-gradient"
                 style={{
-                  fontSize: '0.82rem',
+                  fontSize: '0.84rem',
                   fontWeight: 800,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  marginTop: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 6
+                  marginTop: 2
                 }}
               >
-                <span>JH Analytics</span>
-                <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>◆</span>
-                <span style={{ fontSize: '0.7rem', color: '#e2e8f0', letterSpacing: '0.04em', textTransform: 'none' }}>
-                  Institutional Terminal
-                </span>
+                JH Analytics
               </div>
             </div>
           </div>

@@ -20,7 +20,8 @@ import {
   Search,
   MessageSquare,
   AlertCircle,
-  Loader2
+  Loader2,
+  TrendingUp
 } from 'lucide-react';
 
 export default function App() {
@@ -352,7 +353,7 @@ export default function App() {
         {currentPage === 'desk' && (
           initialLoading ? (
             <div style={{ textAlign: 'center', padding: '100px 20px', color: '#cbd5e1' }}>
-              <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>📊</div>
+              <TrendingUp size={48} color="#fbbf24" style={{ margin: '0 auto 16px', display: 'block' }} />
               <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff' }}>
                 Initializing <span className="text-gold-gradient">JH Analytics</span> Earnings Desk...
               </div>
@@ -476,7 +477,7 @@ export default function App() {
         )}
       </main>
 
-      {/* Institutional Footer */}
+      {/* Footer */}
       <Footer
         currentPage={currentPage}
         onNavigate={setCurrentPage}

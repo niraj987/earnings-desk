@@ -63,7 +63,7 @@ export default function AboutPage({ onOpenDesk }) {
             maxWidth: 860,
             margin: '0 auto'
           }}>
-            JH Analytics was built on a single, uncompromising principle: in institutional equity research and financial decision-making, <strong style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>hallucination is intolerable</strong>.
+            JH Analytics was built on a single, uncompromising principle: in equity research and financial decision-making, <strong style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>hallucination is intolerable</strong>.
           </p>
         </div>
       </section>
@@ -216,7 +216,7 @@ export default function AboutPage({ onOpenDesk }) {
               Frontend UI
             </div>
             <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.6 }}>
-              React (Vite) institutional terminal with frosted glassmorphism, gold/purple tiles, and Lucide icons.
+              React (Vite) financial terminal with frosted glassmorphism, gold/purple tiles, and Lucide icons.
             </div>
           </div>
 
