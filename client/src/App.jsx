@@ -314,8 +314,14 @@ export default function App() {
         connected={connected}
       />
 
-      {/* Main Container - Spacious Padding & Balanced Max Width */}
-      <main style={{ flex: 1, maxWidth: 1280, width: '100%', margin: '0 auto', padding: '28px 24px' }}>
+      {/* Main Container - Dynamic Full-Width for Home Earth Hero, Balanced Max Width for Desk */}
+      <main style={{
+        flex: 1,
+        width: '100%',
+        maxWidth: currentPage === 'home' ? '100%' : 1280,
+        margin: '0 auto',
+        padding: currentPage === 'home' ? 0 : '28px 24px'
+      }}>
         {error && (
           <div style={{
             background: 'rgba(244, 63, 94, 0.1)',

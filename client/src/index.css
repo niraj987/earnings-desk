@@ -1,52 +1,53 @@
 :root {
-  /* Core Base Palette - Refined Institutional Dark */
-  --bg-primary: #0a0e17;
-  --bg-secondary: #0f172a;
-  --bg-card: rgba(17, 24, 39, 0.75);
-  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  /* Core Base Palette - Cinematic Sapphire & Space Black (From Screenshot 1 & 2) */
+  --bg-primary: #020409;
+  --bg-secondary: #050b1c;
+  --bg-card: rgba(8, 16, 38, 0.7);
+  --bg-card-hover: rgba(12, 24, 54, 0.85);
 
-  /* Subtle Crisp Borders */
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --border-focus: rgba(99, 102, 241, 0.5);
+  /* Atmospheric Cyan & Sapphire Borders */
+  --border-color: rgba(56, 189, 248, 0.16);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(56, 189, 248, 0.35);
+  --border-focus: rgba(56, 189, 248, 0.6);
 
   /* Typography Spectrum */
-  --text-main: #f8fafc;
-  --text-secondary: #e2e8f0;
+  --text-main: #ffffff;
+  --text-secondary: #e0f2fe;
   --text-muted: #94a3b8;
   --text-faint: #64748b;
   --text-gold: #fbbf24;
-  --text-indigo: #818cf8;
+  --text-cyan: #38bdf8;
+  --text-blue: #60a5fa;
 
   /* Refined Accent Palette */
-  --accent-primary: #6366f1;
-  --accent-primary-hover: #4f46e5;
-  --accent-primary-bg: rgba(99, 102, 241, 0.1);
+  --accent-primary: #0284c7;
+  --accent-primary-hover: #0369a1;
+  --accent-primary-bg: rgba(56, 189, 248, 0.12);
 
   --accent-gold: #f59e0b;
   --accent-gold-light: #fbbf24;
-  --accent-gold-bg: rgba(245, 158, 11, 0.1);
+  --accent-gold-bg: rgba(245, 158, 11, 0.12);
 
   --accent-silver: #94a3b8;
   --accent-silver-bg: rgba(148, 163, 184, 0.1);
 
   /* Financial Status Accents */
   --accent-positive: #10b981;
-  --accent-positive-bg: rgba(16, 185, 129, 0.1);
+  --accent-positive-bg: rgba(16, 185, 129, 0.12);
   --accent-mixed: #f59e0b;
-  --accent-mixed-bg: rgba(245, 158, 11, 0.1);
+  --accent-mixed-bg: rgba(245, 158, 11, 0.12);
   --accent-negative: #f43f5e;
-  --accent-negative-bg: rgba(244, 63, 94, 0.1);
+  --accent-negative-bg: rgba(244, 63, 94, 0.12);
 
   /* Provenance Badge Tokens */
-  --ref-badge-bg: rgba(30, 41, 59, 0.85);
-  --ref-badge-border: rgba(99, 102, 241, 0.35);
-  --ref-badge-text: #c7d2fe;
+  --ref-badge-bg: rgba(8, 20, 48, 0.85);
+  --ref-badge-border: rgba(56, 189, 248, 0.35);
+  --ref-badge-text: #bae6fd;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
 }
 
 * {
@@ -58,8 +59,9 @@
 body {
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(ellipse 90% 50% at 50% -10%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 40%);
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.14) 0%, rgba(2, 6, 23, 0.95) 55%),
+    radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
   background-attachment: fixed;
   color: var(--text-secondary);
   font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -73,7 +75,7 @@ code, pre, .mono {
 }
 
 /* =========================================================================
-   Typography Systems - Clean, Crisp & High-Contrast
+   Typography Systems - High Contrast & Distinctive Scale (Screenshot 1)
    ========================================================================= */
 
 .font-grelify {
@@ -88,6 +90,21 @@ code, pre, .mono {
   font-weight: 800;
 }
 
+.cinematic-heading {
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.cinematic-subheading {
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  font-weight: 400;
+  color: rgba(224, 242, 254, 0.45);
+  letter-spacing: -0.015em;
+}
+
 button {
   cursor: pointer;
   font-family: inherit;
@@ -99,76 +116,126 @@ input, textarea, select {
 }
 
 /* =========================================================================
-   Glass Panels & Structured Cards - Clean Institutional Finish
+   Cinematic Floating Pills (Screenshot 1 Style)
+   ========================================================================= */
+
+.cinematic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(8, 18, 44, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #e0f2fe;
+  transition: all 0.2s ease;
+}
+
+.cinematic-pill:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+  transform: translateY(-1px);
+}
+
+.cinematic-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+/* =========================================================================
+   Glass Panels & Cinematic Cards - Sapphire Graded
    ========================================================================= */
 
 .glass-panel {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   position: relative;
 }
 
 .glass-panel:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.12);
 }
 
 .glass-panel-subtle {
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(8, 16, 38, 0.45);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cinematic-card {
+  background: rgba(8, 18, 44, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinematic-card:hover {
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.16);
+  transform: translateY(-4px);
 }
 
 /* Interactive Tile Effects */
 .tile-interactive {
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tile-interactive:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
-/* Thematic Subtle Color Accents for Cards */
 .tile-gold {
-  background: rgba(245, 158, 11, 0.03);
+  background: rgba(245, 158, 11, 0.04);
   border: 1px solid rgba(245, 158, 11, 0.22);
 }
 
 .tile-gold:hover {
   border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.08);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.12);
 }
 
 .tile-purple {
-  background: rgba(99, 102, 241, 0.03);
-  border: 1px solid rgba(99, 102, 241, 0.22);
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.22);
 }
 
 .tile-purple:hover {
-  border-color: rgba(99, 102, 241, 0.45);
-  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5), 0 0 16px rgba(99, 102, 241, 0.08);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.12);
 }
 
 .tile-silver {
-  background: rgba(148, 163, 184, 0.03);
+  background: rgba(148, 163, 184, 0.04);
   border: 1px solid rgba(148, 163, 184, 0.18);
 }
 
 .tile-silver:hover {
   border-color: rgba(148, 163, 184, 0.35);
-  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
 }
 
 /* =========================================================================
-   Typography Color Treatments - Readable & Dignified
+   Typography Color Treatments
    ========================================================================= */
 
 .text-gold-gradient {
@@ -177,8 +244,13 @@ input, textarea, select {
   display: inline-block;
 }
 
+.text-cyan-glow {
+  color: #38bdf8;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
 .text-purple-gradient {
-  color: #a5b4fc;
+  color: #38bdf8;
   font-weight: 700;
   display: inline-block;
 }
@@ -217,8 +289,8 @@ input, textarea, select {
 
 .badge-purple {
   background: var(--accent-primary-bg);
-  color: #a5b4fc;
-  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
 }
 
 .badge-silver {
@@ -259,30 +331,32 @@ input, textarea, select {
   font-size: 0.875rem;
   font-weight: 600;
   border: 1px solid transparent;
-  transition: all 0.18s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
   color: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.35);
 }
 
 .btn-primary:hover {
-  background: #4338ca;
-  border-color: #818cf8;
+  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 6px 24px rgba(2, 132, 199, 0.5);
+  transform: translateY(-2px);
 }
 
 .btn-purple {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
   color: #ffffff;
-  border-color: #6366f1;
+  border-color: rgba(56, 189, 248, 0.4);
 }
 
 .btn-purple:hover {
-  background: #4338ca;
-  border-color: #818cf8;
+  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
 }
 
 .btn-gold {
@@ -293,29 +367,33 @@ input, textarea, select {
 
 .btn-gold:hover {
   background: #b45309;
+  transform: translateY(-2px);
 }
 
 .btn-silver {
-  background: #1e293b;
+  background: rgba(15, 23, 42, 0.8);
   color: #f8fafc;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .btn-silver:hover {
-  background: #334155;
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background: rgba(30, 41, 59, 0.7);
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 18, 44, 0.65);
+  color: #e0f2fe;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(14px);
 }
 
 .btn-secondary:hover {
-  background: rgba(51, 65, 85, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(14, 28, 64, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
   color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .btn-sm {
@@ -336,9 +414,9 @@ input, textarea, select {
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  background: rgba(30, 41, 59, 0.9);
-  color: #c7d2fe;
-  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: rgba(8, 20, 48, 0.9);
+  color: #bae6fd;
+  border: 1px solid rgba(56, 189, 248, 0.35);
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
@@ -346,9 +424,9 @@ input, textarea, select {
 }
 
 .ref-pill:hover {
-  background: #312e81;
+  background: #0369a1;
   color: #ffffff;
-  border-color: #818cf8;
+  border-color: #38bdf8;
 }
 
 /* =========================================================================
@@ -364,13 +442,13 @@ input, textarea, select {
 
 .desk-table th {
   padding: 12px 16px;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(8, 16, 38, 0.85);
   color: #94a3b8;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
 }
 
 .desk-table td {
@@ -382,7 +460,7 @@ input, textarea, select {
 }
 
 .desk-table tr:hover td {
-  background: rgba(30, 41, 59, 0.35);
+  background: rgba(14, 28, 64, 0.4);
   color: #ffffff;
 }
 
@@ -393,8 +471,8 @@ input, textarea, select {
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
-  background: #080c14;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: #020409;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
   padding: 8px 0;
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
@@ -411,20 +489,6 @@ input, textarea, select {
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
-/* Audio wave animation */
-.wave-bar {
-  display: inline-block;
-  width: 3px;
-  background: #6366f1;
-  border-radius: 2px;
-  animation: wave 1.2s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0%, 100% { height: 4px; }
-  50% { height: 16px; }
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -434,11 +498,11 @@ input, textarea, select {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #0f1f45;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #0284c7;
 }
 
 /* Print Optimization */
