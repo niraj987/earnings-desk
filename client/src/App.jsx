@@ -21,7 +21,14 @@ import {
   MessageSquare,
   AlertCircle,
   Loader2,
-  TrendingUp
+  TrendingUp,
+  Plus,
+  Database,
+  Printer,
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  Info
 } from 'lucide-react';
 
 export default function App() {
@@ -298,19 +305,11 @@ export default function App() {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-primary)' }}>
       {/* App Header */}
       <Header
         currentPage={currentPage}
         onNavigate={setCurrentPage}
-        reports={reports}
-        currentReportId={currentReportId}
-        onSelectReport={handleSelectReport}
-        onOpenNewModal={() => setIsNewModalOpen(true)}
-        onOpenDbModal={() => setIsDbModalOpen(true)}
-        onLoadSample={handleLoadSample}
-        onLoadPreset={handleLoadPreset}
-        loading={loading}
         connected={connected}
       />
 
@@ -368,7 +367,7 @@ export default function App() {
               </div>
             </div>
           ) : !currentReport ? (
-            <div className="glass-panel" style={{ padding: '64px 32px', textAlign: 'center' }}>
+            <div className="glass-panel" style={{ padding: '64px 32px', textAlign: 'center', borderRadius: 16 }}>
               <FileText size={48} color="#0284c7" style={{ margin: '0 auto 16px' }} />
               <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0f172a', marginBottom: 10 }}>
                 No Earnings Reports Found in Database
@@ -386,48 +385,263 @@ export default function App() {
               </div>
             </div>
           ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+              {/* Secondary Control Bar (Toolbar) - Spacious & Directly Below Header */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: 16,
+                padding: '16px 22px',
+                background: '#ffffff',
+                borderRadius: 14,
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.03)'
+              }}>
+                {/* Left: Active Portfolio Company Presets */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    color: '#64748b',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    marginRight: 4
+                  }}>
+                    <Layers size={15} color="#0284c7" />
+                    <span>Portfolio:</span>
+                  </div>
+
+                  {/* Preset switcher pills */}
+                  {[
+                    { key: 'CloudScale', name: 'CloudScale AI', badge: 'Bullish', color: '#059669', bg: 'rgba(5, 150, 105, 0.08)', border: 'rgba(5, 150, 105, 0.35)' },
+                    { key: 'Acme', name: 'Acme Tech', badge: 'Balanced', color: '#d97706', bg: 'rgba(217, 119, 6, 0.08)', border: 'rgba(217, 119, 6, 0.35)' },
+                    { key: 'NovaRetail', name: 'NovaRetail', badge: 'High Risk', color: '#e11d48', bg: 'rgba(225, 29, 72, 0.08)', border: 'rgba(225, 29, 72, 0.35)' }
+                  ].map((preset) => {
+                    const isSelected = currentReport?.company?.toLowerCase().includes(preset.key.toLowerCase());
+                    return (
+                      <button
+                        key={preset.key}
+                        onClick={() => {
+                          const match = reports.find(r => r.company?.toLowerCase().includes(preset.key.toLowerCase()));
+                          if (match) {
+                            handleSelectReport(match.id);
+                          } else {
+                            handleLoadPreset(preset.key.toLowerCase());
+                          }
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 8,
+                          padding: '7px 14px',
+                          borderRadius: 9999,
+                          border: isSelected ? `2px solid ${preset.color}` : '1px solid #cbd5e1',
+                          background: isSelected ? preset.bg : '#ffffff',
+                          color: isSelected ? '#0f172a' : '#475569',
+                          fontWeight: isSelected ? 700 : 500,
+                          fontSize: '0.84rem',
+                          boxShadow: isSelected ? `0 2px 10px ${preset.bg}` : 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        {isSelected && (
+                          <div style={{ width: 6, height: 6, borderRadius: '50%', background: preset.color }} />
+                        )}
+                        <span>{preset.name}</span>
+                        <span style={{
+                          fontSize: '0.7rem',
+                          fontWeight: 700,
+                          padding: '2px 7px',
+                          borderRadius: 9999,
+                          background: isSelected ? preset.color : '#f1f5f9',
+                          color: isSelected ? '#ffffff' : preset.color
+                        }}>
+                          {preset.badge}
+                        </span>
+                      </button>
+                    );
+                  })}
+
+                  {/* All reports count indicator */}
+                  {reports.length > 3 && (
+                    <span style={{ fontSize: '0.78rem', color: '#64748b', marginLeft: 4 }}>
+                      ({reports.length} reports in DB)
+                    </span>
+                  )}
+                </div>
+
+                {/* Right: Desk Actions (Relocated from Header) */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => setIsNewModalOpen(true)}
+                    className="btn btn-primary btn-sm"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      padding: '8px 15px',
+                      fontWeight: 600,
+                      fontSize: '0.82rem'
+                    }}
+                  >
+                    <Plus size={15} />
+                    <span>+ New Analysis</span>
+                  </button>
+
+                  <button
+                    onClick={() => setIsDbModalOpen(true)}
+                    className="btn btn-secondary btn-sm"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      padding: '8px 15px',
+                      fontWeight: 600,
+                      fontSize: '0.82rem'
+                    }}
+                  >
+                    <Database size={15} color="#0284c7" />
+                    <span>Database ({reports.length})</span>
+                  </button>
+
+                  <button
+                    onClick={() => window.print()}
+                    className="btn btn-secondary btn-sm no-print"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      padding: '8px 15px',
+                      fontWeight: 600,
+                      fontSize: '0.82rem'
+                    }}
+                    title="Print or Export Full Grounded Report to PDF"
+                  >
+                    <Printer size={15} />
+                    <span>Print PDF</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Executive Report Context Banner */}
+              <div style={{
+                padding: '22px 26px',
+                background: '#ffffff',
+                borderRadius: 14,
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: 16
+              }}>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                    <h1 className="font-grelify" style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.025em' }}>
+                      {currentReport.company}
+                    </h1>
+                    <span style={{ fontSize: '1.1rem', color: '#64748b', fontWeight: 500 }}>
+                      {currentReport.period}
+                    </span>
+                    <span className={`badge ${currentReport.note?.verdict?.toLowerCase().includes('positive') ? 'badge-positive' : currentReport.note?.verdict?.toLowerCase().includes('negative') ? 'badge-negative' : 'badge-gold'}`} style={{ padding: '4px 12px', fontSize: '0.8rem', fontWeight: 700 }}>
+                      {currentReport.note?.verdict || 'Balanced'}
+                    </span>
+                  </div>
+                  <p style={{ fontSize: '0.88rem', color: '#475569', marginTop: 6, maxWidth: 840, lineHeight: 1.55 }}>
+                    Autonomous multi-agent consensus grounded in primary SEC disclosure filings. Every claim is cross-audited across 4 specialist agents with 100% mathematical provenance citations.
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#059669', background: 'rgba(5, 150, 105, 0.08)', padding: '5px 12px', borderRadius: 9999, border: '1px solid rgba(5, 150, 105, 0.25)', fontWeight: 600 }}>
+                    <CheckCircle2 size={14} />
+                    <span>100% Provenance Grounded</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#0284c7', background: 'rgba(2, 132, 199, 0.08)', padding: '5px 12px', borderRadius: 9999, border: '1px solid rgba(2, 132, 199, 0.25)', fontWeight: 600 }}>
+                    <Sparkles size={14} />
+                    <span>4-Agent Consensus</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Top Metrics Cards */}
               <MetricsBanner report={currentReport} />
 
-              {/* Navigation Tabs Bar */}
+              {/* Navigation Tabs Bar - Spacious Elevated Container */}
+              <div style={{
+                background: '#ffffff',
+                borderRadius: 14,
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                padding: '6px 8px'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  gap: 6,
+                  overflowX: 'auto',
+                  paddingBottom: 2
+                }}>
+                  {tabs.map((tab) => {
+                    const Icon = tab.icon;
+                    const isActive = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 8,
+                          padding: '11px 18px',
+                          borderRadius: 10,
+                          border: isActive ? '1px solid #0284c7' : '1px solid transparent',
+                          background: isActive ? 'rgba(2, 132, 199, 0.08)' : 'transparent',
+                          color: isActive ? '#0284c7' : '#64748b',
+                          fontWeight: isActive ? 700 : 500,
+                          fontSize: '0.88rem',
+                          cursor: 'pointer',
+                          whiteSpace: 'nowrap',
+                          transition: 'all 0.15s ease'
+                        }}
+                      >
+                        <Icon size={16} color={isActive ? '#0284c7' : '#94a3b8'} />
+                        <span>{tab.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Tab Explanatory Helper Banner */}
               <div style={{
                 display: 'flex',
-                gap: 6,
-                borderBottom: '1px solid #e2e8f0',
-                overflowX: 'auto',
-                paddingBottom: 2
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '11px 18px',
+                background: '#ffffff',
+                borderRadius: 10,
+                border: '1px solid #e2e8f0',
+                fontSize: '0.84rem',
+                color: '#475569'
               }}>
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const isActive = activeTab === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 8,
-                        padding: '10px 18px',
-                        borderRadius: '6px 6px 0 0',
-                        border: 'none',
-                        background: isActive ? '#ffffff' : 'transparent',
-                        color: isActive ? '#0f172a' : '#64748b',
-                        fontWeight: isActive ? 700 : 500,
-                        fontSize: '0.875rem',
-                        borderBottom: isActive ? '2px solid #0284c7' : '2px solid transparent',
-                        boxShadow: isActive ? '0 1px 4px rgba(0, 0, 0, 0.05)' : 'none',
-                        cursor: 'pointer',
-                        whiteSpace: 'nowrap',
-                        transition: 'all 0.15s ease'
-                      }}
-                    >
-                      <Icon size={16} color={isActive ? '#0284c7' : '#94a3b8'} />
-                      <span>{tab.label}</span>
-                    </button>
-                  );
-                })}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <Info size={16} color="#0284c7" />
+                  <span>
+                    {activeTab === 'note' && '📝 Executive Research Note: Read the comprehensive grounded note with interactive [F#] provenance pills.'}
+                    {activeTab === 'workflow' && '🕸 Agent Workflow: Inspect the parallel fan-out pipeline execution graph and latency benchmarks.'}
+                    {activeTab === 'whatif' && '🔢 Financial Sensitivity Simulator: Adjust revenue, margins, or debt sliders to dynamically recalculate desk stance.'}
+                    {activeTab === 'views' && '🧑‍💼 4 Specialist Agent Views: Deep-dive into individual analyses from Revenue, Risk, Outlook, and Comparison agents.'}
+                    {activeTab === 'tracer' && '🔍 Claim Provenance Tracer: Formally trace any generated claim back to verbatim regulatory filing sentences.'}
+                    {activeTab === 'qa' && '💬 Grounded Q&A Assistant: Ask natural language questions with deterministic token-overlap grounding and zero hallucination.'}
+                  </span>
+                </div>
               </div>
 
               {/* Tab Contents */}

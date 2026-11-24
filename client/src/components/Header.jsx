@@ -1,26 +1,11 @@
 import React from 'react';
-import { Database, Plus, Printer, Home, BarChart3, Info, TrendingUp } from 'lucide-react';
+import { Home, BarChart3, Info, TrendingUp } from 'lucide-react';
 
 export default function Header({
   currentPage = 'home',
   onNavigate,
-  reports = [],
-  currentReportId,
-  onSelectReport,
-  onOpenNewModal,
-  onOpenDbModal,
-  onLoadPreset,
-  loading,
   connected
 }) {
-  const currentReport = reports.find(r => r.id === currentReportId);
-
-  const presets = [
-    { key: 'Acme', label: 'Acme Tech', badge: 'Balanced', color: '#f59e0b' },
-    { key: 'CloudScale', label: 'CloudScale AI', badge: 'Bullish', color: '#10b981' },
-    { key: 'NovaRetail', label: 'NovaRetail', badge: 'High Risk', color: '#f43f5e' }
-  ];
-
   return (
     <>
       {/* Sleek Understated Financial Feed */}
@@ -201,121 +186,27 @@ export default function Header({
             </button>
           </nav>
 
-          {/* Quick Portfolio Presets (Active in Desk) */}
-          {currentPage === 'desk' && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Select:
-              </span>
-              {presets.map(p => {
-                const matchedReport = reports.find(r => r.company?.toLowerCase().includes(p.key.toLowerCase()));
-                const isSelected = currentReport?.company?.toLowerCase().includes(p.key.toLowerCase());
-
-                return (
-                  <button
-                    key={p.key}
-                    onClick={() => {
-                      if (matchedReport) {
-                        onSelectReport(matchedReport.id);
-                      } else if (onLoadPreset) {
-                        onLoadPreset(p.key.toLowerCase());
-                      }
-                    }}
-                    style={{
-                      padding: '5px 12px',
-                      borderRadius: 9999,
-                      fontSize: '0.75rem',
-                      background: isSelected ? 'rgba(2, 132, 199, 0.12)' : '#ffffff',
-                      border: `1px solid ${isSelected ? '#0284c7' : '#cbd5e1'}`,
-                      color: isSelected ? '#0369a1' : '#334155',
-                      boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 6
-                    }}
-                  >
-                    <span style={{ fontWeight: 600 }}>{p.label}</span>
-                    <span style={{
-                      fontSize: '0.65rem',
-                      padding: '1px 6px',
-                      borderRadius: 9999,
-                      background: `${p.color}15`,
-                      color: p.color,
-                      fontWeight: 700
-                    }}>
-                      {p.badge}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
-          {/* Actions Suite */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-            {currentPage === 'desk' && (
-              <button
-                onClick={() => window.print()}
-                className="btn btn-secondary btn-sm no-print"
-                title="Print or Save PDF Executive Brief"
-              >
-                <Printer size={14} color="#64748b" />
-                <span>Print PDF</span>
-              </button>
-            )}
-
-            <button
-              onClick={onOpenDbModal}
-              className="btn btn-secondary btn-sm no-print"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 6
-              }}
-            >
-              <Database size={14} color="#64748b" />
-              <span>Database</span>
-              <span style={{
-                background: '#e2e8f0',
-                color: '#0f172a',
-                borderRadius: 4,
-                padding: '1px 6px',
-                fontSize: '0.7rem',
-                fontWeight: 600
-              }}>
-                {reports?.length || 0}
-              </span>
-            </button>
-
-            {currentPage === 'desk' && (
-              <button
-                onClick={onOpenNewModal}
-                disabled={loading}
-                className="btn btn-primary btn-sm no-print"
-              >
-                <Plus size={14} />
-                <span>New Analysis</span>
-              </button>
-            )}
-
-            {/* Connection Status - Clean without box */}
+          {/* Connection Status Indicator - Clean & Subtle */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            fontSize: '0.78rem',
+            color: connected ? '#059669' : '#e11d48',
+            fontWeight: 600,
+            padding: '4px 10px',
+            background: connected ? 'rgba(5, 150, 105, 0.08)' : 'rgba(225, 29, 72, 0.08)',
+            borderRadius: 9999,
+            border: `1px solid ${connected ? 'rgba(5, 150, 105, 0.2)' : 'rgba(225, 29, 72, 0.2)'}`
+          }}>
             <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 6,
-              fontSize: '0.75rem',
-              color: connected ? '#10b981' : '#f43f5e',
-              fontWeight: 600,
-              padding: '0 4px'
-            }}>
-              <div style={{
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background: connected ? '#10b981' : '#f43f5e'
-              }} />
-              <span>{connected ? 'Connected' : 'Offline'}</span>
-            </div>
+              width: 7,
+              height: 7,
+              borderRadius: '50%',
+              background: connected ? '#10b981' : '#f43f5e',
+              boxShadow: connected ? '0 0 6px #10b981' : 'none'
+            }} />
+            <span>{connected ? 'Connected' : 'Offline'}</span>
           </div>
         </div>
       </header>

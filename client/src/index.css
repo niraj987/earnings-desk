@@ -1,8 +1,8 @@
 :root {
-  /* Core Base Palette - Whitish Creamy Gray Aesthetic (FundsIndia & Modern Light SaaS Style) */
-  --bg-primary: #f8f9fa;
-  --bg-secondary: #ffffff;
-  --bg-card: #ffffff;
+  /* Core Base Palette - Soft Soothing Neutral Creamy Gray (Glare-Free, Eye-Friendly Modern SaaS) */
+  --bg-primary: #f1f5f9;      /* Slate-100: Soft creamy neutral gray that eliminates bright glare */
+  --bg-secondary: #f8fafc;    /* Slate-50: Crisp elevated surface */
+  --bg-card: #ffffff;         /* Clean white card for contrast against slate background */
   --bg-card-hover: #f8fafc;
 
   /* Atmospheric Subtle Slate & Cyan Borders */
