@@ -1,8 +1,8 @@
 :root {
-  /* Core Base Palette - Soft Soothing Neutral Creamy Gray (Glare-Free, Eye-Friendly Modern SaaS) */
-  --bg-primary: #f1f5f9;      /* Slate-100: Soft creamy neutral gray that eliminates bright glare */
-  --bg-secondary: #f8fafc;    /* Slate-50: Crisp elevated surface */
-  --bg-card: #ffffff;         /* Clean white card for contrast against slate background */
+  /* Core Base Palette - Soft Soothing Neutral Gray (Noticeable Gray Tint, Glare-Free, Eye-Friendly Modern SaaS) */
+  --bg-primary: #eaedf2;      /* Refined neutral slate-gray: comfortable, non-glaring, clearly distinct from white */
+  --bg-secondary: #f1f5f9;    /* Slightly lighter gray for elevated sub-panels */
+  --bg-card: #ffffff;         /* Crisp white card for elevated contrast against slate-gray background */
   --bg-card-hover: #f8fafc;
 
   /* Atmospheric Subtle Slate & Cyan Borders */
@@ -59,9 +59,9 @@
 body {
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(224, 242, 254, 0.65) 0%, rgba(248, 249, 250, 0.98) 55%),
-    radial-gradient(circle at 85% 30%, rgba(243, 232, 255, 0.4) 0%, transparent 45%),
-    radial-gradient(circle at 15% 70%, rgba(254, 243, 199, 0.35) 0%, transparent 40%);
+    radial-gradient(circle at 50% 0%, rgba(224, 231, 240, 0.6) 0%, rgba(234, 237, 242, 0.98) 55%),
+    radial-gradient(circle at 85% 30%, rgba(226, 232, 240, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 15% 70%, rgba(226, 232, 240, 0.35) 0%, transparent 40%);
   background-attachment: fixed;
   color: var(--text-secondary);
   font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

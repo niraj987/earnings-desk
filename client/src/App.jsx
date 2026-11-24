@@ -32,11 +32,36 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'desk' | 'about'
+  // Read initial page from URL hash or localStorage so browser refresh preserves active page
+  const getInitialPage = () => {
+    try {
+      const hash = (window.location.hash || '').replace('#', '').trim().toLowerCase();
+      if (['home', 'desk', 'about'].includes(hash)) return hash;
+      const saved = localStorage.getItem('earnings_desk_page');
+      if (['home', 'desk', 'about'].includes(saved)) return saved;
+    } catch (e) {}
+    return 'home';
+  };
+
+  const [currentPage, setCurrentPage] = useState(getInitialPage);
   const [reports, setReports] = useState([]);
-  const [currentReportId, setCurrentReportId] = useState(null);
+  const [currentReportId, setCurrentReportId] = useState(() => {
+    try {
+      const saved = localStorage.getItem('earnings_desk_report_id');
+      return saved ? Number(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [currentReport, setCurrentReport] = useState(null);
-  const [activeTab, setActiveTab] = useState('note'); // 'note' | 'workflow' | 'whatif' | 'views' | 'tracer' | 'qa'
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const saved = localStorage.getItem('earnings_desk_tab');
+      return saved || 'note';
+    } catch (e) {
+      return 'note';
+    }
+  }); // 'note' | 'workflow' | 'whatif' | 'views' | 'tracer' | 'qa'
   const [preselectedRef, setPreselectedRef] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -46,6 +71,36 @@ export default function App() {
 
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
   const [isDbModalOpen, setIsDbModalOpen] = useState(false);
+
+  // Sync page navigation with URL hash and localStorage
+  const handleNavigate = (page) => {
+    if (!['home', 'desk', 'about'].includes(page)) return;
+    setCurrentPage(page);
+    try {
+      localStorage.setItem('earnings_desk_page', page);
+      window.location.hash = page;
+    } catch (e) {}
+  };
+
+  // Sync tab navigation with localStorage
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    try {
+      localStorage.setItem('earnings_desk_tab', tabId);
+    } catch (e) {}
+  };
+
+  // Listen to browser Back/Forward buttons and hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = (window.location.hash || '').replace('#', '').trim().toLowerCase();
+      if (['home', 'desk', 'about'].includes(hash)) {
+        setCurrentPage(hash);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Initial load
   useEffect(() => {
@@ -75,8 +130,27 @@ export default function App() {
       setReports(list);
 
       if (list.length > 0) {
-        const targetId = selectId || currentReportId || list[0].id;
+        // Priority: 1. explicit selectId -> 2. saved ID from localStorage -> 3. currentReportId in state -> 4. list[0].id
+        let targetId = selectId;
+        if (!targetId) {
+          try {
+            const saved = localStorage.getItem('earnings_desk_report_id');
+            if (saved && list.some(r => r.id === Number(saved))) {
+              targetId = Number(saved);
+            }
+          } catch (e) {}
+        }
+        if (!targetId && currentReportId && list.some(r => r.id === currentReportId)) {
+          targetId = currentReportId;
+        }
+        if (!targetId) {
+          targetId = list[0].id;
+        }
+
         setCurrentReportId(targetId);
+        try {
+          localStorage.setItem('earnings_desk_report_id', String(targetId));
+        } catch (e) {}
         await loadReportDetails(targetId);
       } else {
         setCurrentReport(null);
@@ -95,6 +169,9 @@ export default function App() {
       const data = await res.json();
       setCurrentReport(data);
       setCurrentReportId(id);
+      try {
+        localStorage.setItem('earnings_desk_report_id', String(id));
+      } catch (e) {}
       setError(null);
     } catch (err) {
       setError(err.message);
@@ -103,10 +180,58 @@ export default function App() {
     }
   };
 
-  // Switch report
+  // Switch report and ensure desk view is active
   const handleSelectReport = (id) => {
-    setCurrentReportId(id);
-    loadReportDetails(id);
+    const numId = Number(id);
+    setCurrentReportId(numId);
+    try {
+      localStorage.setItem('earnings_desk_report_id', String(numId));
+    } catch (e) {}
+    loadReportDetails(numId);
+    handleNavigate('desk');
+  };
+
+  // Universal company switcher that reliably finds Acme, CloudScale, or NovaRetail
+  const handleSwitchToCompany = async (companyName) => {
+    if (!companyName) return;
+    const q = companyName.toLowerCase();
+
+    // 1. Check in currently loaded reports list
+    let matched = reports.find(r => {
+      const c = (r.company || '').toLowerCase();
+      return c.includes(q) || q.includes(c) ||
+        (q.includes('acme') && c.includes('acme')) ||
+        (q.includes('cloudscale') && c.includes('cloudscale')) ||
+        (q.includes('novaretail') && c.includes('novaretail')) ||
+        (q.includes('nova') && c.includes('novaretail'));
+    });
+
+    // 2. If not found in current memory state, re-fetch list from API
+    if (!matched) {
+      try {
+        const res = await fetch('/api/reports');
+        const list = await res.json();
+        setReports(list);
+        matched = list.find(r => {
+          const c = (r.company || '').toLowerCase();
+          return c.includes(q) || q.includes(c) ||
+            (q.includes('acme') && c.includes('acme')) ||
+            (q.includes('cloudscale') && c.includes('cloudscale')) ||
+            (q.includes('novaretail') && c.includes('novaretail')) ||
+            (q.includes('nova') && c.includes('novaretail'));
+        });
+      } catch (e) {}
+    }
+
+    if (matched) {
+      handleSelectReport(matched.id);
+      return;
+    }
+
+    // 3. Fallback: load preset directly
+    const presetKey = q.includes('acme') ? 'acme' : (q.includes('nova') ? 'novaretail' : 'cloudscale');
+    await handleLoadPreset(presetKey);
+    handleNavigate('desk');
   };
 
   // Analyze new report
@@ -284,15 +409,7 @@ export default function App() {
   };
 
   const handleOpenDeskWithCompany = (companyName) => {
-    if (companyName) {
-      const matched = reports.find(r => r.company?.toLowerCase().includes(companyName.toLowerCase().split(' ')[0]));
-      if (matched) {
-        handleSelectReport(matched.id);
-      } else {
-        handleLoadPreset(companyName.toLowerCase().split(' ')[0]);
-      }
-    }
-    setCurrentPage('desk');
+    handleSwitchToCompany(companyName);
   };
 
   const tabs = [
@@ -309,7 +426,7 @@ export default function App() {
       {/* App Header */}
       <Header
         currentPage={currentPage}
-        onNavigate={setCurrentPage}
+        onNavigate={handleNavigate}
         connected={connected}
       />
 
@@ -426,14 +543,7 @@ export default function App() {
                     return (
                       <button
                         key={preset.key}
-                        onClick={() => {
-                          const match = reports.find(r => r.company?.toLowerCase().includes(preset.key.toLowerCase()));
-                          if (match) {
-                            handleSelectReport(match.id);
-                          } else {
-                            handleLoadPreset(preset.key.toLowerCase());
-                          }
-                        }}
+                        onClick={() => handleSwitchToCompany(preset.key)}
                         style={{
                           display: 'flex',
                           alignItems: 'center',
@@ -594,7 +704,7 @@ export default function App() {
                     return (
                       <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
+                        onClick={() => handleTabChange(tab.id)}
                         style={{
                           display: 'flex',
                           alignItems: 'center',
@@ -696,7 +806,7 @@ export default function App() {
       {/* Footer */}
       <Footer
         currentPage={currentPage}
-        onNavigate={setCurrentPage}
+        onNavigate={handleNavigate}
       />
 
       {/* Database Management Modal */}
@@ -714,6 +824,8 @@ export default function App() {
         isOpen={isNewModalOpen}
         onClose={() => setIsNewModalOpen(false)}
         onAnalyze={handleAnalyze}
+        onSelectCompany={handleSwitchToCompany}
+        reports={reports}
         loading={loading}
       />
     </div>

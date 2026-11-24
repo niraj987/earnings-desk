@@ -74,11 +74,11 @@ export default function EarthHero({ onOpenDesk }) {
       time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
-      // Sky & High-Atmosphere background gradient matching whitish creamy gray theme
+      // Sky & High-Atmosphere background gradient matching slightly gray theme
       const spaceGrad = ctx.createLinearGradient(0, 0, 0, height);
-      spaceGrad.addColorStop(0, '#f1f5f9'); // soothing neutral creamy gray (matches --bg-primary)
-      spaceGrad.addColorStop(0.45, '#e2e8f0'); // soft slate transition
-      spaceGrad.addColorStop(0.75, '#e0f2fe'); // soft sky atmospheric cyan
+      spaceGrad.addColorStop(0, '#eaedf2'); // soothing neutral gray (matches --bg-primary)
+      spaceGrad.addColorStop(0.45, '#dde3ec'); // soft gray transition
+      spaceGrad.addColorStop(0.75, '#cce3f5'); // soft sky atmospheric cyan
       spaceGrad.addColorStop(1, '#bae6fd'); // dawn horizon
       ctx.fillStyle = spaceGrad;
       ctx.fillRect(0, 0, width, height);

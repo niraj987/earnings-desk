@@ -5,6 +5,8 @@ export default function NewReportModal({
   isOpen,
   onClose,
   onAnalyze,
+  onSelectCompany,
+  reports = [],
   loading
 }) {
   const [reportText, setReportText] = useState('');
@@ -47,6 +49,15 @@ export default function NewReportModal({
       }
     } catch (err) {
       console.error('Failed to load preset:', err);
+    }
+  };
+
+  const handleQuickSelectAndOpen = (presetId) => {
+    if (onSelectCompany) {
+      onSelectCompany(presetId);
+      onClose();
+    } else {
+      handleLoadPreset(presetId);
     }
   };
 
@@ -147,56 +158,56 @@ export default function NewReportModal({
             </button>
           </div>
 
-          {/* 3 Quick-Load Test Reports for Teacher Demonstration */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Test Reports:
+          {/* 3 Quick-Load Test Reports for Instant View or Testing */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Instant Test Reports:
             </span>
             <button
-              onClick={() => handleLoadPreset('cloudscale')}
+              onClick={() => handleQuickSelectAndOpen('cloudscale')}
               type="button"
               className="btn btn-sm"
               style={{
-                background: loadedPreset?.id === 'cloudscale' ? 'rgba(16, 185, 129, 0.15)' : '#ffffff',
-                borderColor: loadedPreset?.id === 'cloudscale' ? '#10b981' : '#cbd5e1',
+                background: 'rgba(16, 185, 129, 0.12)',
+                borderColor: '#10b981',
                 color: '#059669',
-                fontSize: '0.76rem',
-                padding: '5px 10px',
+                fontSize: '0.78rem',
+                padding: '6px 12px',
                 fontWeight: 700
               }}
-              title="Hypergrowth: +36% YoY, 74.5% Gross Margin, Zero Debt"
+              title="Click to immediately view CloudScale AI (+36% YoY, Bullish) in the desk"
             >
               🟢 CloudScale AI (Bullish)
             </button>
             <button
-              onClick={() => handleLoadPreset('acme')}
+              onClick={() => handleQuickSelectAndOpen('acme')}
               type="button"
               className="btn btn-sm"
               style={{
-                background: loadedPreset?.id === 'acme' ? 'rgba(217, 119, 6, 0.15)' : '#ffffff',
-                borderColor: loadedPreset?.id === 'acme' ? '#d97706' : '#cbd5e1',
+                background: 'rgba(217, 119, 6, 0.12)',
+                borderColor: '#d97706',
                 color: '#d97706',
-                fontSize: '0.76rem',
-                padding: '5px 10px',
+                fontSize: '0.78rem',
+                padding: '6px 12px',
                 fontWeight: 700
               }}
-              title="Balanced: +12% YoY, 38% Customer Concentration Risk"
+              title="Click to immediately view Acme Tech (+12% YoY, Balanced) in the desk"
             >
               🟡 Acme Tech (Balanced)
             </button>
             <button
-              onClick={() => handleLoadPreset('novaretail')}
+              onClick={() => handleQuickSelectAndOpen('novaretail')}
               type="button"
               className="btn btn-sm"
               style={{
-                background: loadedPreset?.id === 'novaretail' ? 'rgba(244, 63, 94, 0.15)' : '#ffffff',
-                borderColor: loadedPreset?.id === 'novaretail' ? '#f43f5e' : '#cbd5e1',
+                background: 'rgba(244, 63, 94, 0.12)',
+                borderColor: '#f43f5e',
                 color: '#e11d48',
-                fontSize: '0.76rem',
-                padding: '5px 10px',
+                fontSize: '0.78rem',
+                padding: '6px 12px',
                 fontWeight: 700
               }}
-              title="High Risk: -2% YoY, $4.6B Debt, Logistics Headwinds"
+              title="Click to immediately view NovaRetail (-2% YoY, High Risk) in the desk"
             >
               🔴 NovaRetail (High Risk)
             </button>
@@ -206,28 +217,38 @@ export default function NewReportModal({
         {/* Loaded Test Preset Details Banner */}
         {loadedPreset && (
           <div style={{
-            padding: '10px 24px',
+            padding: '12px 24px',
             background: loadedPreset.id === 'cloudscale' ? '#f0fdf4' : loadedPreset.id === 'novaretail' ? '#fff1f2' : '#fffbeb',
             borderBottom: '1px solid #e2e8f0',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            fontSize: '0.8rem',
+            fontSize: '0.82rem',
             flexWrap: 'wrap',
-            gap: 8
+            gap: 10
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontWeight: 700, color: '#0f172a' }}>Loaded Test Case:</span>
-              <span style={{ color: '#475569' }}>{loadedPreset.description}</span>
+              <span style={{ fontWeight: 800, color: '#0f172a' }}>Loaded in Editor:</span>
+              <span style={{ color: '#475569' }}>{loadedPreset.name}</span>
             </div>
-            <span className="badge" style={{
-              background: '#ffffff',
-              color: loadedPreset.id === 'cloudscale' ? '#059669' : loadedPreset.id === 'novaretail' ? '#e11d48' : '#d97706',
-              border: `1px solid ${loadedPreset.id === 'cloudscale' ? '#10b981' : loadedPreset.id === 'novaretail' ? '#f43f5e' : '#d97706'}`,
-              fontWeight: 700
-            }}>
-              Expected: {loadedPreset.expected_verdict}
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <button
+                type="button"
+                onClick={() => handleQuickSelectAndOpen(loadedPreset.id)}
+                className="btn btn-primary btn-sm"
+                style={{ padding: '5px 12px', fontSize: '0.78rem', fontWeight: 700 }}
+              >
+                ⚡ View Verified Analysis Now
+              </button>
+              <span className="badge" style={{
+                background: '#ffffff',
+                color: loadedPreset.id === 'cloudscale' ? '#059669' : loadedPreset.id === 'novaretail' ? '#e11d48' : '#d97706',
+                border: `1px solid ${loadedPreset.id === 'cloudscale' ? '#10b981' : loadedPreset.id === 'novaretail' ? '#f43f5e' : '#d97706'}`,
+                fontWeight: 700
+              }}>
+                Expected: {loadedPreset.expected_verdict}
+              </span>
+            </div>
           </div>
         )}
 
