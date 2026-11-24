@@ -1,215 +1,288 @@
 import React from 'react';
-import { ShieldCheck, ArrowRight, Layers, Cpu, Database, CheckCircle2, Lock } from 'lucide-react';
+import { ArrowRight, ShieldCheck, CheckCircle2, Cpu, Database, Layers } from 'lucide-react';
 
 export default function AboutPage({ onOpenDesk }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 40, padding: '16px 0 48px', maxWidth: 1040, margin: '0 auto' }}>
-      {/* Header Banner */}
-      <section className="glass-panel" style={{
-        padding: '48px 36px',
-        textAlign: 'center',
-        background: 'rgba(15, 23, 42, 0.75)',
-        border: '1px solid rgba(255, 255, 255, 0.08)'
-      }}>
+    <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '24px 20px 80px', display: 'flex', flexDirection: 'column', gap: 64 }}>
+      {/* Header Section - Unboxed, Directly on Webpage */}
+      <div>
         <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: 8,
-          padding: '5px 14px',
-          borderRadius: 9999,
-          background: 'rgba(99, 102, 241, 0.1)',
-          border: '1px solid rgba(99, 102, 241, 0.25)',
-          fontSize: '0.8rem',
-          fontWeight: 600,
-          color: '#c7d2fe',
-          marginBottom: 16
+          fontSize: '0.82rem',
+          fontWeight: 700,
+          color: '#38bdf8',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          marginBottom: 12
         }}>
-          <span style={{ color: '#fbbf24', fontWeight: 700 }}>JH Analytics</span>
-          <span style={{ color: '#64748b' }}>·</span>
-          <span>Methodology & Architecture</span>
+          JH Analytics · Research Methodology
         </div>
 
         <h1 style={{
-          fontSize: '2.2rem',
+          fontSize: 'clamp(2.4rem, 5vw, 4rem)',
           fontWeight: 800,
-          color: '#f8fafc',
-          letterSpacing: '-0.025em',
-          marginBottom: 14,
-          lineHeight: 1.25
+          color: '#ffffff',
+          letterSpacing: '-0.03em',
+          lineHeight: 1.15,
+          marginBottom: 20
         }}>
-          Mathematical Provenance in Financial Research
+          Mathematical Provenance{' '}
+          <span style={{ color: 'rgba(224, 242, 254, 0.55)', fontWeight: 400 }}>
+            in Equity Research.
+          </span>
         </h1>
 
         <p style={{
-          fontSize: '1.05rem',
-          color: '#94a3b8',
-          lineHeight: 1.65,
-          maxWidth: 720,
-          margin: '0 auto'
+          fontSize: 'clamp(1.1rem, 1.8vw, 1.25rem)',
+          color: '#cbd5e1',
+          lineHeight: 1.75,
+          maxWidth: 820
         }}>
-          JH Analytics was built on a foundational principle: in financial analysis and investment decisions,
-          generative hallucination cannot be tolerated. Every statement must be anchored to verifiable filings.
+          JH Analytics was engineered on a single foundational mandate: in equity research, credit analysis,
+          and investment decisions, generative hallucination is fundamentally intolerable.
+          Every metric, variance, and analytical inference must be strictly verifiable against primary regulatory disclosures.
         </p>
-      </section>
-
-      {/* Comparison: Standard LLMs vs. JH Analytics Architecture */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
-        {/* The Problem with Generic AI */}
-        <div className="glass-panel" style={{
-          padding: '28px',
-          borderLeft: '4px solid #f43f5e'
-        }}>
-          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#f43f5e', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-            The Industry Problem
-          </div>
-          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f8fafc', marginBottom: 12 }}>
-            Unreliable LLM Hallucinations
-          </h2>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: 12 }}>
-            Standard Large Language Models generate plausible-sounding text, but frequently invent growth rates,
-            confuse gross margins with operating margins, and misattribute sequential changes without source evidence.
-          </p>
-          <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6 }}>
-            Probabilistic guesses cannot be relied upon when precision is critical to risk management.
-          </p>
-        </div>
-
-        {/* The JH Analytics Solution */}
-        <div className="glass-panel" style={{
-          padding: '28px',
-          borderLeft: '4px solid #10b981'
-        }}>
-          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-            The JH Analytics Architecture
-          </div>
-          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f8fafc', marginBottom: 12 }}>
-            Deterministic Grounding Gate
-          </h2>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: 12 }}>
-            We decouple financial extraction from narrative generation. Specialist agents reason exclusively over
-            a structured registry of verified figures, formulas, and verbatim excerpts.
-          </p>
-          <p style={{ fontSize: '0.875rem', color: '#e2e8f0', lineHeight: 1.6 }}>
-            The Grounding Gate automatically rejects any sentence or claim that does not trace directly to an
-            extracted evidence ID in the primary SEC disclosure.
-          </p>
-        </div>
       </div>
 
-      {/* 3-Stage Pipeline Breakdown */}
-      <section className="glass-panel" style={{ padding: '36px 30px', display: 'flex', flexDirection: 'column', gap: 24 }}>
-        <div>
-          <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc' }}>
-            The 3-Stage Verification Pipeline
-          </h2>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: 4 }}>
-            How raw filings are processed, analyzed by specialist agents, and validated into research notes.
-          </p>
+      {/* Divider */}
+      <div style={{ height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+
+      {/* Core Comparison: The Industry Problem vs. JH Analytics Architecture - Unboxed */}
+      <div>
+        <div style={{
+          fontSize: '0.8rem',
+          fontWeight: 700,
+          color: '#fbbf24',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          marginBottom: 10
+        }}>
+          The Structural Contrast
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
-          {/* Stage 0 */}
-          <div className="glass-panel-subtle" style={{ padding: '20px', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Stage 0: Extraction
-            </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
-              Structured Data Extraction
-            </h3>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
-              Extracts core metrics (revenue, margins, net income, EPS, cash, debt, guidance).
-              Each figure receives an immutable ID (<code>F1..Fn</code>) linked to its exact source sentence.
-            </p>
-          </div>
-
-          {/* Stage 1 */}
-          <div className="glass-panel-subtle" style={{ padding: '20px', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Stage 1: Parallel Reasoning
-            </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
-              Specialist Agent Evaluation
-            </h3>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
-              Four specialist agents execute in parallel: Revenue, Risk, Outlook, and QoQ Comparison.
-              Each computes analytical scores, flags discrepancies, and derives calculated ratios.
-            </p>
-          </div>
-
-          {/* Stage 2 */}
-          <div className="glass-panel-subtle" style={{ padding: '20px', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Stage 2: Synthesis & Gate
-            </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
-              Editor Grounding Gate
-            </h3>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
-              The Editor synthesizes agent findings into an executive note. It enforces the Grounding Gate,
-              drops ungrounded statements, resolves stance conflicts, and compiles the final note.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Stack */}
-      <section className="glass-panel" style={{ padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 20 }}>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f8fafc' }}>
-          Technical Stack & Architecture
+        <h2 style={{
+          fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+          fontWeight: 800,
+          color: '#ffffff',
+          letterSpacing: '-0.025em',
+          marginBottom: 36
+        }}>
+          Why Probabilistic LLMs Fail in Finance
         </h2>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: 16
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: 48
         }}>
-          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
-            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
-              Backend API
+          {/* Column 1: The Problem */}
+          <div style={{ borderLeft: '3px solid #f43f5e', paddingLeft: 24 }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f43f5e', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>
+              Generic Language Models
             </div>
-            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
-              Node.js and Express REST architecture with streaming JSON endpoints.
-            </div>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', marginBottom: 12 }}>
+              Probabilistic Hallucinations
+            </h3>
+            <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 16 }}>
+              Standard LLMs optimize for next-token probability rather than factual truth.
+              When summarizing complex 10-Q releases, they frequently invent non-existent sequential growth rates,
+              conflate gross profit with operating income, and cite forward guidance ranges without mathematical anchors.
+            </p>
+            <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65 }}>
+              In professional asset allocation, trusting probabilistic guesses introduces severe fiduciary and operational risk.
+            </p>
           </div>
 
-          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
-            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
-              Frontend UI
+          {/* Column 2: The Solution */}
+          <div style={{ borderLeft: '3px solid #10b981', paddingLeft: 24 }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>
+              JH Analytics Architecture
             </div>
-            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
-              React 18 with Vite, clean dark theme, and responsive layouts.
-            </div>
-          </div>
-
-          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
-            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
-              Persistent Storage
-            </div>
-            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
-              SQLite embedded database for report histories, scenarios, and Q&A audits.
-            </div>
-          </div>
-
-          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
-            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
-              Multi-Agent Engine
-            </div>
-            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
-              Dual execution mode: serverless JavaScript engine + Python LangGraph graph.
-            </div>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', marginBottom: 12 }}>
+              Deterministic Grounding Gate
+            </h3>
+            <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 16 }}>
+              We decouple financial data extraction from narrative synthesis. Specialist agents compute over an
+              immutable registry of parsed figures (<code style={{ color: '#38bdf8' }}>F1..Fn</code>) and verified sentence anchors.
+            </p>
+            <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: 1.65 }}>
+              The Editor enforces a zero-tolerance Grounding Gate: any statement or claim that cannot cite a primary
+              evidence token in the registry is automatically purged before the research note is published.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Call to Action */}
-      <div style={{ textAlign: 'center', marginTop: 8 }}>
+      {/* Divider */}
+      <div style={{ height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+
+      {/* 3-Stage Pipeline Breakdown - Unboxed */}
+      <div>
+        <div style={{
+          fontSize: '0.8rem',
+          fontWeight: 700,
+          color: '#38bdf8',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          marginBottom: 10
+        }}>
+          System Execution
+        </div>
+
+        <h2 style={{
+          fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+          fontWeight: 800,
+          color: '#ffffff',
+          letterSpacing: '-0.025em',
+          marginBottom: 36
+        }}>
+          The 3-Stage Verification Pipeline
+        </h2>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 40
+        }}>
+          {/* Stage 0 */}
+          <div>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: 800,
+              color: '#38bdf8',
+              letterSpacing: '-0.04em',
+              marginBottom: 8
+            }}>
+              01
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', marginBottom: 10 }}>
+              Primary Data Ingestion
+            </h3>
+            <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.7 }}>
+              Extracts revenue, margin rates, net income, EPS, cash reserves, total debt, and forward guidance intervals directly
+              from SEC press releases. Every single figure receives an immutable identifier linked to the verbatim source sentence.
+            </p>
+          </div>
+
+          {/* Stage 1 */}
+          <div>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: 800,
+              color: '#60a5fa',
+              letterSpacing: '-0.04em',
+              marginBottom: 8
+            }}>
+              02
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', marginBottom: 10 }}>
+              Specialist Agent Concurrency
+            </h3>
+            <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.7 }}>
+              Four specialist agents analyze disclosures simultaneously: Revenue Analyst evaluates top-line momentum, Risk Analyst scans 40+ risk clauses,
+              Outlook Forecaster evaluates forward ranges, and the QoQ Comparison Engine computes sequential deltas.
+            </p>
+          </div>
+
+          {/* Stage 2 */}
+          <div>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: 800,
+              color: '#10b981',
+              letterSpacing: '-0.04em',
+              marginBottom: 8
+            }}>
+              03
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', marginBottom: 10 }}>
+              Editor Grounding Gate
+            </h3>
+            <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.7 }}>
+              The Editor synthesizes agent findings into an executive note. It enforces the Grounding Gate,
+              drops ungrounded statements, resolves stance conflicts between agents, and compiles the final note.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+
+      {/* Technical Infrastructure - Unboxed */}
+      <div>
+        <div style={{
+          fontSize: '0.8rem',
+          fontWeight: 700,
+          color: '#fbbf24',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          marginBottom: 10
+        }}>
+          Technology Stack
+        </div>
+
+        <h2 style={{
+          fontSize: 'clamp(1.6rem, 3.2vw, 2.4rem)',
+          fontWeight: 800,
+          color: '#ffffff',
+          letterSpacing: '-0.025em',
+          marginBottom: 28
+        }}>
+          Built for Speed, Auditability & Scale
+        </h2>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: 32
+        }}>
+          <div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', marginBottom: 6 }}>
+              Node.js & Express API
+            </h3>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              High-throughput backend handling multi-part report parsing, streaming responses, and scenario execution.
+            </p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', marginBottom: 6 }}>
+              React 18 & Vite Frontend
+            </h3>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              Hardware-accelerated rendering with real-time parameter sensitivity recalculation in milliseconds.
+            </p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', marginBottom: 6 }}>
+              Embedded SQLite Database
+            </h3>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              Persistent storage of reports, agent deliberation traces, what-if scenarios, and Q&A audits.
+            </p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', marginBottom: 6 }}>
+              Dual Orchestration Engine
+            </h3>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              Zero-latency serverless JS engine paired with Python LangGraph multi-agent graph executor.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Action Button */}
+      <div style={{ marginTop: 12 }}>
         <button
           onClick={() => onOpenDesk && onOpenDesk()}
           className="btn btn-primary"
-          style={{ padding: '12px 28px', fontSize: '0.95rem' }}
+          style={{ padding: '14px 32px', fontSize: '1rem', borderRadius: 8 }}
         >
           <span>Launch Analysis Desk</span>
-          <ArrowRight size={16} />
+          <ArrowRight size={18} />
         </button>
       </div>
     </div>

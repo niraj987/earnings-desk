@@ -170,30 +170,6 @@ export default function EarthHero({ onOpenDesk }) {
       ctx.closePath();
       ctx.fill();
 
-      // Financial Network Connection Arcs between cities
-      ctx.lineWidth = 1 * window.devicePixelRatio;
-      for (const arc of arcs) {
-        const c1Angle = arc.c1.angle;
-        const c2Angle = arc.c2.angle;
-        const c1Dist = earthRadius - (1 - arc.c1.depth) * 110 * window.devicePixelRatio;
-        const c2Dist = earthRadius - (1 - arc.c2.depth) * 110 * window.devicePixelRatio;
-
-        const x1 = earthCenterX + Math.sin(c1Angle) * c1Dist;
-        const y1 = earthCenterY - Math.cos(c1Angle) * c1Dist;
-        const x2 = earthCenterX + Math.sin(c2Angle) * c2Dist;
-        const y2 = earthCenterY - Math.cos(c2Angle) * c2Dist;
-
-        // Curved arc control point pulled slightly above
-        const midX = (x1 + x2) * 0.5;
-        const midY = (y1 + y2) * 0.5 - 20 * window.devicePixelRatio;
-
-        ctx.strokeStyle = `rgba(56, 189, 248, ${arc.alpha * 0.5})`;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.quadraticCurveTo(midX, midY, x2, y2);
-        ctx.stroke();
-      }
-
       // Render glowing golden-white City Lights
       for (const city of cities) {
         const cityDist = earthRadius - (1 - city.depth) * 110 * window.devicePixelRatio;
@@ -221,26 +197,6 @@ export default function EarthHero({ onOpenDesk }) {
         ctx.fill();
       }
 
-      ctx.restore();
-
-      // 3. Crisp Atmospheric Rim Glow (Electric Blue Horizon Arc)
-      ctx.save();
-      ctx.lineWidth = 3.5 * window.devicePixelRatio;
-      const rimGrad = ctx.createLinearGradient(width * 0.2, horizonYOffset, width * 0.8, horizonYOffset);
-      rimGrad.addColorStop(0, 'rgba(56, 189, 248, 0.1)');
-      rimGrad.addColorStop(0.3, 'rgba(56, 189, 248, 0.95)');
-      rimGrad.addColorStop(0.5, 'rgba(224, 242, 254, 1.0)'); // Brilliant central dawn ray
-      rimGrad.addColorStop(0.7, 'rgba(56, 189, 248, 0.95)');
-      rimGrad.addColorStop(1, 'rgba(56, 189, 248, 0.1)');
-
-      ctx.strokeStyle = rimGrad;
-      ctx.shadowColor = '#38bdf8';
-      ctx.shadowBlur = 24 * window.devicePixelRatio;
-
-      ctx.beginPath();
-      // Draw horizon arc
-      ctx.arc(earthCenterX, earthCenterY, earthRadius, Math.PI * 1.5 - 0.7, Math.PI * 1.5 + 0.7);
-      ctx.stroke();
       ctx.restore();
 
       animationFrameId = requestAnimationFrame(render);
@@ -302,33 +258,7 @@ export default function EarthHero({ onOpenDesk }) {
       />
 
       {/* Main Content Floating over Earth - NO OUTER BOX CONTAINER */}
-      <div style={{ position: 'relative', zIndex: 2, maxWidth: 960, margin: '0 auto' }}>
-        {/* Sleek Pill Badge (Image 1 style) */}
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 10,
-            padding: '6px 18px',
-            borderRadius: 9999,
-            background: 'rgba(8, 20, 48, 0.65)',
-            border: '1px solid rgba(56, 189, 248, 0.3)',
-            boxShadow: '0 0 20px rgba(56, 189, 248, 0.15)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            marginBottom: 28
-          }}
-        >
-          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#38bdf8', boxShadow: '0 0 10px #38bdf8' }} />
-          <span style={{ color: '#fbbf24', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            JH Analytics
-          </span>
-          <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>|</span>
-          <span style={{ color: '#e0f2fe', fontSize: '0.8rem', fontWeight: 500 }}>
-            Global Financial Intelligence Desk
-          </span>
-        </div>
-
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 960, margin: '0 auto', paddingTop: 24 }}>
         {/* High-Impact Typographic Headline with Big/Small contrast */}
         <h1
           className="font-neuron"

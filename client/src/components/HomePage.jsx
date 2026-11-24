@@ -1,5 +1,6 @@
 import React from 'react';
 import EarthHero from './EarthHero';
+import AgentTerminal from './AgentTerminal';
 import {
   ShieldCheck,
   TrendingUp,
@@ -9,13 +10,10 @@ import {
   ArrowRight,
   Database,
   CheckCircle2,
-  AlertTriangle,
-  Layers,
-  Sparkles,
+  FileText,
   BarChart3,
-  Activity,
-  Lock,
-  Globe
+  GitBranch,
+  Search
 } from 'lucide-react';
 
 export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) {
@@ -58,459 +56,384 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
     }
   ];
 
+  const fourOptions = [
+    {
+      num: '01',
+      title: 'Analyst Research Note',
+      icon: FileText,
+      color: '#38bdf8',
+      desc: 'One-page executive synthesis linking every financial claim directly to primary SEC disclosure figures with 100% provenance verification.',
+      action: 'note'
+    },
+    {
+      num: '02',
+      title: 'Specialist Multi-Agent Concurrency',
+      icon: GitBranch,
+      color: '#60a5fa',
+      desc: 'Four dedicated agents evaluate disclosures in parallel: Revenue, Risk Lexicon, Forward Guidance, and QoQ Sequential Comparison.',
+      action: 'views'
+    },
+    {
+      num: '03',
+      title: 'What-If Sensitivity Simulation',
+      icon: Sliders,
+      color: '#fbbf24',
+      desc: 'Stress-test revenue, gross margins, and debt ratios interactively. Derived formulas and overall stance recalculate in real-time.',
+      action: 'whatif'
+    },
+    {
+      num: '04',
+      title: 'Grounded Q&A Inquiry',
+      icon: MessageSquare,
+      color: '#10b981',
+      desc: 'Natural language question-answering assistant constrained strictly to verified facts, with source sentence IDs attached to each response.',
+      action: 'qa'
+    }
+  ];
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 72, paddingBottom: 60 }}>
-      {/* 1. Earth from Space Hero with Scroll Zoom & Horizon Glow (Screenshot 2 style) */}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 76, paddingBottom: 60 }}>
+      {/* 1. Earth from Space Hero with Scroll Zoom (Screenshot 2 Effect) - Blue line and pill box removed */}
       <EarthHero onOpenDesk={onOpenDesk} />
 
-      {/* 2. Visual Architecture Roadmap (Screenshot 1 Section 1 Style) */}
-      <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 12px' }}>
-        <div style={{ textAlign: 'center', marginBottom: 44 }}>
-          <div className="cinematic-pill" style={{ marginBottom: 16 }}>
-            <span className="cinematic-pill-dot" />
-            <span>Multi-Agent System Pipeline</span>
+      {/* 2. Four Platform Core Options - Unboxed, Directly on Webpage Canvas */}
+      <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
+        <div style={{ marginBottom: 36 }}>
+          <div style={{
+            fontSize: '0.8rem',
+            fontWeight: 700,
+            color: '#38bdf8',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            marginBottom: 8
+          }}>
+            Core Platform Capabilities
           </div>
-          <h2 className="cinematic-heading" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', marginBottom: 12 }}>
-            Execution Architecture Roadmap
+          <h2 style={{
+            fontSize: 'clamp(2rem, 3.8vw, 2.8rem)',
+            fontWeight: 800,
+            color: '#ffffff',
+            letterSpacing: '-0.025em'
+          }}>
+            Four Built-In Intelligence Tools
           </h2>
-          <p style={{ fontSize: '1rem', color: '#94a3b8', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
-            A structured, deterministic approach to extracting, analyzing, and synthesizing financial filings with mathematical provenance.
+          <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: 4, maxWidth: 640 }}>
+            Everything required to analyze, stress-test, and audit quarterly company filings with zero hallucination.
           </p>
         </div>
 
-        {/* 3 Orbital Connected Circles (Inspired by Roadmap in Screenshot 1) */}
+        {/* 4 Options Grid - Directly on Webpage Canvas (NO BOXES) */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: 36
+        }}>
+          {fourOptions.map(opt => {
+            const Icon = opt.icon;
+            return (
+              <div
+                key={opt.num}
+                onClick={() => onOpenDesk && onOpenDesk()}
+                style={{
+                  cursor: 'pointer',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 12,
+                  borderTop: `2px solid ${opt.color}`,
+                  paddingTop: 20,
+                  transition: 'transform 0.2s ease'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '2.2rem', fontWeight: 800, color: opt.color, letterSpacing: '-0.03em' }}>
+                    {opt.num}
+                  </span>
+                  <Icon size={20} color={opt.color} />
+                </div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.3 }}>
+                  {opt.title}
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65 }}>
+                  {opt.desc}
+                </p>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  color: opt.color,
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  marginTop: 'auto'
+                }}>
+                  <span>Open Tool</span>
+                  <ArrowRight size={14} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+
+      {/* 3. Live Multi-Agent Execution Terminal Section */}
+      <AgentTerminal onOpenDesk={onOpenDesk} />
+
+      {/* Divider */}
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+
+      {/* 4. Autonomous Finance is Grounded Section - UNBOXED Directly on Webpage */}
+      <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 28,
-          position: 'relative'
+          gap: 48,
+          alignItems: 'center'
         }}>
-          {/* Orbital connecting line in background */}
-          <div style={{
-            position: 'absolute',
-            top: '48px',
-            left: '10%',
-            right: '10%',
-            height: '1px',
-            borderTop: '1px dashed rgba(56, 189, 248, 0.25)',
-            zIndex: 0,
-            display: 'none' // fallback for small screens, shown in css
-          }} />
+          {/* Left Text Column - NO BOX CONTAINER */}
+          <div>
+            <div style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              color: '#38bdf8',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              marginBottom: 10
+            }}>
+              Deterministic Provenance Guarantee
+            </div>
 
-          {/* Stage 1: Ingestion */}
-          <div
-            className="cinematic-card"
-            style={{
-              padding: '36px 28px',
-              position: 'relative',
-              zIndex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 22,
-              borderTop: '3px solid #38bdf8'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Stage 01
+            <h2 style={{
+              fontSize: 'clamp(2.4rem, 4.8vw, 3.8rem)',
+              fontWeight: 800,
+              lineHeight: 1.15,
+              color: '#ffffff',
+              letterSpacing: '-0.03em',
+              marginBottom: 18
+            }}>
+              Autonomous Finance{' '}
+              <span style={{ color: 'rgba(224, 242, 254, 0.45)', fontWeight: 400, display: 'block' }}>
+                is Grounded.
               </span>
-              <span style={{ fontSize: '0.72rem', color: '#94a3b8', background: 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: 4 }}>
-                Primary Extraction
-              </span>
-            </div>
+            </h2>
 
-            <div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: 8 }}>
-                Verbatim Ingestion
-              </h3>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6 }}>
-                Extracts raw revenue, margins, net income, EPS, cash, debt, and forward guidance intervals from 10-Q/10-K releases.
-              </p>
-            </div>
+            <p style={{ fontSize: '1.05rem', color: '#cbd5e1', lineHeight: 1.75, marginBottom: 32 }}>
+              Standard language models hallucinate company growth rates, confuse margin definitions, and fabricate guidance numbers.
+              JH Analytics mathematically anchors every extracted claim to verifiable sentence evidence in the original SEC disclosure.
+            </p>
 
-            {/* Pill Nodes like in Screenshot 1 */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 'auto' }}>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" />
-                <span>Verbatim SEC Text Parsing</span>
-              </div>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" />
-                <span>Fact Registry (F1..Fn IDs)</span>
-              </div>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" />
-                <span>Sentence Grounding Indexing</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Stage 2: Concurrency */}
-          <div
-            className="cinematic-card"
-            style={{
-              padding: '36px 28px',
-              position: 'relative',
-              zIndex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 22,
-              borderTop: '3px solid #60a5fa'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#60a5fa', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Stage 02
-              </span>
-              <span style={{ fontSize: '0.72rem', color: '#94a3b8', background: 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: 4 }}>
-                Parallel Agents
-              </span>
-            </div>
-
-            <div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: 8 }}>
-                Specialist Fan-Out
-              </h3>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6 }}>
-                Four independent specialist agents concurrently inspect disclosures without cognitive interference or narrative bias.
-              </p>
-            </div>
-
-            {/* Pill Nodes */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 'auto' }}>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" style={{ background: '#60a5fa' }} />
-                <span>Revenue & Growth Analyst</span>
-              </div>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" style={{ background: '#f43f5e' }} />
-                <span>Risk Lexicon & Leverage Scanner</span>
-              </div>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" style={{ background: '#fbbf24' }} />
-                <span>Outlook & Sequential Deltas</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Stage 3: Grounding Gate */}
-          <div
-            className="cinematic-card"
-            style={{
-              padding: '36px 28px',
-              position: 'relative',
-              zIndex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 22,
-              borderTop: '3px solid #10b981'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Stage 03
-              </span>
-              <span style={{ fontSize: '0.72rem', color: '#94a3b8', background: 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: 4 }}>
-                Verification Gate
-              </span>
-            </div>
-
-            <div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: 8 }}>
-                Deterministic Synthesis
-              </h3>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6 }}>
-                The Editor enforces the Grounding Gate: any statement lacking verified citations is dropped, delivering 100% audit integrity.
-              </p>
-            </div>
-
-            {/* Pill Nodes */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 'auto' }}>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" style={{ background: '#10b981' }} />
-                <span>100% Provenance Audit</span>
-              </div>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" style={{ background: '#10b981' }} />
-                <span>Cross-Agent Conflict Resolution</span>
-              </div>
-              <div className="cinematic-pill" style={{ width: '100%' }}>
-                <span className="cinematic-pill-dot" style={{ background: '#10b981' }} />
-                <span>Interactive What-If Simulation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Terminal Interface & Circular Gauge Showcase (Screenshot 1 Section 2 Style) */}
-      <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 12px' }}>
-        <div
-          className="cinematic-card"
-          style={{
-            padding: '52px 44px',
-            position: 'relative',
-            overflow: 'hidden',
-            background: 'linear-gradient(135deg, rgba(8, 20, 52, 0.75) 0%, rgba(3, 7, 18, 0.95) 100%)',
-            border: '1px solid rgba(56, 189, 248, 0.25)',
-            boxShadow: '0 30px 70px -15px rgba(0, 0, 0, 0.8), 0 0 45px rgba(56, 189, 248, 0.12)'
-          }}
-        >
-          {/* Subtle Watermark typography in background (Image 1 style) */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              fontSize: 'clamp(5rem, 14vw, 12rem)',
-              fontWeight: 900,
-              color: 'rgba(255, 255, 255, 0.02)',
-              letterSpacing: '0.1em',
-              pointerEvents: 'none',
-              userSelect: 'none',
-              whiteSpace: 'nowrap',
-              zIndex: 0
-            }}
-          >
-            JH ANALYTICS
-          </div>
-
-          <div style={{
-            position: 'relative',
-            zIndex: 1,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 40,
-            alignItems: 'center'
-          }}>
-            {/* Left: Huge Stat Typography & Explanation */}
-            <div>
-              <div className="cinematic-pill" style={{ marginBottom: 20 }}>
-                <span className="cinematic-pill-dot" />
-                <span>Deterministic Grounding Core</span>
-              </div>
-
-              <h2 className="cinematic-heading" style={{ fontSize: 'clamp(2.2rem, 4.2vw, 3.4rem)', marginBottom: 18 }}>
-                Autonomous Finance{' '}
-                <span className="cinematic-subheading" style={{ display: 'block' }}>
-                  is Grounded.
-                </span>
-              </h2>
-
-              <p style={{ fontSize: '1.05rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 28 }}>
-                Standard AI models hallucinate financial growth rates and confuse capital structures.
-                JH Analytics mathematically verifies every extracted metric against the company's original regulatory filing.
-              </p>
-
-              {/* Stat Highlights (Big/Small Contrast) */}
-              <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap' }}>
-                <div>
-                  <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '-0.03em' }}>
-                    100.0%
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
-                    Grounding Provenance
-                  </div>
+            {/* Display Stats - Unboxed */}
+            <div style={{ display: 'flex', gap: 36, flexWrap: 'wrap' }}>
+              <div>
+                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '-0.03em' }}>
+                  100.0%
                 </div>
-
-                <div>
-                  <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.03em' }}>
-                    0.0
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
-                    Hallucinated Claims
-                  </div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                  Grounding Provenance
                 </div>
+              </div>
 
-                <div>
-                  <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#fbbf24', letterSpacing: '-0.03em' }}>
-                    &lt; 5 ms
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
-                    What-If Recalculation
-                  </div>
+              <div>
+                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.03em' }}>
+                  0.0
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                  Hallucinated Claims
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#fbbf24', letterSpacing: '-0.03em' }}>
+                  &lt; 5 ms
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                  What-If Recalculation
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right: Circular Gauge Card (Like 75% Circle in Image 1 Section 2) */}
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <div
-                style={{
-                  background: 'rgba(8, 18, 44, 0.85)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  borderRadius: 24,
-                  padding: '36px 32px',
-                  boxShadow: '0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15)',
-                  maxWidth: 360,
-                  width: '100%',
-                  textAlign: 'center',
+          {/* Right Circular Telemetry Ring */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 16,
+                textAlign: 'center'
+              }}
+            >
+              <div style={{ position: 'relative', width: 160, height: 160 }}>
+                <svg width="160" height="160" viewBox="0 0 160 160">
+                  <circle
+                    cx="80"
+                    cy="80"
+                    r="68"
+                    fill="none"
+                    stroke="rgba(255, 255, 255, 0.08)"
+                    strokeWidth="8"
+                  />
+                  <circle
+                    cx="80"
+                    cy="80"
+                    r="68"
+                    fill="none"
+                    stroke="#38bdf8"
+                    strokeWidth="8"
+                    strokeDasharray="427"
+                    strokeDashoffset="0"
+                    strokeLinecap="round"
+                    style={{
+                      filter: 'drop-shadow(0 0 10px #38bdf8)'
+                    }}
+                  />
+                </svg>
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: 20
-                }}
-              >
-                {/* Circular Telemetry SVG Progress Gauge */}
-                <div style={{ position: 'relative', width: 140, height: 140 }}>
-                  <svg width="140" height="140" viewBox="0 0 140 140">
-                    <circle
-                      cx="70"
-                      cy="70"
-                      r="58"
-                      fill="none"
-                      stroke="rgba(255, 255, 255, 0.08)"
-                      strokeWidth="8"
-                    />
-                    <circle
-                      cx="70"
-                      cy="70"
-                      r="58"
-                      fill="none"
-                      stroke="#38bdf8"
-                      strokeWidth="8"
-                      strokeDasharray="364"
-                      strokeDashoffset="0"
-                      strokeLinecap="round"
-                      style={{
-                        filter: 'drop-shadow(0 0 8px #38bdf8)'
-                      }}
-                    />
-                  </svg>
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <span style={{ fontSize: '1.9rem', fontWeight: 800, color: '#ffffff' }}>100%</span>
-                    <span style={{ fontSize: '0.65rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em' }}>
-                      Audit Passed
-                    </span>
-                  </div>
+                  justifyContent: 'center'
+                }}>
+                  <span style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff' }}>100%</span>
+                  <span style={{ fontSize: '0.7rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.06em' }}>
+                    Audit Passed
+                  </span>
                 </div>
-
-                <div>
-                  <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', marginBottom: 6 }}>
-                    Provenance Verification Ring
-                  </h4>
-                  <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
-                    Real-time validation against extracted fact tokens (<code style={{ color: '#bae6fd' }}>F1..Fn</code>).
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => onOpenDesk && onOpenDesk()}
-                  className="btn btn-primary"
-                  style={{ width: '100%', padding: '12px 18px', fontSize: '0.9rem' }}
-                >
-                  <span>Launch Live Desk</span>
-                  <ArrowRight size={16} />
-                </button>
               </div>
+
+              <div>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', marginBottom: 4 }}>
+                  Zero-Hallucination Gate
+                </h3>
+                <p style={{ fontSize: '0.85rem', color: '#94a3b8', maxWidth: 280, lineHeight: 1.5 }}>
+                  Verified mathematically against extracted fact registry tokens.
+                </p>
+              </div>
+
+              <button
+                onClick={() => onOpenDesk && onOpenDesk()}
+                className="btn btn-primary"
+                style={{ padding: '12px 24px', fontSize: '0.9rem' }}
+              >
+                <span>Launch Analysis Desk</span>
+                <ArrowRight size={16} />
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Portfolio Companies Section - Clean, High-Contrast Cards */}
-      <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 12px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 32 }}>
+      {/* Divider */}
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+
+      {/* 5. Covered Portfolio Companies - UNBOXED Directly on Full Webpage */}
+      <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
           <div>
-            <div className="cinematic-pill" style={{ marginBottom: 12 }}>
-              <span className="cinematic-pill-dot" style={{ background: '#fbbf24' }} />
-              <span>Coverage Universe</span>
+            <div style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              color: '#fbbf24',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              marginBottom: 8
+            }}>
+              Coverage Universe
             </div>
-            <h2 className="cinematic-heading" style={{ fontSize: 'clamp(2rem, 3.8vw, 2.8rem)' }}>
+            <h2 style={{
+              fontSize: 'clamp(2rem, 3.8vw, 2.8rem)',
+              fontWeight: 800,
+              color: '#ffffff',
+              letterSpacing: '-0.025em'
+            }}>
               Covered Portfolio Companies
             </h2>
             <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: 4 }}>
-              Inspect live analyst notes, sensitivity simulations, and agent views across different financial stances.
+              Select a company to inspect verified notes, sensitivity simulations, and agent views across the full platform.
             </p>
           </div>
 
           <button
             onClick={() => onOpenDesk && onOpenDesk()}
             className="btn btn-secondary"
-            style={{ padding: '10px 18px', fontSize: '0.85rem' }}
+            style={{ padding: '10px 20px', fontSize: '0.85rem' }}
           >
             <span>View All in Analysis Desk</span>
             <ArrowRight size={14} />
           </button>
         </div>
 
+        {/* 3 Companies Open Layout - Directly on Webpage Canvas (NO BOXES) */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-          gap: 24
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: 40
         }}>
           {portfolio.map(p => (
             <div
               key={p.id}
-              className="cinematic-card tile-interactive"
               style={{
-                padding: '32px 28px',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                gap: 24
+                gap: 16,
+                borderTop: `3px solid ${p.color}`,
+                paddingTop: 20
               }}
             >
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
-                  <div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff' }}>
-                      {p.company}
-                    </h3>
-                    <span style={{ fontSize: '0.82rem', color: '#64748b' }}>{p.period}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff' }}>
+                    {p.company}
+                  </h3>
+                  <span style={{ fontSize: '0.82rem', color: '#64748b' }}>{p.period}</span>
+                </div>
+                <span className="badge" style={{
+                  background: `${p.color}15`,
+                  borderColor: `${p.color}40`,
+                  color: p.color
+                }}>
+                  {p.badge}
+                </span>
+              </div>
+
+              <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65 }}>
+                {p.summary}
+              </p>
+
+              {/* Big High-Impact Figures (No inner boxes, clean typography) */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 20,
+                padding: '16px 0',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+              }}>
+                <div>
+                  <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
+                    Quarterly Revenue
                   </div>
-                  <span className="badge" style={{
-                    background: `${p.color}15`,
-                    borderColor: `${p.color}40`,
-                    color: p.color
-                  }}>
-                    {p.badge}
-                  </span>
+                  <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', marginTop: 2 }}>
+                    {p.revenue}
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: p.color, fontWeight: 700 }}>
+                    {p.growth}
+                  </div>
                 </div>
 
-                <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: 20 }}>
-                  {p.summary}
-                </p>
-
-                {/* Big Display Numbers (High-Impact Typography) */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 16,
-                  padding: '16px',
-                  background: 'rgba(5, 12, 30, 0.65)',
-                  borderRadius: 12,
-                  border: '1px solid rgba(56, 189, 248, 0.12)'
-                }}>
-                  <div>
-                    <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
-                      Revenue
-                    </div>
-                    <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', marginTop: 2 }}>
-                      {p.revenue}
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: p.color, fontWeight: 700 }}>
-                      {p.growth}
-                    </div>
+                <div>
+                  <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
+                    Margin & Capital
                   </div>
-                  <div>
-                    <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
-                      Margin & Health
-                    </div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#e0f2fe', marginTop: 2 }}>
-                      {p.margin}
-                    </div>
-                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: 2 }}>
-                      {p.risk}
-                    </div>
+                  <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#e0f2fe', marginTop: 2 }}>
+                    {p.margin}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>
+                    {p.risk}
                   </div>
                 </div>
               </div>
@@ -522,10 +445,10 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                   width: '100%',
                   justifyContent: 'space-between',
                   padding: '12px 18px',
-                  borderColor: 'rgba(56, 189, 248, 0.25)'
+                  marginTop: 'auto'
                 }}
               >
-                <span style={{ fontWeight: 600 }}>Open Analysis & What-If</span>
+                <span style={{ fontWeight: 600 }}>Open Full Analysis & What-If</span>
                 <ArrowRight size={15} color={p.color} />
               </button>
             </div>

@@ -58,7 +58,7 @@ export default function Footer({ onNavigate, currentPage }) {
               </div>
             </div>
             <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
-              Institutional financial intelligence platform. Every claim formulated across specialist agents
+              Autonomous financial intelligence platform. Every claim formulated across specialist agents
               strictly traces to primary figures with deterministic provenance.
             </p>
           </div>
@@ -128,22 +128,6 @@ export default function Footer({ onNavigate, currentPage }) {
                 <li>What-If Parameter Stress Testing</li>
                 <li>Natural-Language Grounded Inquiry</li>
               </ul>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
-                Status
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#10b981' }}>
-                  <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981' }} />
-                  <span>Production Ready</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#cbd5e1' }}>
-                  <Database size={13} color="#94a3b8" />
-                  <span>SQLite Embedded Storage</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

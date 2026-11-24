@@ -290,18 +290,15 @@ export default function Header({
               </button>
             )}
 
-            {/* Connection Status */}
+            {/* Connection Status - Clean without box */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
               gap: 6,
-              padding: '5px 10px',
-              background: connected ? 'rgba(16, 185, 129, 0.08)' : 'rgba(244, 63, 94, 0.08)',
-              border: `1px solid ${connected ? 'rgba(16, 185, 129, 0.3)' : 'rgba(244, 63, 94, 0.3)'}`,
-              borderRadius: 6,
-              fontSize: '0.72rem',
+              fontSize: '0.75rem',
               color: connected ? '#10b981' : '#f43f5e',
-              fontWeight: 600
+              fontWeight: 600,
+              padding: '0 4px'
             }}>
               <div style={{
                 width: 6,
