@@ -505,6 +505,122 @@ input, textarea, select {
   background: #0284c7;
 }
 
+/* =========================================================================
+   Curved Glass Header & Smooth Keyframe Transitions
+   ========================================================================= */
+
+.glass-header-curved {
+  position: sticky;
+  top: 14px;
+  z-index: 40;
+  max-width: 1240px;
+  margin: 12px auto 0 auto;
+  border-radius: 20px;
+  background: rgba(6, 12, 30, 0.78);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.65),
+    0 0 25px rgba(56, 189, 248, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.22);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 1280px) {
+  .glass-header-curved {
+    margin: 8px 12px 0 12px;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.48s;
+}
+
+/* Tool Card Animation & Hover Transitions */
+.tool-card-animated {
+  cursor: pointer;
+  border-top: 3px solid transparent;
+  padding-top: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.tool-card-animated:hover {
+  transform: translateY(-8px);
+}
+
+.tool-card-animated:hover .tool-icon-wrap {
+  transform: scale(1.15) rotate(4deg);
+  box-shadow: 0 0 20px currentColor;
+}
+
+.tool-card-animated:hover .tool-arrow {
+  transform: translateX(6px);
+}
+
+.tool-icon-wrap {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tool-arrow {
+  transition: transform 0.2s ease;
+}
+
+/* Section transition on scroll */
+.section-transition {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 /* Print Optimization */
 @media print {
   body {

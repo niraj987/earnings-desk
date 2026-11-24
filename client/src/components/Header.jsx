@@ -64,18 +64,12 @@ export default function Header({
         </div>
       </div>
 
-      <header style={{
-        background: 'rgba(10, 14, 23, 0.92)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        padding: '14px 24px',
-        position: 'sticky',
-        top: 0,
-        zIndex: 40
+      <header className="glass-header-curved no-print" style={{
+        padding: '12px 24px',
+        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
       }}>
         <div style={{
-          maxWidth: 1280,
+          maxWidth: 1200,
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
@@ -130,11 +124,12 @@ export default function Header({
           <nav style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 4,
-            background: 'rgba(15, 23, 42, 0.7)',
-            padding: '4px',
-            borderRadius: 8,
-            border: '1px solid rgba(255, 255, 255, 0.08)'
+            gap: 6,
+            background: 'rgba(8, 16, 36, 0.65)',
+            padding: '4px 6px',
+            borderRadius: 9999,
+            border: '1px solid rgba(56, 189, 248, 0.16)',
+            boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.4)'
           }}>
             <button
               onClick={() => onNavigate && onNavigate('home')}
@@ -142,16 +137,20 @@ export default function Header({
                 display: 'flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '6px 14px',
-                borderRadius: 6,
-                border: 'none',
-                background: currentPage === 'home' ? '#312e81' : 'transparent',
+                padding: '6px 16px',
+                borderRadius: 9999,
+                border: currentPage === 'home' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
+                background: currentPage === 'home' 
+                  ? 'linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)' 
+                  : 'transparent',
                 color: currentPage === 'home' ? '#ffffff' : '#94a3b8',
                 fontWeight: currentPage === 'home' ? 600 : 500,
-                fontSize: '0.84rem'
+                fontSize: '0.84rem',
+                boxShadow: currentPage === 'home' ? '0 2px 10px rgba(2, 132, 199, 0.25)' : 'none',
+                transition: 'all 0.2s ease'
               }}
             >
-              <Home size={14} color={currentPage === 'home' ? '#ffffff' : '#94a3b8'} />
+              <Home size={14} color={currentPage === 'home' ? '#38bdf8' : '#94a3b8'} />
               <span>Home</span>
             </button>
 
@@ -161,16 +160,20 @@ export default function Header({
                 display: 'flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '6px 14px',
-                borderRadius: 6,
-                border: 'none',
-                background: currentPage === 'desk' ? '#312e81' : 'transparent',
+                padding: '6px 16px',
+                borderRadius: 9999,
+                border: currentPage === 'desk' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
+                background: currentPage === 'desk' 
+                  ? 'linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)' 
+                  : 'transparent',
                 color: currentPage === 'desk' ? '#ffffff' : '#94a3b8',
                 fontWeight: currentPage === 'desk' ? 600 : 500,
-                fontSize: '0.84rem'
+                fontSize: '0.84rem',
+                boxShadow: currentPage === 'desk' ? '0 2px 10px rgba(2, 132, 199, 0.25)' : 'none',
+                transition: 'all 0.2s ease'
               }}
             >
-              <BarChart3 size={14} color={currentPage === 'desk' ? '#ffffff' : '#94a3b8'} />
+              <BarChart3 size={14} color={currentPage === 'desk' ? '#38bdf8' : '#94a3b8'} />
               <span>Analysis Desk</span>
             </button>
 
@@ -180,16 +183,20 @@ export default function Header({
                 display: 'flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '6px 14px',
-                borderRadius: 6,
-                border: 'none',
-                background: currentPage === 'about' ? '#312e81' : 'transparent',
+                padding: '6px 16px',
+                borderRadius: 9999,
+                border: currentPage === 'about' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
+                background: currentPage === 'about' 
+                  ? 'linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)' 
+                  : 'transparent',
                 color: currentPage === 'about' ? '#ffffff' : '#94a3b8',
                 fontWeight: currentPage === 'about' ? 600 : 500,
-                fontSize: '0.84rem'
+                fontSize: '0.84rem',
+                boxShadow: currentPage === 'about' ? '0 2px 10px rgba(2, 132, 199, 0.25)' : 'none',
+                transition: 'all 0.2s ease'
               }}
             >
-              <Info size={14} color={currentPage === 'about' ? '#ffffff' : '#94a3b8'} />
+              <Info size={14} color={currentPage === 'about' ? '#38bdf8' : '#94a3b8'} />
               <span>About</span>
             </button>
           </nav>

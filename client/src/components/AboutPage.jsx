@@ -3,9 +3,9 @@ import { ArrowRight, ShieldCheck, CheckCircle2, Cpu, Database, Layers } from 'lu
 
 export default function AboutPage({ onOpenDesk }) {
   return (
-    <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '24px 20px 80px', display: 'flex', flexDirection: 'column', gap: 64 }}>
+    <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '36px 20px 100px', display: 'flex', flexDirection: 'column', gap: 92 }}>
       {/* Header Section - Unboxed, Directly on Webpage */}
-      <div>
+      <div className="section-transition animate-fade-in-up">
         <div style={{
           fontSize: '0.82rem',
           fontWeight: 700,
@@ -47,7 +47,7 @@ export default function AboutPage({ onOpenDesk }) {
       <div style={{ height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
 
       {/* Core Comparison: The Industry Problem vs. JH Analytics Architecture - Unboxed */}
-      <div>
+      <div className="section-transition animate-fade-in-up animate-delay-1">
         <div style={{
           fontSize: '0.8rem',
           fontWeight: 700,
@@ -72,10 +72,10 @@ export default function AboutPage({ onOpenDesk }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 48
+          gap: 52
         }}>
           {/* Column 1: The Problem */}
-          <div style={{ borderLeft: '3px solid #f43f5e', paddingLeft: 24 }}>
+          <div style={{ borderLeft: '3px solid #f43f5e', paddingLeft: 26 }}>
             <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f43f5e', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>
               Generic Language Models
             </div>
@@ -93,7 +93,7 @@ export default function AboutPage({ onOpenDesk }) {
           </div>
 
           {/* Column 2: The Solution */}
-          <div style={{ borderLeft: '3px solid #10b981', paddingLeft: 24 }}>
+          <div style={{ borderLeft: '3px solid #10b981', paddingLeft: 26 }}>
             <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>
               JH Analytics Architecture
             </div>
@@ -116,7 +116,7 @@ export default function AboutPage({ onOpenDesk }) {
       <div style={{ height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
 
       {/* 3-Stage Pipeline Breakdown - Unboxed */}
-      <div>
+      <div className="section-transition animate-fade-in-up animate-delay-2">
         <div style={{
           fontSize: '0.8rem',
           fontWeight: 700,
@@ -141,7 +141,7 @@ export default function AboutPage({ onOpenDesk }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: 40
+          gap: 48
         }}>
           {/* Stage 0 */}
           <div>
@@ -209,7 +209,7 @@ export default function AboutPage({ onOpenDesk }) {
       <div style={{ height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
 
       {/* Technical Infrastructure - Unboxed */}
-      <div>
+      <div className="section-transition animate-fade-in-up animate-delay-3">
         <div style={{
           fontSize: '0.8rem',
           fontWeight: 700,
@@ -234,7 +234,7 @@ export default function AboutPage({ onOpenDesk }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: 32
+          gap: 36
         }}>
           <div>
             <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', marginBottom: 6 }}>
@@ -275,11 +275,11 @@ export default function AboutPage({ onOpenDesk }) {
       </div>
 
       {/* Action Button */}
-      <div style={{ marginTop: 12 }}>
+      <div className="section-transition animate-fade-in-up animate-delay-4" style={{ marginTop: 16 }}>
         <button
           onClick={() => onOpenDesk && onOpenDesk()}
           className="btn btn-primary"
-          style={{ padding: '14px 32px', fontSize: '1rem', borderRadius: 8 }}
+          style={{ padding: '14px 32px', fontSize: '1rem', borderRadius: 10 }}
         >
           <span>Launch Analysis Desk</span>
           <ArrowRight size={18} />

@@ -259,9 +259,9 @@ export default function EarthHero({ onOpenDesk }) {
 
       {/* Main Content Floating over Earth - NO OUTER BOX CONTAINER */}
       <div style={{ position: 'relative', zIndex: 2, maxWidth: 960, margin: '0 auto', paddingTop: 24 }}>
-        {/* High-Impact Typographic Headline with Big/Small contrast */}
+        {/* High-Impact Typographic Headline with Big/Small contrast and smooth transition */}
         <h1
-          className="font-neuron"
+          className="font-neuron animate-fade-in-up"
           style={{
             fontSize: 'clamp(2.6rem, 5.8vw, 4.5rem)',
             fontWeight: 800,
@@ -287,8 +287,9 @@ export default function EarthHero({ onOpenDesk }) {
           </span>
         </h1>
 
-        {/* Clean, explainable sentence without outer boxes */}
+        {/* Clean, explainable sentence with staggered entrance */}
         <p
+          className="animate-fade-in-up animate-delay-1"
           style={{
             fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
             color: '#cbd5e1',
@@ -303,8 +304,11 @@ export default function EarthHero({ onOpenDesk }) {
           <strong style={{ color: '#38bdf8' }}>zero generative hallucination</strong>.
         </p>
 
-        {/* Action Buttons (Image 1 style) */}
-        <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+        {/* Action Buttons with staggered entrance */}
+        <div 
+          className="animate-fade-in-up animate-delay-2"
+          style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}
+        >
           <button
             onClick={() => onOpenDesk && onOpenDesk()}
             className="btn btn-primary"
