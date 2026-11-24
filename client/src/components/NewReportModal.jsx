@@ -12,6 +12,7 @@ export default function NewReportModal({
   const [useLlm, setUseLlm] = useState(false);
   const [activeTab, setActiveTab] = useState('paste'); // 'paste' | 'upload'
   const [uploadFileName, setUploadFileName] = useState('');
+  const [loadedPreset, setLoadedPreset] = useState(null);
 
   if (!isOpen) return null;
 
@@ -34,16 +35,22 @@ export default function NewReportModal({
     reader.readAsText(file);
   };
 
-  const handleLoadSample = async () => {
+  const handleLoadPreset = async (presetId) => {
     try {
       const res = await fetch('/api/samples');
       const data = await res.json();
-      if (data.current_text) setReportText(data.current_text);
-      if (data.prior_text) setPriorText(data.prior_text);
+      const preset = (data.presets || []).find(p => p.id === presetId);
+      if (preset) {
+        setReportText(preset.current_text || '');
+        setPriorText(preset.prior_text || '');
+        setLoadedPreset(preset);
+      }
     } catch (err) {
-      console.error('Failed to load sample:', err);
+      console.error('Failed to load preset:', err);
     }
   };
+
+  const handleLoadSample = () => handleLoadPreset('acme');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -140,14 +147,89 @@ export default function NewReportModal({
             </button>
           </div>
 
-          <button
-            onClick={handleLoadSample}
-            type="button"
-            className="btn btn-secondary btn-sm"
-          >
-            <RefreshCw size={14} /> Load Acme Sample
-          </button>
+          {/* 3 Quick-Load Test Reports for Teacher Demonstration */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Test Reports:
+            </span>
+            <button
+              onClick={() => handleLoadPreset('cloudscale')}
+              type="button"
+              className="btn btn-sm"
+              style={{
+                background: loadedPreset?.id === 'cloudscale' ? 'rgba(16, 185, 129, 0.15)' : '#ffffff',
+                borderColor: loadedPreset?.id === 'cloudscale' ? '#10b981' : '#cbd5e1',
+                color: '#059669',
+                fontSize: '0.76rem',
+                padding: '5px 10px',
+                fontWeight: 700
+              }}
+              title="Hypergrowth: +36% YoY, 74.5% Gross Margin, Zero Debt"
+            >
+              🟢 CloudScale AI (Bullish)
+            </button>
+            <button
+              onClick={() => handleLoadPreset('acme')}
+              type="button"
+              className="btn btn-sm"
+              style={{
+                background: loadedPreset?.id === 'acme' ? 'rgba(217, 119, 6, 0.15)' : '#ffffff',
+                borderColor: loadedPreset?.id === 'acme' ? '#d97706' : '#cbd5e1',
+                color: '#d97706',
+                fontSize: '0.76rem',
+                padding: '5px 10px',
+                fontWeight: 700
+              }}
+              title="Balanced: +12% YoY, 38% Customer Concentration Risk"
+            >
+              🟡 Acme Tech (Balanced)
+            </button>
+            <button
+              onClick={() => handleLoadPreset('novaretail')}
+              type="button"
+              className="btn btn-sm"
+              style={{
+                background: loadedPreset?.id === 'novaretail' ? 'rgba(244, 63, 94, 0.15)' : '#ffffff',
+                borderColor: loadedPreset?.id === 'novaretail' ? '#f43f5e' : '#cbd5e1',
+                color: '#e11d48',
+                fontSize: '0.76rem',
+                padding: '5px 10px',
+                fontWeight: 700
+              }}
+              title="High Risk: -2% YoY, $4.6B Debt, Logistics Headwinds"
+            >
+              🔴 NovaRetail (High Risk)
+            </button>
+          </div>
         </div>
+
+        {/* Loaded Test Preset Details Banner */}
+        {loadedPreset && (
+          <div style={{
+            padding: '10px 24px',
+            background: loadedPreset.id === 'cloudscale' ? '#f0fdf4' : loadedPreset.id === 'novaretail' ? '#fff1f2' : '#fffbeb',
+            borderBottom: '1px solid #e2e8f0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            fontSize: '0.8rem',
+            flexWrap: 'wrap',
+            gap: 8
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 700, color: '#0f172a' }}>Loaded Test Case:</span>
+              <span style={{ color: '#475569' }}>{loadedPreset.description}</span>
+            </div>
+            <span className="badge" style={{
+              background: '#ffffff',
+              color: loadedPreset.id === 'cloudscale' ? '#059669' : loadedPreset.id === 'novaretail' ? '#e11d48' : '#d97706',
+              border: `1px solid ${loadedPreset.id === 'cloudscale' ? '#10b981' : loadedPreset.id === 'novaretail' ? '#f43f5e' : '#d97706'}`,
+              fontWeight: 700
+            }}>
+              Expected: {loadedPreset.expected_verdict}
+            </span>
+          </div>
+        )}
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} style={{ padding: 24, overflowY: 'auto', flex: 1, display: 'flex', flexDirection: 'column', gap: 18 }}>
@@ -197,6 +279,28 @@ export default function NewReportModal({
                     ✓ Loaded ({priorText.length} chars)
                   </div>
                 )}
+              </div>
+
+              {/* Disk Test Files Notice */}
+              <div style={{
+                gridColumn: '1 / -1',
+                padding: '12px 16px',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
+                borderRadius: 8,
+                fontSize: '0.8rem',
+                color: '#64748b',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: 8
+              }}>
+                <div>
+                  <span style={{ fontWeight: 700, color: '#0f172a' }}>📁 Test Files on Disk:</span>{' '}
+                  <span>Available in <code>test_reports/</code> (Acme, CloudScale AI, NovaRetail).</span>
+                </div>
+                <span style={{ color: '#0284c7', fontWeight: 600 }}>Select files above or use the test buttons above</span>
               </div>
             </div>
           ) : (
