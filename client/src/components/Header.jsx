@@ -1,8 +1,8 @@
 import React from 'react';
-import { Database, Plus, RefreshCw, Printer, Sparkles, Activity, Home, BarChart3, Info, TrendingUp } from 'lucide-react';
+import { Database, Plus, Printer, Home, BarChart3, Info, TrendingUp } from 'lucide-react';
 
 export default function Header({
-  currentPage = 'desk',
+  currentPage = 'home',
   onNavigate,
   reports = [],
   currentReportId,
@@ -16,111 +16,109 @@ export default function Header({
   const currentReport = reports.find(r => r.id === currentReportId);
 
   const presets = [
-    { key: 'Acme', label: 'Acme Tech', badge: 'Balanced', color: '#fbbf24' },
+    { key: 'Acme', label: 'Acme Tech', badge: 'Balanced', color: '#f59e0b' },
     { key: 'CloudScale', label: 'CloudScale AI', badge: 'Bullish', color: '#10b981' },
     { key: 'NovaRetail', label: 'NovaRetail', badge: 'High Risk', color: '#f43f5e' }
   ];
 
   return (
     <>
-      {/* Real-time Ticker Tape with Purple, Gold, Silver & White accents */}
+      {/* Sleek Understated Financial Feed */}
       <div className="ticker-wrap no-print">
         <div className="ticker-content">
-          <span style={{ color: '#fbbf24', fontWeight: 800, marginRight: 28 }}>
-            ★ JH ANALYTICS FINANCIAL FEED
+          <span style={{ color: '#fbbf24', fontWeight: 700, marginRight: 32 }}>
+            JH ANALYTICS FINANCIAL FEED
           </span>
-          <span style={{ color: '#ffffff', marginRight: 28 }}>
-            ACME TECHNOLOGIES: <span style={{ color: '#fbbf24', fontWeight: 700 }}>$4.82B</span> (+12.0% YoY) ▲ POSITIVE REVENUE
+          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
+            ACME TECHNOLOGIES: <span style={{ color: '#ffffff', fontWeight: 600 }}>$4.82B</span> (+12.0% YoY) · Stable Core Operations
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 28 }}>
-            ACME RISK PROFILE: HIGH LEVERAGE (1.62x) · 38% CONCENTRATION ⚠️
+          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+            ACME RISK PROFILE: 1.62x Leverage · 38% Top-Customer Concentration
           </span>
-          <span style={{ color: '#ffffff', marginRight: 28 }}>
-            CLOUDSCALE AI: <span style={{ color: '#c084fc', fontWeight: 700 }}>$2.40B</span> (+36.0% YoY) ▲ 74.5% GM · ZERO DEBT 🟢
+          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
+            CLOUDSCALE AI: <span style={{ color: '#10b981', fontWeight: 600 }}>$2.40B</span> (+36.0% YoY) · 74.5% GM · Zero Debt
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 28 }}>
-            NOVARETAIL: $6.10B (-2.0% YoY) ▼ 4.1x DEBT/CASH · MARGIN SQUEEZE 🔴
+          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+            NOVARETAIL: $6.10B (-2.0% YoY) · 4.1x Debt/Cash · Margin Pressure
           </span>
-          <span style={{ color: '#e2e8f0', marginRight: 28 }}>
-            PROVENANCE INTEGRITY: <span style={{ color: '#c084fc', fontWeight: 700 }}>100.0% VERIFIED</span> · ZERO HALLUCINATIONS
+          <span style={{ color: '#94a3b8', marginRight: 32 }}>
+            GROUNDING AUDIT: 100.0% Verified Primary Filings
           </span>
 
-          {/* Seamless loop */}
-          <span style={{ color: '#fbbf24', fontWeight: 800, marginRight: 28 }}>
-            ★ JH ANALYTICS FINANCIAL FEED
+          {/* Loop repeat */}
+          <span style={{ color: '#fbbf24', fontWeight: 700, marginRight: 32 }}>
+            JH ANALYTICS FINANCIAL FEED
           </span>
-          <span style={{ color: '#ffffff', marginRight: 28 }}>
-            ACME TECHNOLOGIES: <span style={{ color: '#fbbf24', fontWeight: 700 }}>$4.82B</span> (+12.0% YoY) ▲ POSITIVE REVENUE
+          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
+            ACME TECHNOLOGIES: <span style={{ color: '#ffffff', fontWeight: 600 }}>$4.82B</span> (+12.0% YoY) · Stable Core Operations
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 28 }}>
-            ACME RISK PROFILE: HIGH LEVERAGE (1.62x) · 38% CONCENTRATION ⚠️
+          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+            ACME RISK PROFILE: 1.62x Leverage · 38% Top-Customer Concentration
           </span>
-          <span style={{ color: '#ffffff', marginRight: 28 }}>
-            CLOUDSCALE AI: <span style={{ color: '#c084fc', fontWeight: 700 }}>$2.40B</span> (+36.0% YoY) ▲ 74.5% GM · ZERO DEBT 🟢
+          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
+            CLOUDSCALE AI: <span style={{ color: '#10b981', fontWeight: 600 }}>$2.40B</span> (+36.0% YoY) · 74.5% GM · Zero Debt
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 28 }}>
-            NOVARETAIL: $6.10B (-2.0% YoY) ▼ 4.1x DEBT/CASH · MARGIN SQUEEZE 🔴
+          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+            NOVARETAIL: $6.10B (-2.0% YoY) · 4.1x Debt/Cash · Margin Pressure
           </span>
         </div>
       </div>
 
       <header style={{
-        background: 'rgba(8, 12, 28, 0.88)',
-        backdropFilter: 'blur(22px)',
-        WebkitBackdropFilter: 'blur(22px)',
-        borderBottom: '1px solid rgba(168, 85, 247, 0.25)',
-        padding: '16px 32px',
+        background: 'rgba(10, 14, 23, 0.92)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        padding: '14px 24px',
         position: 'sticky',
         top: 0,
-        zIndex: 40,
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(168, 85, 247, 0.1)'
+        zIndex: 40
       }}>
         <div style={{
-          maxWidth: 1600,
+          maxWidth: 1280,
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: 20
+          gap: 16
         }}>
-          {/* Brand Logo & Title with JH Analytics as Lower Subtitle */}
+          {/* Brand Logo & Title with JH Analytics Subtitle */}
           <div
             onClick={() => onNavigate && onNavigate('home')}
-            style={{ display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}
           >
             <div style={{
-              width: 46,
-              height: 46,
-              borderRadius: 13,
-              background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #f59e0b 100%)',
+              width: 38,
+              height: 38,
+              borderRadius: 8,
+              background: '#4f46e5',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 20px rgba(168, 85, 247, 0.45), 0 0 12px rgba(245, 158, 11, 0.35)',
-              border: '1px solid rgba(255, 255, 255, 0.25)'
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 2px 8px rgba(79, 70, 229, 0.25)'
             }}>
-              <TrendingUp size={24} color="#ffffff" />
+              <TrendingUp size={20} color="#ffffff" />
             </div>
             <div>
-              <h1 className="font-grelify" style={{
-                fontSize: '1.5rem',
-                fontWeight: 800,
+              <div className="font-grelify" style={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
                 color: '#ffffff',
-                letterSpacing: '-0.035em',
-                lineHeight: 1.15,
-                textShadow: '0 0 16px rgba(255, 255, 255, 0.4)'
+                letterSpacing: '-0.025em',
+                lineHeight: 1.15
               }}>
                 Earnings Desk
-              </h1>
+              </div>
               <div
-                className="text-gold-gradient"
                 style={{
-                  fontSize: '0.84rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.12em',
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  color: '#fbbf24',
+                  letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  marginTop: 2
+                  marginTop: 1
                 }}
               >
                 JH Analytics
@@ -132,36 +130,28 @@ export default function Header({
           <nav style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 6,
-            background: 'rgba(15, 21, 42, 0.75)',
-            padding: '5px 8px',
-            borderRadius: 12,
-            border: '1px solid rgba(168, 85, 247, 0.25)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(14px)'
+            gap: 4,
+            background: 'rgba(15, 23, 42, 0.7)',
+            padding: '4px',
+            borderRadius: 8,
+            border: '1px solid rgba(255, 255, 255, 0.08)'
           }}>
             <button
               onClick={() => onNavigate && onNavigate('home')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 7,
-                padding: '8px 18px',
-                borderRadius: 8,
+                gap: 6,
+                padding: '6px 14px',
+                borderRadius: 6,
                 border: 'none',
-                background: currentPage === 'home'
-                  ? 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)'
-                  : 'transparent',
-                color: currentPage === 'home' ? '#ffffff' : '#cbd5e1',
-                fontWeight: currentPage === 'home' ? 700 : 500,
-                fontSize: '0.875rem',
-                boxShadow: currentPage === 'home'
-                  ? '0 2px 14px rgba(168, 85, 247, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.3)'
-                  : 'none',
-                transition: 'all 0.2s ease'
+                background: currentPage === 'home' ? '#312e81' : 'transparent',
+                color: currentPage === 'home' ? '#ffffff' : '#94a3b8',
+                fontWeight: currentPage === 'home' ? 600 : 500,
+                fontSize: '0.84rem'
               }}
             >
-              <Home size={15} color={currentPage === 'home' ? '#ffffff' : '#a855f7'} />
+              <Home size={14} color={currentPage === 'home' ? '#ffffff' : '#94a3b8'} />
               <span>Home</span>
             </button>
 
@@ -170,23 +160,17 @@ export default function Header({
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 7,
-                padding: '8px 18px',
-                borderRadius: 8,
+                gap: 6,
+                padding: '6px 14px',
+                borderRadius: 6,
                 border: 'none',
-                background: currentPage === 'desk'
-                  ? 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)'
-                  : 'transparent',
-                color: currentPage === 'desk' ? '#ffffff' : '#cbd5e1',
-                fontWeight: currentPage === 'desk' ? 700 : 500,
-                fontSize: '0.875rem',
-                boxShadow: currentPage === 'desk'
-                  ? '0 2px 14px rgba(168, 85, 247, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.3)'
-                  : 'none',
-                transition: 'all 0.2s ease'
+                background: currentPage === 'desk' ? '#312e81' : 'transparent',
+                color: currentPage === 'desk' ? '#ffffff' : '#94a3b8',
+                fontWeight: currentPage === 'desk' ? 600 : 500,
+                fontSize: '0.84rem'
               }}
             >
-              <BarChart3 size={15} color={currentPage === 'desk' ? '#ffffff' : '#fbbf24'} />
+              <BarChart3 size={14} color={currentPage === 'desk' ? '#ffffff' : '#94a3b8'} />
               <span>Analysis Desk</span>
             </button>
 
@@ -195,32 +179,26 @@ export default function Header({
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 7,
-                padding: '8px 18px',
-                borderRadius: 8,
+                gap: 6,
+                padding: '6px 14px',
+                borderRadius: 6,
                 border: 'none',
-                background: currentPage === 'about'
-                  ? 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)'
-                  : 'transparent',
-                color: currentPage === 'about' ? '#ffffff' : '#cbd5e1',
-                fontWeight: currentPage === 'about' ? 700 : 500,
-                fontSize: '0.875rem',
-                boxShadow: currentPage === 'about'
-                  ? '0 2px 14px rgba(168, 85, 247, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.3)'
-                  : 'none',
-                transition: 'all 0.2s ease'
+                background: currentPage === 'about' ? '#312e81' : 'transparent',
+                color: currentPage === 'about' ? '#ffffff' : '#94a3b8',
+                fontWeight: currentPage === 'about' ? 600 : 500,
+                fontSize: '0.84rem'
               }}
             >
-              <Info size={15} color={currentPage === 'about' ? '#ffffff' : '#e2e8f0'} />
+              <Info size={14} color={currentPage === 'about' ? '#ffffff' : '#94a3b8'} />
               <span>About</span>
             </button>
           </nav>
 
           {/* Quick Portfolio Presets (Active in Desk) */}
           {currentPage === 'desk' && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Portfolio:
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Select:
               </span>
               {presets.map(p => {
                 const matchedReport = reports.find(r => r.company?.toLowerCase().includes(p.key.toLowerCase()));
@@ -236,33 +214,26 @@ export default function Header({
                         onLoadPreset(p.key.toLowerCase());
                       }
                     }}
-                    className="tile-interactive"
                     style={{
-                      padding: '6px 14px',
-                      borderRadius: 8,
-                      fontSize: '0.78rem',
-                      background: isSelected
-                        ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(245, 158, 11, 0.15) 100%)'
-                        : 'rgba(21, 28, 51, 0.65)',
-                      border: `1px solid ${isSelected ? '#fbbf24' : 'rgba(255, 255, 255, 0.12)'}`,
-                      color: isSelected ? '#ffffff' : '#e2e8f0',
-                      boxShadow: isSelected
-                        ? '0 0 16px rgba(251, 191, 36, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)'
-                        : 'none',
+                      padding: '5px 10px',
+                      borderRadius: 6,
+                      fontSize: '0.75rem',
+                      background: isSelected ? 'rgba(79, 70, 229, 0.2)' : 'rgba(30, 41, 59, 0.6)',
+                      border: `1px solid ${isSelected ? '#6366f1' : 'rgba(255, 255, 255, 0.08)'}`,
+                      color: isSelected ? '#ffffff' : '#cbd5e1',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 8
+                      gap: 6
                     }}
                   >
-                    <span style={{ fontWeight: 700 }}>{p.label}</span>
+                    <span style={{ fontWeight: 600 }}>{p.label}</span>
                     <span style={{
-                      fontSize: '0.68rem',
-                      padding: '2px 7px',
-                      borderRadius: 4,
-                      background: `${p.color}25`,
+                      fontSize: '0.65rem',
+                      padding: '1px 5px',
+                      borderRadius: 3,
+                      background: `${p.color}20`,
                       color: p.color,
-                      fontWeight: 800,
-                      border: `1px solid ${p.color}40`
+                      fontWeight: 700
                     }}>
                       {p.badge}
                     </span>
@@ -273,7 +244,7 @@ export default function Header({
           )}
 
           {/* Actions Suite */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             {currentPage === 'desk' && (
               <button
                 onClick={() => window.print()}
@@ -289,20 +260,20 @@ export default function Header({
               onClick={onOpenDbModal}
               className="btn btn-secondary btn-sm no-print"
               style={{
-                borderColor: 'rgba(168, 85, 247, 0.4)',
-                background: 'rgba(88, 28, 135, 0.2)'
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6
               }}
             >
-              <Database size={14} color="#c084fc" />
-              <span style={{ color: '#e9d5ff', fontWeight: 600 }}>SQLite DB</span>
+              <Database size={14} color="#94a3b8" />
+              <span>Database</span>
               <span style={{
-                background: 'linear-gradient(135deg, #7c3aed, #a855f7)',
-                color: '#ffffff',
-                borderRadius: 10,
-                padding: '1px 8px',
-                fontSize: '0.72rem',
-                fontWeight: 800,
-                boxShadow: '0 0 8px rgba(168, 85, 247, 0.5)'
+                background: 'rgba(255, 255, 255, 0.1)',
+                color: '#f8fafc',
+                borderRadius: 4,
+                padding: '1px 6px',
+                fontSize: '0.7rem',
+                fontWeight: 600
               }}>
                 {reports?.length || 0}
               </span>
@@ -312,10 +283,10 @@ export default function Header({
               <button
                 onClick={onOpenNewModal}
                 disabled={loading}
-                className="btn btn-gold btn-sm no-print"
+                className="btn btn-primary btn-sm no-print"
               >
-                <Plus size={15} />
-                <span>Analyze Report</span>
+                <Plus size={14} />
+                <span>New Analysis</span>
               </button>
             )}
 
@@ -323,24 +294,22 @@ export default function Header({
             <div style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 7,
-              padding: '6px 12px',
-              background: connected ? 'rgba(16, 185, 129, 0.12)' : 'rgba(244, 63, 94, 0.12)',
-              border: `1px solid ${connected ? 'rgba(16, 185, 129, 0.4)' : 'rgba(244, 63, 94, 0.4)'}`,
-              borderRadius: 8,
-              fontSize: '0.75rem',
-              color: connected ? '#34d399' : '#fb7185',
-              fontWeight: 700,
-              boxShadow: connected ? '0 0 12px rgba(16, 185, 129, 0.2)' : 'none'
+              gap: 6,
+              padding: '5px 10px',
+              background: connected ? 'rgba(16, 185, 129, 0.08)' : 'rgba(244, 63, 94, 0.08)',
+              border: `1px solid ${connected ? 'rgba(16, 185, 129, 0.3)' : 'rgba(244, 63, 94, 0.3)'}`,
+              borderRadius: 6,
+              fontSize: '0.72rem',
+              color: connected ? '#10b981' : '#f43f5e',
+              fontWeight: 600
             }}>
               <div style={{
-                width: 7,
-                height: 7,
+                width: 6,
+                height: 6,
                 borderRadius: '50%',
-                background: connected ? '#10b981' : '#f43f5e',
-                boxShadow: connected ? '0 0 8px #10b981' : '0 0 8px #f43f5e'
+                background: connected ? '#10b981' : '#f43f5e'
               }} />
-              <span>{connected ? 'Live' : 'Offline'}</span>
+              <span>{connected ? 'Connected' : 'Offline'}</span>
             </div>
           </div>
         </div>

@@ -1,67 +1,52 @@
 :root {
-  /* Core Base Colors */
-  --bg-primary: #060814;
-  --bg-secondary: #0b1021;
-  --bg-card: rgba(13, 19, 38, 0.72);
-  --bg-card-hover: rgba(22, 31, 60, 0.85);
+  /* Core Base Palette - Refined Institutional Dark */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0f172a;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
 
-  /* Borders & Specular Glass Highlights */
-  --border-color: rgba(168, 85, 247, 0.22);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.14);
-  --glass-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
-  
-  /* Text Spectrum */
-  --text-main: #ffffff;
-  --text-silver: #e2e8f0;
+  /* Subtle Crisp Borders */
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-focus: rgba(99, 102, 241, 0.5);
+
+  /* Typography Spectrum */
+  --text-main: #f8fafc;
+  --text-secondary: #e2e8f0;
   --text-muted: #94a3b8;
   --text-faint: #64748b;
   --text-gold: #fbbf24;
-  --text-purple: #c084fc;
+  --text-indigo: #818cf8;
 
-  /* Accent: Purple / Violet */
-  --accent-purple: #a855f7;
-  --accent-purple-light: #c084fc;
-  --accent-purple-dark: #7c3aed;
-  --accent-purple-bg: rgba(168, 85, 247, 0.14);
-  --glow-purple: 0 0 25px rgba(168, 85, 247, 0.35);
+  /* Refined Accent Palette */
+  --accent-primary: #6366f1;
+  --accent-primary-hover: #4f46e5;
+  --accent-primary-bg: rgba(99, 102, 241, 0.1);
 
-  /* Accent: Gold / Champagne */
   --accent-gold: #f59e0b;
   --accent-gold-light: #fbbf24;
-  --accent-gold-bright: #fef08a;
-  --accent-gold-dark: #d97706;
-  --accent-gold-bg: rgba(245, 158, 11, 0.14);
-  --glow-gold: 0 0 25px rgba(245, 158, 11, 0.35);
+  --accent-gold-bg: rgba(245, 158, 11, 0.1);
 
-  /* Accent: Silver / Platinum */
-  --accent-silver: #e2e8f0;
-  --accent-silver-light: #f8fafc;
-  --accent-silver-dark: #94a3b8;
-  --accent-silver-bg: rgba(226, 232, 240, 0.12);
-  --glow-silver: 0 0 25px rgba(226, 232, 240, 0.3);
-
-  /* Accent: White / Specular */
-  --accent-white: #ffffff;
-  --glow-white: 0 0 20px rgba(255, 255, 255, 0.4);
+  --accent-silver: #94a3b8;
+  --accent-silver-bg: rgba(148, 163, 184, 0.1);
 
   /* Financial Status Accents */
   --accent-positive: #10b981;
-  --accent-positive-bg: rgba(16, 185, 129, 0.14);
+  --accent-positive-bg: rgba(16, 185, 129, 0.1);
   --accent-mixed: #f59e0b;
-  --accent-mixed-bg: rgba(245, 158, 11, 0.14);
+  --accent-mixed-bg: rgba(245, 158, 11, 0.1);
   --accent-negative: #f43f5e;
-  --accent-negative-bg: rgba(244, 63, 94, 0.14);
-  --accent-blue: #38bdf8;
+  --accent-negative-bg: rgba(244, 63, 94, 0.1);
 
-  /* Provenance Badges */
-  --ref-badge-bg: rgba(30, 27, 75, 0.75);
-  --ref-badge-border: rgba(168, 85, 247, 0.4);
-  --ref-badge-text: #e9d5ff;
+  /* Provenance Badge Tokens */
+  --ref-badge-bg: rgba(30, 41, 59, 0.85);
+  --ref-badge-border: rgba(99, 102, 241, 0.35);
+  --ref-badge-text: #c7d2fe;
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 }
 
 * {
@@ -73,15 +58,12 @@
 body {
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 12% 15%, rgba(168, 85, 247, 0.14) 0%, transparent 45%),
-    radial-gradient(circle at 88% 20%, rgba(245, 158, 11, 0.11) 0%, transparent 45%),
-    radial-gradient(circle at 50% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 55%),
-    radial-gradient(circle at 80% 85%, rgba(226, 232, 240, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 15% 85%, rgba(14, 165, 233, 0.08) 0%, transparent 45%);
+    radial-gradient(ellipse 90% 50% at 50% -10%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 40%);
   background-attachment: fixed;
-  color: var(--text-silver);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.65;
+  color: var(--text-secondary);
+  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
 }
@@ -91,33 +73,17 @@ code, pre, .mono {
 }
 
 /* =========================================================================
-   Grelify AI & Neuron AI Typography Systems
+   Typography Systems - Clean, Crisp & High-Contrast
    ========================================================================= */
 
-/* Grelify AI Typography - For "Earnings Desk" Website Title */
-@font-face {
-  font-family: 'Grelify';
-  src: local('Grelify'), local('GrelifyAI'), local('Outfit'), local('Urbanist');
-  font-weight: 400 900;
-  font-display: swap;
-}
-
 .font-grelify {
-  font-family: 'Grelify', 'GrelifyAI', 'Outfit', 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  letter-spacing: -0.035em;
-  font-weight: 800;
-}
-
-/* Neuron AI Typography - For "Earnings Desk with Provable Grounding" */
-@font-face {
-  font-family: 'Neuron';
-  src: local('Neuron'), local('Neuron AI'), local('Plus Jakarta Sans'), local('Inter Display');
-  font-weight: 400 900;
-  font-display: swap;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  letter-spacing: -0.025em;
+  font-weight: 700;
 }
 
 .font-neuron {
-  font-family: 'Neuron', 'Neuron AI', 'Plus Jakarta Sans', 'Inter Display', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   letter-spacing: -0.02em;
   font-weight: 800;
 }
@@ -125,7 +91,7 @@ code, pre, .mono {
 button {
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 input, textarea, select {
@@ -133,196 +99,154 @@ input, textarea, select {
 }
 
 /* =========================================================================
-   Glassmorphism Panels & Shimmering Tiles
+   Glass Panels & Structured Cards - Clean Institutional Finish
    ========================================================================= */
 
 .glass-panel {
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  box-shadow: 
-    0 12px 35px -5px rgba(0, 0, 0, 0.55),
-    0 0 20px -3px rgba(168, 85, 247, 0.12),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   position: relative;
 }
 
 .glass-panel:hover {
-  border-color: rgba(168, 85, 247, 0.35);
-  box-shadow: 
-    0 20px 45px -8px rgba(0, 0, 0, 0.65),
-    0 0 30px rgba(168, 85, 247, 0.22),
-    0 0 12px rgba(245, 158, 11, 0.15),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5);
 }
 
 .glass-panel-subtle {
-  background: rgba(13, 19, 38, 0.5);
+  background: rgba(15, 23, 42, 0.5);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Interactive Tile Effects */
 .tile-interactive {
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tile-interactive:hover {
-  transform: translateY(-5px) scale(1.008);
+  transform: translateY(-2px);
 }
 
-/* Gold Thematic Tile */
+/* Thematic Subtle Color Accents for Cards */
 .tile-gold {
-  background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(13, 19, 38, 0.75) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  box-shadow: 
-    0 12px 35px -5px rgba(0, 0, 0, 0.55),
-    0 0 25px rgba(245, 158, 11, 0.15),
-    inset 0 1px 1px 0 rgba(254, 240, 138, 0.3);
+  background: rgba(245, 158, 11, 0.03);
+  border: 1px solid rgba(245, 158, 11, 0.22);
 }
 
 .tile-gold:hover {
-  border-color: rgba(251, 191, 36, 0.65);
-  box-shadow: 
-    0 20px 45px -8px rgba(0, 0, 0, 0.65),
-    0 0 35px rgba(245, 158, 11, 0.35),
-    inset 0 1px 2px 0 rgba(254, 240, 138, 0.45);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.08);
 }
 
-/* Purple Thematic Tile */
 .tile-purple {
-  background: linear-gradient(180deg, rgba(168, 85, 247, 0.09) 0%, rgba(13, 19, 38, 0.75) 100%);
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  box-shadow: 
-    0 12px 35px -5px rgba(0, 0, 0, 0.55),
-    0 0 25px rgba(168, 85, 247, 0.18),
-    inset 0 1px 1px 0 rgba(233, 213, 255, 0.3);
+  background: rgba(99, 102, 241, 0.03);
+  border: 1px solid rgba(99, 102, 241, 0.22);
 }
 
 .tile-purple:hover {
-  border-color: rgba(192, 132, 252, 0.65);
-  box-shadow: 
-    0 20px 45px -8px rgba(0, 0, 0, 0.65),
-    0 0 35px rgba(168, 85, 247, 0.35),
-    inset 0 1px 2px 0 rgba(233, 213, 255, 0.45);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5), 0 0 16px rgba(99, 102, 241, 0.08);
 }
 
-/* Silver Thematic Tile */
 .tile-silver {
-  background: linear-gradient(180deg, rgba(226, 232, 240, 0.08) 0%, rgba(13, 19, 38, 0.75) 100%);
-  border: 1px solid rgba(226, 232, 240, 0.3);
-  box-shadow: 
-    0 12px 35px -5px rgba(0, 0, 0, 0.55),
-    0 0 20px rgba(226, 232, 240, 0.12),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+  background: rgba(148, 163, 184, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.18);
 }
 
 .tile-silver:hover {
-  border-color: rgba(248, 250, 252, 0.6);
-  box-shadow: 
-    0 20px 45px -8px rgba(0, 0, 0, 0.65),
-    0 0 30px rgba(226, 232, 240, 0.28),
-    inset 0 1px 2px 0 rgba(255, 255, 255, 0.5);
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.5);
 }
 
 /* =========================================================================
-   Typography & Metallic Text Gradients
+   Typography Color Treatments - Readable & Dignified
    ========================================================================= */
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef08a 25%, #fbbf24 60%, #d97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fbbf24;
+  font-weight: 700;
   display: inline-block;
 }
 
 .text-purple-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 25%, #c084fc 60%, #9333ea 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #a5b4fc;
+  font-weight: 700;
   display: inline-block;
 }
 
 .text-silver-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 35%, #cbd5e1 70%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #f1f5f9;
+  font-weight: 700;
   display: inline-block;
 }
 
 .text-white-glow {
   color: #ffffff;
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
 }
 
 /* =========================================================================
-   Badges: Purple, Gold, Silver & Status
+   Badges: Clean & Readable
    ========================================================================= */
 
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 9999px;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  backdrop-filter: blur(10px);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.04em;
 }
 
 .badge-gold {
   background: var(--accent-gold-bg);
   color: var(--accent-gold-light);
-  border: 1px solid rgba(245, 158, 11, 0.45);
-  box-shadow: 0 0 14px rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 .badge-purple {
-  background: var(--accent-purple-bg);
-  color: var(--accent-purple-light);
-  border: 1px solid rgba(168, 85, 247, 0.45);
-  box-shadow: 0 0 14px rgba(168, 85, 247, 0.2);
+  background: var(--accent-primary-bg);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.35);
 }
 
 .badge-silver {
   background: var(--accent-silver-bg);
-  color: var(--accent-silver-light);
-  border: 1px solid rgba(226, 232, 240, 0.4);
-  box-shadow: 0 0 14px rgba(226, 232, 240, 0.18);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .badge-positive {
   background: var(--accent-positive-bg);
   color: var(--accent-positive);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
 .badge-mixed {
   background: var(--accent-mixed-bg);
   color: var(--accent-mixed);
-  border: 1px solid rgba(245, 158, 11, 0.4);
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 .badge-negative {
   background: var(--accent-negative-bg);
   color: var(--accent-negative);
-  border: 1px solid rgba(244, 63, 94, 0.4);
+  border: 1px solid rgba(244, 63, 94, 0.35);
 }
 
 /* =========================================================================
-   Buttons: Primary, Gold, Purple, Silver & Secondary
+   Buttons - Solid, Crisp & Ergonomic
    ========================================================================= */
 
 .btn {
@@ -330,121 +254,105 @@ input, textarea, select {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
   font-weight: 600;
-  border: none;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  border: 1px solid transparent;
+  transition: all 0.18s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #38bdf8 100%);
+  background: #4f46e5;
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  border-color: #6366f1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #6d28d9 0%, #9333ea 50%, #0ea5e9 100%);
-  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-}
-
-.btn-gold {
-  background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
-  color: #000000;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.45);
-}
-
-.btn-gold:hover {
-  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
-  color: #ffffff;
-  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.55);
-  transform: translateY(-2px);
+  background: #4338ca;
+  border-color: #818cf8;
 }
 
 .btn-purple {
-  background: linear-gradient(135deg, #6b21a8 0%, #9333ea 50%, #c084fc 100%);
+  background: #4f46e5;
   color: #ffffff;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  border-color: #6366f1;
 }
 
 .btn-purple:hover {
-  background: linear-gradient(135deg, #581c87 0%, #7e22ce 50%, #a855f7 100%);
-  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.55);
-  transform: translateY(-2px);
+  background: #4338ca;
+  border-color: #818cf8;
+}
+
+.btn-gold {
+  background: #d97706;
+  color: #ffffff;
+  border-color: #f59e0b;
+}
+
+.btn-gold:hover {
+  background: #b45309;
 }
 
 .btn-silver {
-  background: linear-gradient(135deg, #334155 0%, #475569 50%, #64748b 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .btn-silver:hover {
-  background: linear-gradient(135deg, #475569 0%, #64748b 50%, #94a3b8 100%);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
+  background: #334155;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary {
-  background: rgba(19, 27, 51, 0.75);
+  background: rgba(30, 41, 59, 0.7);
   color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
-  background: rgba(33, 45, 80, 0.9);
-  border-color: rgba(168, 85, 247, 0.5);
+  background: rgba(51, 65, 85, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(168, 85, 247, 0.25);
 }
 
 .btn-sm {
-  padding: 6px 14px;
+  padding: 6px 12px;
   font-size: 0.8rem;
 }
 
 /* =========================================================================
-   Provenance Reference Pills
+   Provenance Reference Pills - Financial Citation Style
    ========================================================================= */
 
 .ref-pill {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
-  margin: 0 3px;
-  border-radius: 6px;
+  padding: 1px 7px;
+  margin: 0 2px;
+  border-radius: 4px;
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  background: linear-gradient(135deg, rgba(88, 28, 135, 0.6) 0%, rgba(30, 27, 75, 0.8) 100%);
-  color: #e9d5ff;
-  border: 1px solid rgba(192, 132, 252, 0.4);
-  backdrop-filter: blur(8px);
+  font-weight: 600;
+  background: rgba(30, 41, 59, 0.9);
+  color: #c7d2fe;
+  border: 1px solid rgba(99, 102, 241, 0.35);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s ease;
   user-select: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  vertical-align: middle;
 }
 
 .ref-pill:hover {
-  background: linear-gradient(135deg, #7e22ce 0%, #9333ea 100%);
+  background: #312e81;
   color: #ffffff;
-  border-color: #fef08a;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.5), 0 0 10px rgba(254, 240, 138, 0.4);
+  border-color: #818cf8;
 }
 
 /* =========================================================================
-   Tables - Polished with Silver, Purple & White Accents
+   Tables - Clean Financial Grid
    ========================================================================= */
 
 .desk-table {
@@ -455,48 +363,47 @@ input, textarea, select {
 }
 
 .desk-table th {
-  padding: 14px 18px;
-  background: rgba(15, 21, 42, 0.9);
-  color: #cbd5e1;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #94a3b8;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .desk-table td {
-  padding: 14px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.9rem;
-  color: var(--text-silver);
-  line-height: 1.6;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 .desk-table tr:hover td {
-  background: rgba(88, 28, 135, 0.15);
+  background: rgba(30, 41, 59, 0.35);
   color: #ffffff;
 }
 
 /* =========================================================================
-   Ticker Tape - Purple, Gold, Silver & White
+   Ticker Tape - Understated Financial Feed
    ========================================================================= */
 
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
-  background: rgba(5, 7, 18, 0.96);
-  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-  padding: 9px 0;
+  background: #080c14;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 8px 0;
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
   white-space: nowrap;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .ticker-content {
   display: inline-block;
-  animation: ticker 40s linear infinite;
+  animation: ticker 45s linear infinite;
 }
 
 @keyframes ticker {
@@ -504,35 +411,34 @@ input, textarea, select {
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
-/* Audio wave animation with purple & gold glow */
+/* Audio wave animation */
 .wave-bar {
   display: inline-block;
   width: 3px;
-  background: linear-gradient(180deg, #c084fc, #fbbf24);
+  background: #6366f1;
   border-radius: 2px;
   animation: wave 1.2s ease-in-out infinite;
 }
 
 @keyframes wave {
   0%, 100% { height: 4px; }
-  50% { height: 18px; }
+  50% { height: 16px; }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a1b4e;
-  border-radius: 4px;
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  background: #1e293b;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #581c87;
+  background: #334155;
 }
 
 /* Print Optimization */

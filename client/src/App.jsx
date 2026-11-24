@@ -314,22 +314,22 @@ export default function App() {
         connected={connected}
       />
 
-      {/* Main Container - Spacious Padding & Layout */}
-      <main style={{ flex: 1, maxWidth: 1600, width: '100%', margin: '0 auto', padding: '36px 32px' }}>
+      {/* Main Container - Spacious Padding & Balanced Max Width */}
+      <main style={{ flex: 1, maxWidth: 1280, width: '100%', margin: '0 auto', padding: '28px 24px' }}>
         {error && (
           <div style={{
-            background: 'rgba(244, 63, 94, 0.15)',
-            border: '1px solid #f43f5e',
+            background: 'rgba(244, 63, 94, 0.1)',
+            border: '1px solid rgba(244, 63, 94, 0.3)',
             color: '#f43f5e',
-            padding: '16px 24px',
-            borderRadius: 12,
-            marginBottom: 28,
+            padding: '14px 20px',
+            borderRadius: 8,
+            marginBottom: 24,
             display: 'flex',
             alignItems: 'center',
             gap: 12
           }}>
-            <AlertCircle size={22} />
-            <span style={{ fontWeight: 500 }}>{error}</span>
+            <AlertCircle size={20} />
+            <span style={{ fontWeight: 500, fontSize: '0.9rem' }}>{error}</span>
           </div>
         )}
 
@@ -352,45 +352,45 @@ export default function App() {
         {/* Analysis Desk View */}
         {currentPage === 'desk' && (
           initialLoading ? (
-            <div style={{ textAlign: 'center', padding: '100px 20px', color: '#cbd5e1' }}>
-              <TrendingUp size={48} color="#fbbf24" style={{ margin: '0 auto 16px', display: 'block' }} />
-              <div className="font-grelify" style={{ fontSize: '1.55rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.035em' }}>
-                Initializing <span className="text-gold-gradient">JH Analytics</span> Earnings Desk...
+            <div style={{ textAlign: 'center', padding: '80px 20px', color: '#94a3b8' }}>
+              <TrendingUp size={40} color="#6366f1" style={{ margin: '0 auto 16px', display: 'block' }} />
+              <div className="font-grelify" style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc' }}>
+                Connecting to JH Analytics Database...
               </div>
-              <div style={{ fontSize: '0.92rem', color: '#cbd5e1', marginTop: 8 }}>
-                Connecting to Express API and SQLite database
+              <div style={{ fontSize: '0.875rem', color: '#64748b', marginTop: 6 }}>
+                Loading verified earnings reports and SQLite registry
               </div>
             </div>
           ) : !currentReport ? (
-            <div className="glass-panel" style={{ padding: '80px 32px', textAlign: 'center' }}>
-              <FileText size={56} color="#c084fc" style={{ margin: '0 auto 20px' }} />
-              <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', marginBottom: 12 }}>
+            <div className="glass-panel" style={{ padding: '64px 32px', textAlign: 'center' }}>
+              <FileText size={48} color="#818cf8" style={{ margin: '0 auto 16px' }} />
+              <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f8fafc', marginBottom: 10 }}>
                 No Earnings Reports Found in Database
               </h2>
-              <p style={{ color: '#cbd5e1', maxWidth: 540, margin: '0 auto 28px', fontSize: '0.95rem' }}>
+              <p style={{ color: '#94a3b8', maxWidth: 500, margin: '0 auto 24px', fontSize: '0.92rem' }}>
                 Load pre-packaged portfolio samples or upload a new earnings press release to run the multi-agent analysis.
               </p>
-              <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <button onClick={handleLoadSample} className="btn btn-gold">
+              <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <button onClick={handleLoadSample} className="btn btn-secondary">
                   Load Acme Technologies Sample
                 </button>
-                <button onClick={() => setIsNewModalOpen(true)} className="btn btn-purple">
+                <button onClick={() => setIsNewModalOpen(true)} className="btn btn-primary">
                   Upload or Paste Report
                 </button>
               </div>
             </div>
           ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               {/* Top Metrics Cards */}
               <MetricsBanner report={currentReport} />
 
-              {/* Navigation Tabs Bar with Spacious Glass Styling */}
+              {/* Navigation Tabs Bar */}
               <div style={{
                 display: 'flex',
-                gap: 10,
-                borderBottom: '1px solid rgba(168, 85, 247, 0.25)',
+                gap: 6,
+                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                 overflowX: 'auto',
-                paddingBottom: 6
+                paddingBottom: 2
               }}>
                 {tabs.map((tab) => {
                   const Icon = tab.icon;
@@ -402,26 +402,21 @@ export default function App() {
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: 10,
-                        padding: '12px 24px',
-                        borderRadius: '12px 12px 0 0',
+                        gap: 8,
+                        padding: '10px 18px',
+                        borderRadius: '6px 6px 0 0',
                         border: 'none',
-                        background: isActive
-                          ? 'linear-gradient(180deg, rgba(168, 85, 247, 0.24) 0%, rgba(13, 19, 38, 0.88) 100%)'
-                          : 'transparent',
-                        color: isActive ? '#ffffff' : '#cbd5e1',
-                        fontWeight: isActive ? 800 : 500,
-                        fontSize: '0.92rem',
-                        borderBottom: isActive ? '3px solid #fbbf24' : '3px solid transparent',
+                        background: isActive ? 'rgba(30, 41, 59, 0.6)' : 'transparent',
+                        color: isActive ? '#f8fafc' : '#94a3b8',
+                        fontWeight: isActive ? 600 : 500,
+                        fontSize: '0.875rem',
+                        borderBottom: isActive ? '2px solid #6366f1' : '2px solid transparent',
                         cursor: 'pointer',
                         whiteSpace: 'nowrap',
-                        transition: 'all 0.25s ease',
-                        boxShadow: isActive
-                          ? '0 -4px 18px rgba(168, 85, 247, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)'
-                          : 'none'
+                        transition: 'all 0.15s ease'
                       }}
                     >
-                      <Icon size={17} color={isActive ? '#fbbf24' : '#c084fc'} />
+                      <Icon size={16} color={isActive ? '#818cf8' : '#64748b'} />
                       <span>{tab.label}</span>
                     </button>
                   );

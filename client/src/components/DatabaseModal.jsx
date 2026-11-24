@@ -25,29 +25,29 @@ export default function DatabaseModal({
     }}>
       <div className="glass-panel" style={{
         width: '100%',
-        maxWidth: 980,
+        maxWidth: 960,
         maxHeight: '90vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(168, 85, 247, 0.35)',
-        border: '1px solid rgba(168, 85, 247, 0.45)',
-        background: 'rgba(12, 16, 36, 0.95)'
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        background: '#0f172a'
       }}>
         {/* Modal Header */}
         <div style={{
-          padding: '20px 28px',
-          borderBottom: '1px solid rgba(168, 85, 247, 0.25)',
+          padding: '18px 24px',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Database size={24} color="#c084fc" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <Database size={20} color="#818cf8" />
             <div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff' }}>
-                SQLite Embedded Database Management
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc' }}>
+                SQLite Database Management
               </h3>
-              <p style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
+              <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
                 Tables: reports · analyses · figures · agent_views · scenarios · qa_history
               </p>
             </div>
@@ -57,12 +57,11 @@ export default function DatabaseModal({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#cbd5e1',
-              fontSize: '1.4rem',
+              color: '#94a3b8',
               cursor: 'pointer'
             }}
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 

@@ -1,256 +1,215 @@
 import React from 'react';
-import { ShieldCheck, GitBranch, Database, FileText, CheckCircle2, Cpu, Lock, Award, Sparkles, Layers, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Layers, Cpu, Database, CheckCircle2, Lock } from 'lucide-react';
 
 export default function AboutPage({ onOpenDesk }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 48, padding: '24px 0 60px', maxWidth: 1200, margin: '0 auto' }}>
-      {/* Header Banner - Purple, Gold & Silver Aura */}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 40, padding: '16px 0 48px', maxWidth: 1040, margin: '0 auto' }}>
+      {/* Header Banner */}
       <section className="glass-panel" style={{
-        padding: '58px 48px',
+        padding: '48px 36px',
         textAlign: 'center',
-        background: 'linear-gradient(180deg, rgba(22, 16, 48, 0.85) 0%, rgba(10, 14, 30, 0.95) 100%)',
-        border: '1px solid rgba(168, 85, 247, 0.35)',
-        boxShadow: '0 20px 60px -10px rgba(0, 0, 0, 0.65), 0 0 35px rgba(168, 85, 247, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.25)',
-        position: 'relative',
-        overflow: 'hidden'
+        background: 'rgba(15, 23, 42, 0.75)',
+        border: '1px solid rgba(255, 255, 255, 0.08)'
       }}>
-        {/* Glow ambient background lights */}
         <div style={{
-          position: 'absolute',
-          top: '-30%',
-          left: '25%',
-          width: '50%',
-          height: '160%',
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, rgba(245, 158, 11, 0.1) 50%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '7px 18px',
-            borderRadius: 9999,
-            background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(245, 158, 11, 0.15) 100%)',
-            border: '1px solid rgba(251, 191, 36, 0.45)',
-            boxShadow: '0 0 16px rgba(245, 158, 11, 0.25)',
-            fontSize: '0.85rem',
-            fontWeight: 800,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            marginBottom: 20
-          }}>
-            <Sparkles size={16} color="#fbbf24" />
-            <span className="text-gold-gradient">JH Analytics Mission</span>
-          </div>
-
-          <h2 style={{
-            fontSize: '2.6rem',
-            fontWeight: 900,
-            color: '#ffffff',
-            letterSpacing: '-0.02em',
-            marginBottom: 18,
-            lineHeight: 1.25
-          }}>
-            Pioneering <span className="text-gold-gradient">Mathematical Provenance</span> in Financial AI
-          </h2>
-
-          <p style={{
-            fontSize: '1.15rem',
-            color: '#e2e8f0',
-            lineHeight: 1.75,
-            maxWidth: 860,
-            margin: '0 auto'
-          }}>
-            JH Analytics was built on a single, uncompromising principle: in equity research and financial decision-making, <strong style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>hallucination is intolerable</strong>.
-          </p>
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '5px 14px',
+          borderRadius: 9999,
+          background: 'rgba(99, 102, 241, 0.1)',
+          border: '1px solid rgba(99, 102, 241, 0.25)',
+          fontSize: '0.8rem',
+          fontWeight: 600,
+          color: '#c7d2fe',
+          marginBottom: 16
+        }}>
+          <span style={{ color: '#fbbf24', fontWeight: 700 }}>JH Analytics</span>
+          <span style={{ color: '#64748b' }}>·</span>
+          <span>Methodology & Architecture</span>
         </div>
+
+        <h1 style={{
+          fontSize: '2.2rem',
+          fontWeight: 800,
+          color: '#f8fafc',
+          letterSpacing: '-0.025em',
+          marginBottom: 14,
+          lineHeight: 1.25
+        }}>
+          Mathematical Provenance in Financial Research
+        </h1>
+
+        <p style={{
+          fontSize: '1.05rem',
+          color: '#94a3b8',
+          lineHeight: 1.65,
+          maxWidth: 720,
+          margin: '0 auto'
+        }}>
+          JH Analytics was built on a foundational principle: in financial analysis and investment decisions,
+          generative hallucination cannot be tolerated. Every statement must be anchored to verifiable filings.
+        </p>
       </section>
 
-      {/* The Core Challenge vs The JH Analytics Solution (2 Interactive Tiles) */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 28 }}>
-        {/* Industry Problem Tile */}
-        <div className="glass-panel tile-interactive tile-silver" style={{
-          padding: '36px 32px',
-          borderLeft: '5px solid #f43f5e'
+      {/* Comparison: Standard LLMs vs. JH Analytics Architecture */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
+        {/* The Problem with Generic AI */}
+        <div className="glass-panel" style={{
+          padding: '28px',
+          borderLeft: '4px solid #f43f5e'
         }}>
-          <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fb7185', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>
-            The Industry Vulnerability
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#f43f5e', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
+            The Industry Problem
           </div>
-          <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: 14 }}>
-            Unreliable LLM Guesswork
-          </h3>
-          <p style={{ fontSize: '0.94rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 14 }}>
-            Standard Large Language Models (LLMs) used in finance suffer from subtle, dangerous numerical hallucinations.
-            They confuse gross margins with operating margins, invent non-existent sequential growth rates, and summarize forward guidance without reference to actual quantitative disclosures.
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f8fafc', marginBottom: 12 }}>
+            Unreliable LLM Hallucinations
+          </h2>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: 12 }}>
+            Standard Large Language Models generate plausible-sounding text, but frequently invent growth rates,
+            confuse gross margins with operating margins, and misattribute sequential changes without source evidence.
           </p>
-          <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.7 }}>
-            When multi-billion-dollar allocation decisions depend on precision, probabilistic guessing cannot be relied upon.
+          <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6 }}>
+            Probabilistic guesses cannot be relied upon when precision is critical to risk management.
           </p>
         </div>
 
-        {/* JH Analytics Solution Tile */}
-        <div className="glass-panel tile-interactive tile-gold" style={{
-          padding: '36px 32px',
-          borderLeft: '5px solid #fbbf24'
+        {/* The JH Analytics Solution */}
+        <div className="glass-panel" style={{
+          padding: '28px',
+          borderLeft: '4px solid #10b981'
         }}>
-          <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
             The JH Analytics Architecture
           </div>
-          <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: 14 }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f8fafc', marginBottom: 12 }}>
             Deterministic Grounding Gate
-          </h3>
-          <p style={{ fontSize: '0.94rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 14 }}>
-            JH Analytics decouples financial extraction from narrative generation through a multi-agent orchestration architecture.
-            Analyst agents reason exclusively over structured figures, formulas, and verified sentence references.
+          </h2>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: 12 }}>
+            We decouple financial extraction from narrative generation. Specialist agents reason exclusively over
+            a structured registry of verified figures, formulas, and verbatim excerpts.
           </p>
-          <p style={{ fontSize: '0.92rem', color: '#e2e8f0', lineHeight: 1.7 }}>
-            The Editor Manager enforces a strict Grounding Gate: any formulated claim that cannot point to a verifiable evidence ID in the registry is immediately dropped.
+          <p style={{ fontSize: '0.875rem', color: '#e2e8f0', lineHeight: 1.6 }}>
+            The Grounding Gate automatically rejects any sentence or claim that does not trace directly to an
+            extracted evidence ID in the primary SEC disclosure.
           </p>
         </div>
       </div>
 
-      {/* 3-Stage Pipeline Breakdown (3 Distinct Tiles: Silver, Purple, Gold) */}
-      <section className="glass-panel" style={{ padding: '42px 36px', display: 'flex', flexDirection: 'column', gap: 30 }}>
+      {/* 3-Stage Pipeline Breakdown */}
+      <section className="glass-panel" style={{ padding: '36px 30px', display: 'flex', flexDirection: 'column', gap: 24 }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#c084fc', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              ✦ Multi-Stage Execution
-            </span>
-          </div>
-          <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff' }}>
+          <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc' }}>
             The 3-Stage Verification Pipeline
-          </h3>
-          <p style={{ fontSize: '0.95rem', color: '#cbd5e1', marginTop: 4 }}>
-            How raw earnings filings are decomposed, verified, and synthesized into executive notes.
+          </h2>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: 4 }}>
+            How raw filings are processed, analyzed by specialist agents, and validated into research notes.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: 22 }}>
-          {/* Stage 0 - Silver Tile */}
-          <div className="glass-panel tile-interactive tile-silver" style={{
-            padding: 26,
-            borderRadius: 14,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 12
-          }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
+          {/* Stage 0 */}
+          <div className="glass-panel-subtle" style={{ padding: '20px', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Stage 0: Extraction
             </div>
-            <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
               Structured Data Extraction
-            </h4>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.65 }}>
-              Extracts revenue, growth %, gross/operating margins, net income, EPS, cash, debt, and guidance ranges.
-              Each figure receives an immutable ID (<code>F1..Fn</code>) and retains the exact sentence it originated from.
+            </h3>
+            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              Extracts core metrics (revenue, margins, net income, EPS, cash, debt, guidance).
+              Each figure receives an immutable ID (<code>F1..Fn</code>) linked to its exact source sentence.
             </p>
           </div>
 
-          {/* Stage 1 - Purple Tile */}
-          <div className="glass-panel tile-interactive tile-purple" style={{
-            padding: 26,
-            borderRadius: 14,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 12
-          }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#c084fc', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Stage 1: Fan-Out Reasoning
+          {/* Stage 1 */}
+          <div className="glass-panel-subtle" style={{ padding: '20px', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Stage 1: Parallel Reasoning
             </div>
-            <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff' }}>
-              Specialist Parallel Agents
-            </h4>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.65 }}>
-              4 specialist agents execute concurrently: Revenue Analyst, Risk Analyst (lexicon red flags + leverage triggers), Outlook Analyst, and Comparison Agent (QoQ deltas).
-              Each agent derives new formulas and assigns scores.
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
+              Specialist Agent Evaluation
+            </h3>
+            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              Four specialist agents execute in parallel: Revenue, Risk, Outlook, and QoQ Comparison.
+              Each computes analytical scores, flags discrepancies, and derives calculated ratios.
             </p>
           </div>
 
-          {/* Stage 2 - Gold Tile */}
-          <div className="glass-panel tile-interactive tile-gold" style={{
-            padding: 26,
-            borderRadius: 14,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 12
-          }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Stage 2: Fan-In Synthesis
+          {/* Stage 2 */}
+          <div className="glass-panel-subtle" style={{ padding: '20px', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Stage 2: Synthesis & Gate
             </div>
-            <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff' }}>
-              Editor Manager Gatekeeper
-            </h4>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.65 }}>
-              Enforces the Grounding Gate, computes overall stance (Positive, Balanced, High Risk), cross-examines stances to flag disagreements (e.g. bullish revenue vs high risk), and builds the one-page note.
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc' }}>
+              Editor Grounding Gate
+            </h3>
+            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
+              The Editor synthesizes agent findings into an executive note. It enforces the Grounding Gate,
+              drops ungrounded statements, resolves stance conflicts, and compiles the final note.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Technology & Compliance Card (4 Micro-Tiles) */}
-      <section className="glass-panel" style={{ padding: '38px 34px', display: 'flex', flexDirection: 'column', gap: 24 }}>
-        <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff' }}>
-          Technical Architecture & Infrastructure
-        </h3>
+      {/* Technology Stack */}
+      <section className="glass-panel" style={{ padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f8fafc' }}>
+          Technical Stack & Architecture
+        </h2>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-          gap: 18
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: 16
         }}>
-          {/* Tile 1: Backend */}
-          <div className="tile-interactive tile-silver" style={{ padding: 20, borderRadius: 12 }}>
-            <div style={{ fontWeight: 800, color: '#ffffff', marginBottom: 6, fontSize: '0.95rem' }}>
+          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
+            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
               Backend API
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.6 }}>
-              Node.js & Express REST architecture with streaming JSON endpoints and health checks.
+            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
+              Node.js and Express REST architecture with streaming JSON endpoints.
             </div>
           </div>
 
-          {/* Tile 2: Frontend */}
-          <div className="tile-interactive tile-purple" style={{ padding: 20, borderRadius: 12 }}>
-            <div style={{ fontWeight: 800, color: '#c084fc', marginBottom: 6, fontSize: '0.95rem' }}>
+          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
+            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
               Frontend UI
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.6 }}>
-              React (Vite) financial terminal with frosted glassmorphism, gold/purple tiles, and Lucide icons.
+            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
+              React 18 with Vite, clean dark theme, and responsive layouts.
             </div>
           </div>
 
-          {/* Tile 3: Persistent Database */}
-          <div className="tile-interactive tile-gold" style={{ padding: 20, borderRadius: 12 }}>
-            <div style={{ fontWeight: 800, color: '#fbbf24', marginBottom: 6, fontSize: '0.95rem' }}>
-              Persistent Database
+          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
+            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
+              Persistent Storage
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.6 }}>
-              Embedded SQLite (<code>node:sqlite</code>) with full audit history and scenario storage.
+            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
+              SQLite embedded database for report histories, scenarios, and Q&A audits.
             </div>
           </div>
 
-          {/* Tile 4: Dual Engine */}
-          <div className="tile-interactive tile-purple" style={{ padding: 20, borderRadius: 12 }}>
-            <div style={{ fontWeight: 800, color: '#ffffff', marginBottom: 6, fontSize: '0.95rem' }}>
-              Dual Engine
+          <div className="glass-panel-subtle" style={{ padding: '16px', borderRadius: 8 }}>
+            <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4, fontSize: '0.9rem' }}>
+              Multi-Agent Engine
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.6 }}>
-              Serverless native JavaScript engine + Python LangGraph graph orchestration.
+            <div style={{ fontSize: '0.825rem', color: '#94a3b8', lineHeight: 1.55 }}>
+              Dual execution mode: serverless JavaScript engine + Python LangGraph graph.
             </div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <div style={{ textAlign: 'center', marginTop: 12 }}>
+      <div style={{ textAlign: 'center', marginTop: 8 }}>
         <button
           onClick={() => onOpenDesk && onOpenDesk()}
-          className="btn btn-gold"
-          style={{ padding: '16px 42px', fontSize: '1.05rem', borderRadius: 12 }}
+          className="btn btn-primary"
+          style={{ padding: '12px 28px', fontSize: '0.95rem' }}
         >
-          <span>Open Live Analysis Desk</span>
-          <ArrowRight size={18} />
+          <span>Launch Analysis Desk</span>
+          <ArrowRight size={16} />
         </button>
       </div>
     </div>

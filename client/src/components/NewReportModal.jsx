@@ -65,28 +65,28 @@ export default function NewReportModal({
     }}>
       <div className="glass-panel" style={{
         width: '100%',
-        maxWidth: 860,
+        maxWidth: 840,
         maxHeight: '92vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(245, 158, 11, 0.35)',
-        border: '1px solid rgba(251, 191, 36, 0.45)',
-        background: 'rgba(12, 16, 36, 0.95)'
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        background: '#0f172a'
       }}>
         {/* Header */}
         <div style={{
-          padding: '20px 28px',
-          borderBottom: '1px solid rgba(251, 191, 36, 0.25)',
+          padding: '18px 24px',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff' }}>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc' }}>
               Analyze New Earnings Report
             </h3>
-            <p style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
-              Multi-agent extraction, analysis across 4 specialist agents, and Editor synthesis
+            <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+              Multi-agent extraction across specialist agents and Grounding Gate verification
             </p>
           </div>
           <button
@@ -94,35 +94,34 @@ export default function NewReportModal({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#cbd5e1',
-              fontSize: '1.4rem',
+              color: '#94a3b8',
               cursor: 'pointer'
             }}
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 
         {/* Preset helper bar */}
         <div style={{
-          padding: '14px 28px',
-          background: 'rgba(9, 13, 28, 0.85)',
-          borderBottom: '1px solid rgba(251, 191, 36, 0.2)',
+          padding: '12px 24px',
+          background: 'rgba(15, 23, 42, 0.6)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
           gap: 10
         }}>
-          <div style={{ display: 'flex', gap: 10 }}>
+          <div style={{ display: 'flex', gap: 8 }}>
             <button
               onClick={() => setActiveTab('paste')}
               className="btn btn-sm"
               style={{
-                background: activeTab === 'paste' ? 'linear-gradient(135deg, #7c3aed, #a855f7)' : 'rgba(30, 41, 59, 0.7)',
+                background: activeTab === 'paste' ? '#312e81' : 'rgba(30, 41, 59, 0.7)',
                 color: '#ffffff',
-                border: activeTab === 'paste' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)',
-                fontWeight: 700
+                border: activeTab === 'paste' ? '1px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: 600
               }}
             >
               <FileText size={14} /> Paste Report Text
@@ -131,10 +130,10 @@ export default function NewReportModal({
               onClick={() => setActiveTab('upload')}
               className="btn btn-sm"
               style={{
-                background: activeTab === 'upload' ? 'linear-gradient(135deg, #7c3aed, #a855f7)' : 'rgba(30, 41, 59, 0.7)',
+                background: activeTab === 'upload' ? '#312e81' : 'rgba(30, 41, 59, 0.7)',
                 color: '#ffffff',
-                border: activeTab === 'upload' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)',
-                fontWeight: 700
+                border: activeTab === 'upload' ? '1px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: 600
               }}
             >
               <Upload size={14} /> Upload Files
@@ -144,9 +143,9 @@ export default function NewReportModal({
           <button
             onClick={handleLoadSample}
             type="button"
-            className="btn btn-gold btn-sm"
+            className="btn btn-secondary btn-sm"
           >
-            <RefreshCw size={14} /> Load Acme Q3 vs Q2 Sample
+            <RefreshCw size={14} /> Load Acme Sample
           </button>
         </div>
 

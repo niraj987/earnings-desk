@@ -103,32 +103,30 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: 12,
-        paddingBottom: 16,
-        borderBottom: '1px solid rgba(168, 85, 247, 0.25)'
+        paddingBottom: 14,
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
       }}>
         <div>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
-            {report.company} — <span className="text-gold-gradient">{report.period}</span> Analyst Research Note
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em' }}>
+            {report.company} — <span style={{ color: '#fbbf24' }}>{report.period}</span> Research Note
           </h2>
-          <p style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
-            Multi-Agent Fan-Out / Fan-In Synthesis · Zero-Hallucination Provenance Guarantee
+          <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+            Specialist Multi-Agent Synthesis · Deterministic Provenance Grounding
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: 10, alignItems: 'center' }} className="no-print">
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }} className="no-print">
           {/* Executive Audio Briefing Player */}
           <button
             onClick={handleToggleAudio}
             className="btn btn-secondary btn-sm"
             style={{
-              borderColor: isPlayingAudio ? '#34d399' : '#c084fc',
-              color: isPlayingAudio ? '#34d399' : '#e9d5ff',
-              background: isPlayingAudio ? 'rgba(16, 185, 129, 0.15)' : 'rgba(88, 28, 135, 0.25)',
-              boxShadow: isPlayingAudio ? '0 0 14px rgba(16, 185, 129, 0.3)' : '0 0 12px rgba(168, 85, 247, 0.2)'
+              borderColor: isPlayingAudio ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255, 255, 255, 0.12)',
+              color: isPlayingAudio ? '#10b981' : '#cbd5e1'
             }}
           >
-            {isPlayingAudio ? <VolumeX size={15} /> : <Volume2 size={15} color="#c084fc" />}
-            <span style={{ fontWeight: 700 }}>{isPlayingAudio ? 'Stop Briefing' : 'Audio Briefing'}</span>
+            {isPlayingAudio ? <VolumeX size={14} /> : <Volume2 size={14} color="#818cf8" />}
+            <span style={{ fontWeight: 600 }}>{isPlayingAudio ? 'Stop Briefing' : 'Audio Briefing'}</span>
             {isPlayingAudio && (
               <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginLeft: 4 }}>
                 <span className="wave-bar" style={{ animationDelay: '0s' }} />
@@ -139,13 +137,13 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
           </button>
 
           <button onClick={handleCopy} className="btn btn-silver btn-sm">
-            {copied ? <Check size={14} color="#34d399" /> : <Copy size={14} />}
-            <span>{copied ? 'Copied' : 'Copy MD'}</span>
+            {copied ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
+            <span>{copied ? 'Copied' : 'Copy'}</span>
           </button>
 
-          <button onClick={handleDownload} className="btn btn-gold btn-sm">
+          <button onClick={handleDownload} className="btn btn-primary btn-sm">
             <Download size={14} />
-            <span>Download (.md)</span>
+            <span>Download Note</span>
           </button>
         </div>
       </div>
