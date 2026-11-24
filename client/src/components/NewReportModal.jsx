@@ -69,23 +69,23 @@ export default function NewReportModal({
         maxHeight: '92vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        background: '#0f172a'
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.15)',
+        border: '1px solid #e2e8f0',
+        background: '#ffffff'
       }}>
         {/* Header */}
         <div style={{
           padding: '18px 24px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid #e2e8f0',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
           <div>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc' }}>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a' }}>
               Analyze New Earnings Report
             </h3>
-            <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+            <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
               Multi-agent extraction across specialist agents and Grounding Gate verification
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function NewReportModal({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#94a3b8',
+              color: '#64748b',
               cursor: 'pointer'
             }}
           >
@@ -105,8 +105,8 @@ export default function NewReportModal({
         {/* Preset helper bar */}
         <div style={{
           padding: '12px 24px',
-          background: 'rgba(15, 23, 42, 0.6)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -118,9 +118,9 @@ export default function NewReportModal({
               onClick={() => setActiveTab('paste')}
               className="btn btn-sm"
               style={{
-                background: activeTab === 'paste' ? '#312e81' : 'rgba(30, 41, 59, 0.7)',
-                color: '#ffffff',
-                border: activeTab === 'paste' ? '1px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.1)',
+                background: activeTab === 'paste' ? '#0284c7' : '#ffffff',
+                color: activeTab === 'paste' ? '#ffffff' : '#334155',
+                border: activeTab === 'paste' ? '1px solid #0284c7' : '1px solid #cbd5e1',
                 fontWeight: 600
               }}
             >
@@ -130,9 +130,9 @@ export default function NewReportModal({
               onClick={() => setActiveTab('upload')}
               className="btn btn-sm"
               style={{
-                background: activeTab === 'upload' ? '#312e81' : 'rgba(30, 41, 59, 0.7)',
-                color: '#ffffff',
-                border: activeTab === 'upload' ? '1px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.1)',
+                background: activeTab === 'upload' ? '#0284c7' : '#ffffff',
+                color: activeTab === 'upload' ? '#ffffff' : '#334155',
+                border: activeTab === 'upload' ? '1px solid #0284c7' : '1px solid #cbd5e1',
                 fontWeight: 600
               }}
             >
@@ -154,46 +154,46 @@ export default function NewReportModal({
           {activeTab === 'upload' ? (
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div style={{
-                border: '2px dashed #334155',
+                border: '2px dashed #cbd5e1',
                 borderRadius: 8,
                 padding: 24,
                 textAlign: 'center',
-                background: '#0f172a'
+                background: '#f8fafc'
               }}>
-                <Upload size={32} color="#38bdf8" style={{ margin: '0 auto 10px' }} />
-                <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4 }}>Current Quarter Report</div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: 12 }}>TXT, MD files</div>
+                <Upload size={32} color="#0284c7" style={{ margin: '0 auto 10px' }} />
+                <div style={{ fontWeight: 600, color: '#0f172a', marginBottom: 4 }}>Current Quarter Report</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: 12 }}>TXT, MD files</div>
                 <input
                   type="file"
                   accept=".txt,.md,.pdf"
                   onChange={e => handleFileUpload(e, false)}
-                  style={{ fontSize: '0.8rem', color: '#cbd5e1' }}
+                  style={{ fontSize: '0.8rem', color: '#475569' }}
                 />
                 {reportText && (
-                  <div style={{ marginTop: 10, fontSize: '0.75rem', color: '#10b981' }}>
+                  <div style={{ marginTop: 10, fontSize: '0.75rem', color: '#10b981', fontWeight: 600 }}>
                     ✓ Loaded ({reportText.length} chars)
                   </div>
                 )}
               </div>
 
               <div style={{
-                border: '2px dashed #334155',
+                border: '2px dashed #cbd5e1',
                 borderRadius: 8,
                 padding: 24,
                 textAlign: 'center',
-                background: '#0f172a'
+                background: '#f8fafc'
               }}>
-                <Upload size={32} color="#a855f7" style={{ margin: '0 auto 10px' }} />
-                <div style={{ fontWeight: 600, color: '#f8fafc', marginBottom: 4 }}>Previous Quarter (Optional)</div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: 12 }}>Enables Comparison Agent</div>
+                <Upload size={32} color="#8b5cf6" style={{ margin: '0 auto 10px' }} />
+                <div style={{ fontWeight: 600, color: '#0f172a', marginBottom: 4 }}>Previous Quarter (Optional)</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: 12 }}>Enables Comparison Agent</div>
                 <input
                   type="file"
                   accept=".txt,.md,.pdf"
                   onChange={e => handleFileUpload(e, true)}
-                  style={{ fontSize: '0.8rem', color: '#cbd5e1' }}
+                  style={{ fontSize: '0.8rem', color: '#475569' }}
                 />
                 {priorText && (
-                  <div style={{ marginTop: 10, fontSize: '0.75rem', color: '#10b981' }}>
+                  <div style={{ marginTop: 10, fontSize: '0.75rem', color: '#10b981', fontWeight: 600 }}>
                     ✓ Loaded ({priorText.length} chars)
                   </div>
                 )}
@@ -202,7 +202,7 @@ export default function NewReportModal({
           ) : (
             <>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#f8fafc', marginBottom: 6 }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
                   Current Quarter Earnings Report (Required):
                 </label>
                 <textarea
@@ -213,9 +213,9 @@ export default function NewReportModal({
                   required
                   style={{
                     width: '100%',
-                    background: '#0f172a',
-                    color: '#f8fafc',
-                    border: '1px solid #334155',
+                    background: '#ffffff',
+                    color: '#0f172a',
+                    border: '1px solid #cbd5e1',
                     borderRadius: 8,
                     padding: '12px 14px',
                     fontSize: '0.85rem',
@@ -227,7 +227,7 @@ export default function NewReportModal({
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#cbd5e1', marginBottom: 6 }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#334155', marginBottom: 6 }}>
                   Previous Quarter Report (Optional — enables Comparison Agent QoQ deltas):
                 </label>
                 <textarea
@@ -237,9 +237,9 @@ export default function NewReportModal({
                   onChange={e => setPriorText(e.target.value)}
                   style={{
                     width: '100%',
-                    background: '#0f172a',
-                    color: '#f8fafc',
-                    border: '1px solid #334155',
+                    background: '#ffffff',
+                    color: '#0f172a',
+                    border: '1px solid #cbd5e1',
                     borderRadius: 8,
                     padding: '12px 14px',
                     fontSize: '0.85rem',
@@ -258,8 +258,8 @@ export default function NewReportModal({
             alignItems: 'center',
             gap: 10,
             padding: '12px 16px',
-            background: 'rgba(56, 189, 248, 0.08)',
-            border: '1px solid rgba(56, 189, 248, 0.25)',
+            background: '#f0f9ff',
+            border: '1px solid #bae6fd',
             borderRadius: 8
           }}>
             <input
@@ -269,7 +269,7 @@ export default function NewReportModal({
               onChange={e => setUseLlm(e.target.checked)}
               style={{ cursor: 'pointer', width: 16, height: 16 }}
             />
-            <label htmlFor="llmCheckbox" style={{ fontSize: '0.85rem', color: '#f8fafc', cursor: 'pointer' }}>
+            <label htmlFor="llmCheckbox" style={{ fontSize: '0.85rem', color: '#0369a1', cursor: 'pointer' }}>
               <strong>LLM Polish for Executive Summary:</strong> Use Claude / GPT to polish phrasing (requires API key, validated against registry). Unchecked runs fully offline & deterministic.
             </label>
           </div>

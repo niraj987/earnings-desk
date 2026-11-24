@@ -108,7 +108,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
           <div style={{
             fontSize: '0.8rem',
             fontWeight: 700,
-            color: '#38bdf8',
+            color: '#0284c7',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             marginBottom: 8
@@ -118,12 +118,12 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
           <h2 style={{
             fontSize: 'clamp(2rem, 3.8vw, 2.8rem)',
             fontWeight: 800,
-            color: '#ffffff',
+            color: '#0f172a',
             letterSpacing: '-0.025em'
           }}>
             Four Built-In Intelligence Tools
           </h2>
-          <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: 4, maxWidth: 640 }}>
+          <p style={{ fontSize: '0.95rem', color: '#64748b', marginTop: 4, maxWidth: 640 }}>
             Everything required to analyze, stress-test, and audit quarterly company filings with zero hallucination.
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                     fontSize: '0.72rem',
                     fontWeight: 700,
                     color: opt.color,
-                    background: `${opt.color}18`,
+                    background: `${opt.color}15`,
                     border: `1px solid ${opt.color}35`,
                     padding: '3px 10px',
                     borderRadius: 9999
@@ -180,12 +180,12 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                   }}>
                     <Icon size={20} color={opt.color} />
                   </div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.3 }}>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', lineHeight: 1.3 }}>
                     {opt.title}
                   </h3>
                 </div>
 
-                <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65 }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.65 }}>
                   {opt.desc}
                 </p>
                 <div style={{
@@ -207,13 +207,13 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
       </section>
 
       {/* Divider */}
-      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: '#e2e8f0' }} />
 
       {/* 3. Live Multi-Agent Execution Terminal Section */}
       <AgentTerminal onOpenDesk={onOpenDesk} />
 
       {/* Divider */}
-      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: '#e2e8f0' }} />
 
       {/* 4. Autonomous Finance is Grounded Section - UNBOXED Directly on Webpage */}
       <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
@@ -228,7 +228,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             <div style={{
               fontSize: '0.8rem',
               fontWeight: 700,
-              color: '#38bdf8',
+              color: '#0284c7',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: 10
@@ -240,17 +240,17 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               fontSize: 'clamp(2.4rem, 4.8vw, 3.8rem)',
               fontWeight: 800,
               lineHeight: 1.15,
-              color: '#ffffff',
+              color: '#0f172a',
               letterSpacing: '-0.03em',
               marginBottom: 18
             }}>
               Autonomous Finance{' '}
-              <span style={{ color: 'rgba(224, 242, 254, 0.45)', fontWeight: 400, display: 'block' }}>
+              <span style={{ color: '#64748b', fontWeight: 400, display: 'block' }}>
                 is Grounded.
               </span>
             </h2>
 
-            <p style={{ fontSize: '1.05rem', color: '#cbd5e1', lineHeight: 1.75, marginBottom: 32 }}>
+            <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: 1.75, marginBottom: 32 }}>
               Standard language models hallucinate company growth rates, confuse margin definitions, and fabricate guidance numbers.
               JH Analytics mathematically anchors every extracted claim to verifiable sentence evidence in the original SEC disclosure.
             </p>
@@ -258,28 +258,28 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             {/* Display Stats - Unboxed */}
             <div style={{ display: 'flex', gap: 36, flexWrap: 'wrap' }}>
               <div>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '-0.03em' }}>
+                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#0284c7', letterSpacing: '-0.03em' }}>
                   100.0%
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
                   Grounding Provenance
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.03em' }}>
+                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.03em' }}>
                   0.0
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
                   Hallucinated Claims
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#fbbf24', letterSpacing: '-0.03em' }}>
+                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#d97706', letterSpacing: '-0.03em' }}>
                   &lt; 5 ms
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
                   What-If Recalculation
                 </div>
               </div>
@@ -304,7 +304,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                     cy="80"
                     r="68"
                     fill="none"
-                    stroke="rgba(255, 255, 255, 0.08)"
+                    stroke="rgba(0, 0, 0, 0.08)"
                     strokeWidth="8"
                   />
                   <circle
@@ -312,13 +312,13 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                     cy="80"
                     r="68"
                     fill="none"
-                    stroke="#38bdf8"
+                    stroke="#0284c7"
                     strokeWidth="8"
                     strokeDasharray="427"
                     strokeDashoffset="0"
                     strokeLinecap="round"
                     style={{
-                      filter: 'drop-shadow(0 0 10px #38bdf8)'
+                      filter: 'drop-shadow(0 0 10px rgba(2, 132, 199, 0.4))'
                     }}
                   />
                 </svg>
@@ -330,18 +330,18 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <span style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff' }}>100%</span>
-                  <span style={{ fontSize: '0.7rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.06em' }}>
+                  <span style={{ fontSize: '2.2rem', fontWeight: 800, color: '#0f172a' }}>100%</span>
+                  <span style={{ fontSize: '0.7rem', color: '#0284c7', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.06em' }}>
                     Audit Passed
                   </span>
                 </div>
               </div>
 
               <div>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', marginBottom: 4 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: 4 }}>
                   Zero-Hallucination Gate
                 </h3>
-                <p style={{ fontSize: '0.85rem', color: '#94a3b8', maxWidth: 280, lineHeight: 1.5 }}>
+                <p style={{ fontSize: '0.85rem', color: '#64748b', maxWidth: 280, lineHeight: 1.5 }}>
                   Verified mathematically against extracted fact registry tokens.
                 </p>
               </div>
@@ -349,7 +349,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               <button
                 onClick={() => onOpenDesk && onOpenDesk()}
                 className="btn btn-primary"
-                style={{ padding: '12px 24px', fontSize: '0.9rem' }}
+                style={{ padding: '12px 24px', fontSize: '0.9rem', color: '#ffffff' }}
               >
                 <span>Launch Analysis Desk</span>
                 <ArrowRight size={16} />
@@ -360,7 +360,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
       </section>
 
       {/* Divider */}
-      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: '#e2e8f0' }} />
 
       {/* 5. Value Proposition Grid (FundsIndia Image 2 Style) */}
       <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
@@ -374,27 +374,27 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
           <div style={{
             position: 'relative',
             borderRadius: 24,
-            background: 'linear-gradient(135deg, rgba(8, 20, 50, 0.75) 0%, rgba(2, 6, 23, 0.9) 100%)',
-            border: '1px solid rgba(56, 189, 248, 0.25)',
+            background: '#ffffff',
+            border: '1px solid #e2e8f0',
             padding: '38px 32px',
-            boxShadow: '0 20px 45px -10px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15)',
+            boxShadow: '0 20px 45px -10px rgba(0, 0, 0, 0.06)',
             backdropFilter: 'blur(20px)'
           }}>
             <div style={{
               fontSize: '0.75rem',
               fontWeight: 700,
-              color: '#38bdf8',
+              color: '#0284c7',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: 12
             }}>
               JH Analytics Provenance Engine
             </div>
-            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.25, marginBottom: 16 }}>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', lineHeight: 1.25, marginBottom: 16 }}>
               Deterministic Truth <br />
-              <span style={{ color: 'rgba(224, 242, 254, 0.55)', fontWeight: 400 }}>for Capital Decisions</span>
+              <span style={{ color: '#64748b', fontWeight: 400 }}>for Capital Decisions</span>
             </h3>
-            <p style={{ fontSize: '0.92rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 28 }}>
+            <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.7, marginBottom: 28 }}>
               In earnings research and valuation models, generic LLM predictions fail when figures are hallucinated.
               Our deterministic grounding gate audits every single analytical sentence against primary SEC filings.
             </p>
@@ -404,15 +404,15 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               gridTemplateColumns: '1fr 1fr',
               gap: 16,
               paddingTop: 20,
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+              borderTop: '1px solid #e2e8f0'
             }}>
               <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#38bdf8' }}>100%</div>
-                <div style={{ fontSize: '0.72rem', color: '#94a3b8', fontWeight: 600, textTransform: 'uppercase' }}>Provenance Verified</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0284c7' }}>100%</div>
+                <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Provenance Verified</div>
               </div>
               <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#10b981' }}>24/7</div>
-                <div style={{ fontSize: '0.72rem', color: '#94a3b8', fontWeight: 600, textTransform: 'uppercase' }}>Filing Auditing</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#059669' }}>24/7</div>
+                <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Filing Auditing</div>
               </div>
             </div>
           </div>
@@ -422,7 +422,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             <div style={{
               fontSize: '0.8rem',
               fontWeight: 700,
-              color: '#fbbf24',
+              color: '#d97706',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: 10
@@ -432,17 +432,17 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             <h2 style={{
               fontSize: 'clamp(2rem, 3.8vw, 2.7rem)',
               fontWeight: 800,
-              color: '#ffffff',
+              color: '#0f172a',
               letterSpacing: '-0.025em',
               lineHeight: 1.2,
               marginBottom: 18
             }}>
               Choosing financial data is easy.<br />
-              <span style={{ color: 'rgba(224, 242, 254, 0.55)', fontWeight: 400 }}>
+              <span style={{ color: '#64748b', fontWeight: 400 }}>
                 Choosing verified truth isn't.
               </span>
             </h2>
-            <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.7, marginBottom: 32 }}>
+            <p style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.7, marginBottom: 32 }}>
               That’s where mathematical provenance makes the difference. Grounded intelligence helps you allocate capital with absolute confidence and verifiable clarity.
             </p>
 
@@ -451,25 +451,25 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                 {
                   title: 'Understand Filing Truth',
                   desc: 'Extracted directly from primary SEC 10-Q press releases, eliminating narrative drift and speculative bias.',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   icon: Target
                 },
                 {
                   title: 'Research-Backed Verification',
                   desc: 'Every operating margin, YoY delta, and EPS metric links to verbatim source sentence IDs in disclosures.',
-                  color: '#60a5fa',
+                  color: '#2563eb',
                   icon: CheckCircle2
                 },
                 {
                   title: 'Powered by Multi-Agent Concurrency',
                   desc: 'Revenue, Risk, Guidance, and QoQ specialists deliberate simultaneously to cross-examine filing inconsistencies.',
-                  color: '#fbbf24',
+                  color: '#d97706',
                   icon: Cpu
                 },
                 {
                   title: 'Stay Ahead with Interactive Stress-Testing',
                   desc: 'Real-time what-if simulations to evaluate upside, base, and downside scenarios in milliseconds.',
-                  color: '#10b981',
+                  color: '#059669',
                   icon: Sliders
                 }
               ].map((v, idx) => {
@@ -480,7 +480,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                       width: 40,
                       height: 40,
                       borderRadius: 12,
-                      background: `${v.color}18`,
+                      background: `${v.color}15`,
                       border: `1px solid ${v.color}35`,
                       display: 'flex',
                       alignItems: 'center',
@@ -491,10 +491,10 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                       <VIcon size={20} color={v.color} />
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', marginBottom: 4 }}>
+                      <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: 4 }}>
                         {v.title}
                       </h4>
-                      <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6 }}>
+                      <p style={{ fontSize: '0.88rem', color: '#64748b', lineHeight: 1.6 }}>
                         {v.desc}
                       </p>
                     </div>
@@ -507,7 +507,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
       </section>
 
       {/* Divider */}
-      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: '#e2e8f0' }} />
 
       {/* 6. Visual Comparison Bar Section (FundsIndia Image 3 Style) */}
       <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
@@ -627,7 +627,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
       </section>
 
       {/* Divider */}
-      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: '#e2e8f0' }} />
 
       {/* 7. Covered Portfolio Companies - UNBOXED Directly on Full Webpage */}
       <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
@@ -636,7 +636,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             <div style={{
               fontSize: '0.8rem',
               fontWeight: 700,
-              color: '#fbbf24',
+              color: '#d97706',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: 8
@@ -646,12 +646,12 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             <h2 style={{
               fontSize: 'clamp(2rem, 3.8vw, 2.8rem)',
               fontWeight: 800,
-              color: '#ffffff',
+              color: '#0f172a',
               letterSpacing: '-0.025em'
             }}>
               Covered Portfolio Companies
             </h2>
-            <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: 4 }}>
+            <p style={{ fontSize: '0.95rem', color: '#475569', marginTop: 4 }}>
               Select a company to inspect verified notes, sensitivity simulations, and agent views across the full platform.
             </p>
           </div>
@@ -685,7 +685,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a' }}>
                     {p.company}
                   </h3>
                   <span style={{ fontSize: '0.82rem', color: '#64748b' }}>{p.period}</span>
@@ -699,7 +699,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                 </span>
               </div>
 
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.65 }}>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.65 }}>
                 {p.summary}
               </p>
 
@@ -709,14 +709,14 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                 gridTemplateColumns: '1fr 1fr',
                 gap: 20,
                 padding: '16px 0',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+                borderTop: '1px solid #e2e8f0',
+                borderBottom: '1px solid #e2e8f0'
               }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
                     Quarterly Revenue
                   </div>
-                  <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', marginTop: 2 }}>
+                  <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginTop: 2 }}>
                     {p.revenue}
                   </div>
                   <div style={{ fontSize: '0.8rem', color: p.color, fontWeight: 700 }}>
@@ -728,10 +728,10 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                   <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
                     Margin & Capital
                   </div>
-                  <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#e0f2fe', marginTop: 2 }}>
+                  <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginTop: 2 }}>
                     {p.margin}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: 2 }}>
                     {p.risk}
                   </div>
                 </div>
@@ -756,7 +756,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
       </section>
 
       {/* Divider */}
-      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: 'rgba(56, 189, 248, 0.15)' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', height: 1, background: '#e2e8f0' }} />
 
       {/* 8. Insights & Research Showcase (FundsIndia Image 4 Style) */}
       <section style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: '0 16px' }}>
@@ -764,7 +764,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
           <div style={{
             fontSize: '0.8rem',
             fontWeight: 700,
-            color: '#38bdf8',
+            color: '#0284c7',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             marginBottom: 8
@@ -774,12 +774,12 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
           <h2 style={{
             fontSize: 'clamp(2rem, 3.8vw, 2.8rem)',
             fontWeight: 800,
-            color: '#ffffff',
+            color: '#0f172a',
             letterSpacing: '-0.025em'
           }}>
             Insights & Research
           </h2>
-          <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: 4, maxWidth: 640, margin: '6px auto 0' }}>
+          <p style={{ fontSize: '0.95rem', color: '#475569', marginTop: 4, maxWidth: 640, margin: '6px auto 0' }}>
             We believe capital decisions are built on trust, clarity, and zero hallucination. Explore grounded research briefs.
           </p>
         </div>
@@ -797,15 +797,15 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               readTime: '3 mins read',
               badge: 'Bullish Stance',
               badgeColor: '#10b981',
-              gradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(6, 12, 30, 0.8) 100%)'
+              gradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(240, 253, 250, 0.95) 100%)'
             },
             {
               title: 'Acme Technologies: Enterprise Concentration vs 12% Top-line Growth',
               company: 'Acme Technologies',
               readTime: '4 mins read',
               badge: 'Balanced Stance',
-              badgeColor: '#f59e0b',
-              gradient: 'linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(6, 12, 30, 0.8) 100%)'
+              badgeColor: '#d97706',
+              gradient: 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(255, 251, 235, 0.95) 100%)'
             },
             {
               title: 'NovaRetail Group: Debt Amortization Pressures & Freight Headwinds',
@@ -813,15 +813,15 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               readTime: '3 mins read',
               badge: 'High Risk',
               badgeColor: '#f43f5e',
-              gradient: 'linear-gradient(135deg, rgba(244, 63, 94, 0.25) 0%, rgba(6, 12, 30, 0.8) 100%)'
+              gradient: 'linear-gradient(135deg, rgba(244, 63, 94, 0.12) 0%, rgba(255, 241, 242, 0.95) 100%)'
             },
             {
               title: 'SEC 10-Q Grounding Standards: Why Deterministic Extraction Replaces Guesswork',
               company: 'Acme Technologies',
               readTime: '2 mins read',
               badge: 'Architecture Brief',
-              badgeColor: '#38bdf8',
-              gradient: 'linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(6, 12, 30, 0.8) 100%)'
+              badgeColor: '#0284c7',
+              gradient: 'linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(240, 249, 255, 0.95) 100%)'
             }
           ].map((card, idx) => (
             <div
@@ -830,8 +830,9 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               style={{
                 cursor: 'pointer',
                 borderRadius: 16,
-                background: 'rgba(8, 16, 36, 0.65)',
-                border: '1px solid rgba(56, 189, 248, 0.2)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.05)',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
@@ -843,7 +844,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
               <div style={{
                 height: 110,
                 background: card.gradient,
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                borderBottom: '1px solid #e2e8f0',
                 padding: '16px',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -853,10 +854,11 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                   fontSize: '0.72rem',
                   fontWeight: 700,
                   color: card.badgeColor,
-                  background: 'rgba(0, 0, 0, 0.5)',
+                  background: '#ffffff',
                   padding: '4px 10px',
                   borderRadius: 9999,
-                  border: `1px solid ${card.badgeColor}40`
+                  border: `1px solid ${card.badgeColor}40`,
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.06)'
                 }}>
                   {card.badge}
                 </span>
@@ -865,7 +867,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
 
               {/* Content Area */}
               <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flex: 1, gap: 12 }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.4 }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.4 }}>
                   {card.title}
                 </h3>
                 <div style={{
@@ -873,7 +875,7 @@ export default function HomePage({ onOpenDesk, onSelectCompany, reports = [] }) 
                   alignItems: 'center',
                   gap: 6,
                   fontSize: '0.78rem',
-                  color: '#94a3b8',
+                  color: '#64748b',
                   marginTop: 'auto'
                 }}>
                   <Clock size={13} color="#64748b" />

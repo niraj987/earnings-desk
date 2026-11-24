@@ -74,26 +74,27 @@ export default function EarthHero({ onOpenDesk }) {
       time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
-      // Deep space background gradient (Image 1 & 2 color grade: deep space to midnight navy)
+      // Sky & High-Atmosphere background gradient matching whitish creamy gray theme
       const spaceGrad = ctx.createLinearGradient(0, 0, 0, height);
-      spaceGrad.addColorStop(0, '#020409');
-      spaceGrad.addColorStop(0.5, '#04091b');
-      spaceGrad.addColorStop(1, '#07122e');
+      spaceGrad.addColorStop(0, '#f8f9fa'); // whitish creamy gray
+      spaceGrad.addColorStop(0.45, '#eef2f6'); // creamy slate
+      spaceGrad.addColorStop(0.75, '#e0f2fe'); // soft sky atmospheric cyan
+      spaceGrad.addColorStop(1, '#bae6fd'); // dawn horizon
       ctx.fillStyle = spaceGrad;
       ctx.fillRect(0, 0, width, height);
 
-      // Subtle celestial nebula band across top
+      // Subtle celestial atmospheric glow band
       const nebulaGrad = ctx.createRadialGradient(width * 0.55, height * 0.25, 10, width * 0.55, height * 0.25, width * 0.6);
-      nebulaGrad.addColorStop(0, 'rgba(56, 189, 248, 0.06)');
-      nebulaGrad.addColorStop(0.4, 'rgba(37, 99, 235, 0.04)');
+      nebulaGrad.addColorStop(0, 'rgba(56, 189, 248, 0.16)');
+      nebulaGrad.addColorStop(0.4, 'rgba(37, 99, 235, 0.08)');
       nebulaGrad.addColorStop(1, 'transparent');
       ctx.fillStyle = nebulaGrad;
       ctx.fillRect(0, 0, width, height);
 
-      // Render glittering stars
+      // Render delicate celestial sparkles
       for (const s of stars) {
         const twinkle = Math.sin(time * s.speed * 60 + s.phase) * 0.3 + 0.7;
-        ctx.fillStyle = `rgba(224, 242, 254, ${s.alpha * twinkle})`;
+        ctx.fillStyle = `rgba(14, 165, 233, ${s.alpha * twinkle * 0.45})`;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -136,7 +137,7 @@ export default function EarthHero({ onOpenDesk }) {
       ctx.closePath();
       ctx.clip();
 
-      // Inside Earth Surface Gradient
+      // Inside Earth Surface Gradient - Deep Ocean Blue & Twilight
       const surfaceGrad = ctx.createRadialGradient(
         earthCenterX,
         horizonYOffset,
@@ -145,10 +146,10 @@ export default function EarthHero({ onOpenDesk }) {
         horizonYOffset,
         earthRadius
       );
-      surfaceGrad.addColorStop(0, '#061330');
-      surfaceGrad.addColorStop(0.3, '#040b1e');
-      surfaceGrad.addColorStop(0.8, '#020510');
-      surfaceGrad.addColorStop(1, '#01030a');
+      surfaceGrad.addColorStop(0, '#0284c7');
+      surfaceGrad.addColorStop(0.25, '#0369a1');
+      surfaceGrad.addColorStop(0.65, '#0c4a6e');
+      surfaceGrad.addColorStop(1, '#082f49');
       ctx.fillStyle = surfaceGrad;
       ctx.fill();
 
@@ -246,12 +247,12 @@ export default function EarthHero({ onOpenDesk }) {
         }}
       />
 
-      {/* Atmospheric Vignette Overlay */}
+      {/* Atmospheric Vignette Overlay matching Whitish Creamy Gray */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 90% 70% at 50% 30%, transparent 40%, rgba(2, 4, 10, 0.75) 100%)',
+          background: 'radial-gradient(ellipse 90% 70% at 50% 30%, transparent 40%, rgba(248, 249, 250, 0.88) 100%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -267,9 +268,8 @@ export default function EarthHero({ onOpenDesk }) {
             fontWeight: 800,
             lineHeight: 1.1,
             letterSpacing: '-0.03em',
-            color: '#ffffff',
-            marginBottom: 24,
-            textShadow: '0 4px 30px rgba(0, 0, 0, 0.8)'
+            color: '#0f172a',
+            marginBottom: 24
           }}
         >
           Earnings Desk{' '}
@@ -278,12 +278,12 @@ export default function EarthHero({ onOpenDesk }) {
               display: 'block',
               fontSize: 'clamp(1.6rem, 3.8vw, 2.8rem)',
               fontWeight: 400,
-              color: 'rgba(224, 242, 254, 0.85)',
+              color: '#334155',
               letterSpacing: '-0.015em',
               marginTop: 6
             }}
           >
-            with <strong style={{ fontWeight: 800, color: '#38bdf8' }}>Provable Grounding</strong>
+            with <strong style={{ fontWeight: 800, color: '#0284c7' }}>Provable Grounding</strong>
           </span>
         </h1>
 
@@ -292,16 +292,15 @@ export default function EarthHero({ onOpenDesk }) {
           className="animate-fade-in-up animate-delay-1"
           style={{
             fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-            color: '#cbd5e1',
+            color: '#475569',
             lineHeight: 1.7,
             maxWidth: 760,
-            margin: '0 auto 38px',
-            textShadow: '0 2px 10px rgba(0, 0, 0, 0.7)'
+            margin: '0 auto 38px'
           }}
         >
-          Transform quarterly SEC earnings filings into <strong style={{ color: '#ffffff' }}>verifiable executive research notes</strong>.
+          Transform quarterly SEC earnings filings into <strong style={{ color: '#0f172a' }}>verifiable executive research notes</strong>.
           Every quantitative figure and qualitative variance is anchored to source disclosures with{' '}
-          <strong style={{ color: '#38bdf8' }}>zero generative hallucination</strong>.
+          <strong style={{ color: '#0284c7' }}>zero generative hallucination</strong>.
         </p>
 
         {/* Action Buttons with staggered entrance */}
@@ -318,8 +317,9 @@ export default function EarthHero({ onOpenDesk }) {
               borderRadius: 10,
               background: 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)',
               border: '1px solid rgba(56, 189, 248, 0.4)',
-              boxShadow: '0 8px 30px rgba(2, 132, 199, 0.35)',
-              fontWeight: 700
+              boxShadow: '0 8px 24px rgba(2, 132, 199, 0.35)',
+              fontWeight: 700,
+              color: '#ffffff'
             }}
           >
             <span>Launch Analysis Desk</span>
@@ -333,11 +333,11 @@ export default function EarthHero({ onOpenDesk }) {
               padding: '14px 26px',
               fontSize: '1rem',
               borderRadius: 10,
-              background: 'rgba(10, 20, 48, 0.7)',
-              border: '1px solid rgba(255, 255, 255, 0.16)',
-              backdropFilter: 'blur(16px)',
+              background: '#ffffff',
+              border: '1px solid #cbd5e1',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
               fontWeight: 600,
-              color: '#f8fafc'
+              color: '#0f172a'
             }}
           >
             <span>Explore Acme Case ($4.82B)</span>
@@ -350,15 +350,38 @@ export default function EarthHero({ onOpenDesk }) {
               padding: '14px 26px',
               fontSize: '1rem',
               borderRadius: 10,
-              background: 'rgba(10, 20, 48, 0.7)',
-              border: '1px solid rgba(56, 189, 248, 0.25)',
-              backdropFilter: 'blur(16px)',
+              background: '#ffffff',
+              border: '1px solid #cbd5e1',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
               fontWeight: 600,
-              color: '#38bdf8'
+              color: '#0284c7'
             }}
           >
             <span>CloudScale AI (+36% YoY)</span>
           </button>
+        </div>
+
+        {/* Scroll Zoom Indicator */}
+        <div
+          style={{
+            marginTop: 48,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            color: '#64748b',
+            fontSize: '0.82rem',
+            fontWeight: 600
+          }}
+        >
+          <span style={{
+            display: 'inline-block',
+            width: 8,
+            height: 8,
+            borderRadius: '50%',
+            background: '#0284c7',
+            boxShadow: '0 0 10px #0284c7'
+          }} />
+          <span>Interactive Earth: Scroll to zoom curvature ({Math.round((1 + scrollProgress * 0.55) * 100)}%)</span>
         </div>
 
         {/* Scroll Zoom Indicator */}

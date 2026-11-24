@@ -26,39 +26,39 @@ export default function Header({
       {/* Sleek Understated Financial Feed */}
       <div className="ticker-wrap no-print">
         <div className="ticker-content">
-          <span style={{ color: '#fbbf24', fontWeight: 700, marginRight: 32 }}>
+          <span style={{ color: '#d97706', fontWeight: 700, marginRight: 32 }}>
             JH ANALYTICS FINANCIAL FEED
           </span>
-          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
-            ACME TECHNOLOGIES: <span style={{ color: '#ffffff', fontWeight: 600 }}>$4.82B</span> (+12.0% YoY) · Stable Core Operations
+          <span style={{ color: '#334155', marginRight: 32 }}>
+            ACME TECHNOLOGIES: <span style={{ color: '#0f172a', fontWeight: 700 }}>$4.82B</span> (+12.0% YoY) · Stable Core Operations
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+          <span style={{ color: '#e11d48', marginRight: 32 }}>
             ACME RISK PROFILE: 1.62x Leverage · 38% Top-Customer Concentration
           </span>
-          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
-            CLOUDSCALE AI: <span style={{ color: '#10b981', fontWeight: 600 }}>$2.40B</span> (+36.0% YoY) · 74.5% GM · Zero Debt
+          <span style={{ color: '#334155', marginRight: 32 }}>
+            CLOUDSCALE AI: <span style={{ color: '#059669', fontWeight: 700 }}>$2.40B</span> (+36.0% YoY) · 74.5% GM · Zero Debt
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+          <span style={{ color: '#e11d48', marginRight: 32 }}>
             NOVARETAIL: $6.10B (-2.0% YoY) · 4.1x Debt/Cash · Margin Pressure
           </span>
-          <span style={{ color: '#94a3b8', marginRight: 32 }}>
+          <span style={{ color: '#64748b', marginRight: 32 }}>
             GROUNDING AUDIT: 100.0% Verified Primary Filings
           </span>
 
           {/* Loop repeat */}
-          <span style={{ color: '#fbbf24', fontWeight: 700, marginRight: 32 }}>
+          <span style={{ color: '#d97706', fontWeight: 700, marginRight: 32 }}>
             JH ANALYTICS FINANCIAL FEED
           </span>
-          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
-            ACME TECHNOLOGIES: <span style={{ color: '#ffffff', fontWeight: 600 }}>$4.82B</span> (+12.0% YoY) · Stable Core Operations
+          <span style={{ color: '#334155', marginRight: 32 }}>
+            ACME TECHNOLOGIES: <span style={{ color: '#0f172a', fontWeight: 700 }}>$4.82B</span> (+12.0% YoY) · Stable Core Operations
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+          <span style={{ color: '#e11d48', marginRight: 32 }}>
             ACME RISK PROFILE: 1.62x Leverage · 38% Top-Customer Concentration
           </span>
-          <span style={{ color: '#e2e8f0', marginRight: 32 }}>
-            CLOUDSCALE AI: <span style={{ color: '#10b981', fontWeight: 600 }}>$2.40B</span> (+36.0% YoY) · 74.5% GM · Zero Debt
+          <span style={{ color: '#334155', marginRight: 32 }}>
+            CLOUDSCALE AI: <span style={{ color: '#059669', fontWeight: 700 }}>$2.40B</span> (+36.0% YoY) · 74.5% GM · Zero Debt
           </span>
-          <span style={{ color: '#f43f5e', marginRight: 32 }}>
+          <span style={{ color: '#e11d48', marginRight: 32 }}>
             NOVARETAIL: $6.10B (-2.0% YoY) · 4.1x Debt/Cash · Margin Pressure
           </span>
         </div>
@@ -90,7 +90,7 @@ export default function Header({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
+              border: '1px solid rgba(79, 70, 229, 0.25)',
               boxShadow: '0 2px 8px rgba(79, 70, 229, 0.25)'
             }}>
               <TrendingUp size={20} color="#ffffff" />
@@ -99,7 +99,7 @@ export default function Header({
               <div className="font-grelify" style={{
                 fontSize: '1.25rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#0f172a',
                 letterSpacing: '-0.025em',
                 lineHeight: 1.15
               }}>
@@ -109,7 +109,7 @@ export default function Header({
                 style={{
                   fontSize: '0.72rem',
                   fontWeight: 700,
-                  color: '#fbbf24',
+                  color: '#d97706',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginTop: 1
@@ -125,11 +125,11 @@ export default function Header({
             display: 'flex',
             alignItems: 'center',
             gap: 6,
-            background: 'rgba(8, 16, 36, 0.65)',
+            background: '#f1f5f9',
             padding: '4px 6px',
             borderRadius: 9999,
-            border: '1px solid rgba(56, 189, 248, 0.16)',
-            boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.4)'
+            border: '1px solid #e2e8f0',
+            boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.04)'
           }}>
             <button
               onClick={() => onNavigate && onNavigate('home')}
@@ -139,18 +139,18 @@ export default function Header({
                 gap: 6,
                 padding: '6px 16px',
                 borderRadius: 9999,
-                border: currentPage === 'home' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
+                border: currentPage === 'home' ? '1px solid #0284c7' : '1px solid transparent',
                 background: currentPage === 'home' 
-                  ? 'linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)' 
+                  ? 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)' 
                   : 'transparent',
-                color: currentPage === 'home' ? '#ffffff' : '#94a3b8',
+                color: currentPage === 'home' ? '#ffffff' : '#64748b',
                 fontWeight: currentPage === 'home' ? 600 : 500,
                 fontSize: '0.84rem',
                 boxShadow: currentPage === 'home' ? '0 2px 10px rgba(2, 132, 199, 0.25)' : 'none',
                 transition: 'all 0.2s ease'
               }}
             >
-              <Home size={14} color={currentPage === 'home' ? '#38bdf8' : '#94a3b8'} />
+              <Home size={14} color={currentPage === 'home' ? '#ffffff' : '#64748b'} />
               <span>Home</span>
             </button>
 
@@ -162,18 +162,18 @@ export default function Header({
                 gap: 6,
                 padding: '6px 16px',
                 borderRadius: 9999,
-                border: currentPage === 'desk' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
+                border: currentPage === 'desk' ? '1px solid #0284c7' : '1px solid transparent',
                 background: currentPage === 'desk' 
-                  ? 'linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)' 
+                  ? 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)' 
                   : 'transparent',
-                color: currentPage === 'desk' ? '#ffffff' : '#94a3b8',
+                color: currentPage === 'desk' ? '#ffffff' : '#64748b',
                 fontWeight: currentPage === 'desk' ? 600 : 500,
                 fontSize: '0.84rem',
                 boxShadow: currentPage === 'desk' ? '0 2px 10px rgba(2, 132, 199, 0.25)' : 'none',
                 transition: 'all 0.2s ease'
               }}
             >
-              <BarChart3 size={14} color={currentPage === 'desk' ? '#38bdf8' : '#94a3b8'} />
+              <BarChart3 size={14} color={currentPage === 'desk' ? '#ffffff' : '#64748b'} />
               <span>Analysis Desk</span>
             </button>
 
@@ -185,18 +185,18 @@ export default function Header({
                 gap: 6,
                 padding: '6px 16px',
                 borderRadius: 9999,
-                border: currentPage === 'about' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
+                border: currentPage === 'about' ? '1px solid #0284c7' : '1px solid transparent',
                 background: currentPage === 'about' 
-                  ? 'linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)' 
+                  ? 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)' 
                   : 'transparent',
-                color: currentPage === 'about' ? '#ffffff' : '#94a3b8',
+                color: currentPage === 'about' ? '#ffffff' : '#64748b',
                 fontWeight: currentPage === 'about' ? 600 : 500,
                 fontSize: '0.84rem',
                 boxShadow: currentPage === 'about' ? '0 2px 10px rgba(2, 132, 199, 0.25)' : 'none',
                 transition: 'all 0.2s ease'
               }}
             >
-              <Info size={14} color={currentPage === 'about' ? '#38bdf8' : '#94a3b8'} />
+              <Info size={14} color={currentPage === 'about' ? '#ffffff' : '#64748b'} />
               <span>About</span>
             </button>
           </nav>
@@ -222,12 +222,13 @@ export default function Header({
                       }
                     }}
                     style={{
-                      padding: '5px 10px',
-                      borderRadius: 6,
+                      padding: '5px 12px',
+                      borderRadius: 9999,
                       fontSize: '0.75rem',
-                      background: isSelected ? 'rgba(79, 70, 229, 0.2)' : 'rgba(30, 41, 59, 0.6)',
-                      border: `1px solid ${isSelected ? '#6366f1' : 'rgba(255, 255, 255, 0.08)'}`,
-                      color: isSelected ? '#ffffff' : '#cbd5e1',
+                      background: isSelected ? 'rgba(2, 132, 199, 0.12)' : '#ffffff',
+                      border: `1px solid ${isSelected ? '#0284c7' : '#cbd5e1'}`,
+                      color: isSelected ? '#0369a1' : '#334155',
+                      boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: 6
@@ -236,9 +237,9 @@ export default function Header({
                     <span style={{ fontWeight: 600 }}>{p.label}</span>
                     <span style={{
                       fontSize: '0.65rem',
-                      padding: '1px 5px',
-                      borderRadius: 3,
-                      background: `${p.color}20`,
+                      padding: '1px 6px',
+                      borderRadius: 9999,
+                      background: `${p.color}15`,
                       color: p.color,
                       fontWeight: 700
                     }}>
@@ -255,10 +256,10 @@ export default function Header({
             {currentPage === 'desk' && (
               <button
                 onClick={() => window.print()}
-                className="btn btn-silver btn-sm no-print"
+                className="btn btn-secondary btn-sm no-print"
                 title="Print or Save PDF Executive Brief"
               >
-                <Printer size={14} color="#e2e8f0" />
+                <Printer size={14} color="#64748b" />
                 <span>Print PDF</span>
               </button>
             )}
@@ -272,11 +273,11 @@ export default function Header({
                 gap: 6
               }}
             >
-              <Database size={14} color="#94a3b8" />
+              <Database size={14} color="#64748b" />
               <span>Database</span>
               <span style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                color: '#f8fafc',
+                background: '#e2e8f0',
+                color: '#0f172a',
                 borderRadius: 4,
                 padding: '1px 6px',
                 fontSize: '0.7rem',

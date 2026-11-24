@@ -70,7 +70,7 @@ export default function MetricsBanner({ report }) {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Overall Desk Stance
             </span>
           </div>
@@ -88,7 +88,7 @@ export default function MetricsBanner({ report }) {
           </div>
           <div style={{
             height: 4,
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'rgba(0, 0, 0, 0.08)',
             borderRadius: 2,
             position: 'relative'
           }}>
@@ -100,10 +100,11 @@ export default function MetricsBanner({ report }) {
               height: 10,
               borderRadius: '50%',
               background: vStyle.text,
-              border: '2px solid #0f172a'
+              border: '2px solid #ffffff',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
             }} />
           </div>
-          <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: 8, lineHeight: 1.4 }}>
+          <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: 8, lineHeight: 1.4 }}>
             {vStyle.desc}
           </div>
         </div>
@@ -118,16 +119,16 @@ export default function MetricsBanner({ report }) {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Provenance Audit
             </span>
             <ShieldCheck size={16} color="#10b981" />
           </div>
-          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', letterSpacing: '-0.02em' }}>
             {coverage}% <span style={{ fontSize: '0.75rem', color: '#10b981', fontWeight: 600 }}>Grounded</span>
           </div>
         </div>
-        <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: 10, lineHeight: 1.4 }}>
+        <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: 10, lineHeight: 1.4 }}>
           100% of claims cite primary figures or verbatim sentences.
         </div>
       </div>
@@ -141,19 +142,19 @@ export default function MetricsBanner({ report }) {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Extracted Facts
             </span>
-            <Hash size={16} color="#818cf8" />
+            <Hash size={16} color="#0284c7" />
           </div>
-          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', letterSpacing: '-0.02em' }}>
             {figuresCount}{' '}
             <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 500 }}>
               + {priorFiguresCount} prior
             </span>
           </div>
         </div>
-        <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: 10, lineHeight: 1.4 }}>
+        <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: 10, lineHeight: 1.4 }}>
           Structured facts across current & prior quarters.
         </div>
       </div>
@@ -167,16 +168,16 @@ export default function MetricsBanner({ report }) {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Agent Conflicts
             </span>
-            <AlertTriangle size={16} color={disagreementsCount > 0 ? '#f59e0b' : '#64748b'} />
+            <AlertTriangle size={16} color={disagreementsCount > 0 ? '#d97706' : '#64748b'} />
           </div>
-          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: disagreementsCount > 0 ? '#f59e0b' : '#f8fafc', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: disagreementsCount > 0 ? '#d97706' : '#0f172a', letterSpacing: '-0.02em' }}>
             {disagreementsCount}
           </div>
         </div>
-        <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: 10, lineHeight: 1.4 }}>
+        <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: 10, lineHeight: 1.4 }}>
           {disagreementsCount > 0 ? 'Editor resolved opposing agent signals' : 'All specialist stances mathematically aligned'}
         </div>
       </div>
@@ -190,16 +191,16 @@ export default function MetricsBanner({ report }) {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Agent Latency
             </span>
             <Clock size={16} color="#64748b" />
           </div>
-          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', letterSpacing: '-0.02em' }}>
             {totalMs > 0 ? `${totalMs.toFixed(1)} ms` : '< 5 ms'}
           </div>
         </div>
-        <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: 10, lineHeight: 1.4 }}>
+        <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: 10, lineHeight: 1.4 }}>
           Concurrent parallel fan-out across 4 specialist agents.
         </div>
       </div>

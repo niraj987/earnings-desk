@@ -1,49 +1,49 @@
 :root {
-  /* Core Base Palette - Cinematic Sapphire & Space Black (From Screenshot 1 & 2) */
-  --bg-primary: #020409;
-  --bg-secondary: #050b1c;
-  --bg-card: rgba(8, 16, 38, 0.7);
-  --bg-card-hover: rgba(12, 24, 54, 0.85);
+  /* Core Base Palette - Whitish Creamy Gray Aesthetic (FundsIndia & Modern Light SaaS Style) */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
 
-  /* Atmospheric Cyan & Sapphire Borders */
-  --border-color: rgba(56, 189, 248, 0.16);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(56, 189, 248, 0.35);
-  --border-focus: rgba(56, 189, 248, 0.6);
+  /* Atmospheric Subtle Slate & Cyan Borders */
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-strong: rgba(2, 132, 199, 0.35);
+  --border-focus: rgba(2, 132, 199, 0.6);
 
-  /* Typography Spectrum */
-  --text-main: #ffffff;
-  --text-secondary: #e0f2fe;
-  --text-muted: #94a3b8;
-  --text-faint: #64748b;
-  --text-gold: #fbbf24;
-  --text-cyan: #38bdf8;
-  --text-blue: #60a5fa;
+  /* Typography Spectrum - Dark Crisp High-Contrast */
+  --text-main: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --text-gold: #d97706;
+  --text-cyan: #0284c7;
+  --text-blue: #2563eb;
 
   /* Refined Accent Palette */
   --accent-primary: #0284c7;
   --accent-primary-hover: #0369a1;
-  --accent-primary-bg: rgba(56, 189, 248, 0.12);
+  --accent-primary-bg: rgba(2, 132, 199, 0.1);
 
-  --accent-gold: #f59e0b;
-  --accent-gold-light: #fbbf24;
-  --accent-gold-bg: rgba(245, 158, 11, 0.12);
+  --accent-gold: #d97706;
+  --accent-gold-light: #b45309;
+  --accent-gold-bg: rgba(217, 119, 6, 0.1);
 
-  --accent-silver: #94a3b8;
-  --accent-silver-bg: rgba(148, 163, 184, 0.1);
+  --accent-silver: #64748b;
+  --accent-silver-bg: rgba(100, 116, 139, 0.1);
 
   /* Financial Status Accents */
-  --accent-positive: #10b981;
-  --accent-positive-bg: rgba(16, 185, 129, 0.12);
-  --accent-mixed: #f59e0b;
-  --accent-mixed-bg: rgba(245, 158, 11, 0.12);
-  --accent-negative: #f43f5e;
-  --accent-negative-bg: rgba(244, 63, 94, 0.12);
+  --accent-positive: #059669;
+  --accent-positive-bg: rgba(5, 150, 105, 0.1);
+  --accent-mixed: #d97706;
+  --accent-mixed-bg: rgba(217, 119, 6, 0.1);
+  --accent-negative: #e11d48;
+  --accent-negative-bg: rgba(225, 29, 72, 0.1);
 
   /* Provenance Badge Tokens */
-  --ref-badge-bg: rgba(8, 20, 48, 0.85);
-  --ref-badge-border: rgba(56, 189, 248, 0.35);
-  --ref-badge-text: #bae6fd;
+  --ref-badge-bg: rgba(2, 132, 199, 0.08);
+  --ref-badge-border: rgba(2, 132, 199, 0.3);
+  --ref-badge-text: #0369a1;
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -59,9 +59,9 @@
 body {
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.14) 0%, rgba(2, 6, 23, 0.95) 55%),
-    radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
+    radial-gradient(circle at 50% 0%, rgba(224, 242, 254, 0.65) 0%, rgba(248, 249, 250, 0.98) 55%),
+    radial-gradient(circle at 85% 30%, rgba(243, 232, 255, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 15% 70%, rgba(254, 243, 199, 0.35) 0%, transparent 40%);
   background-attachment: fixed;
   color: var(--text-secondary);
   font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -95,13 +95,13 @@ code, pre, .mono {
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .cinematic-subheading {
   font-size: clamp(1.5rem, 3.4vw, 2.6rem);
   font-weight: 400;
-  color: rgba(224, 242, 254, 0.45);
+  color: #64748b;
   letter-spacing: -0.015em;
 }
 
@@ -113,10 +113,13 @@ button {
 
 input, textarea, select {
   font-family: inherit;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
 }
 
 /* =========================================================================
-   Cinematic Floating Pills (Screenshot 1 Style)
+   Cinematic Floating Pills (FundsIndia Light Style)
    ========================================================================= */
 
 .cinematic-pill {
@@ -125,20 +128,18 @@ input, textarea, select {
   gap: 8px;
   padding: 6px 14px;
   border-radius: 9999px;
-  background: rgba(8, 18, 44, 0.65);
-  border: 1px solid rgba(56, 189, 248, 0.22);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #ffffff;
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   font-size: 0.8rem;
-  font-weight: 500;
-  color: #e0f2fe;
+  font-weight: 600;
+  color: #0369a1;
   transition: all 0.2s ease;
 }
 
 .cinematic-pill:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+  border-color: rgba(2, 132, 199, 0.45);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.15);
   transform: translateY(-1px);
 }
 
@@ -146,52 +147,55 @@ input, textarea, select {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 8px #38bdf8;
+  background: #0284c7;
+  box-shadow: 0 0 6px #0284c7;
 }
 
 /* =========================================================================
-   Glass Panels & Cinematic Cards - Sapphire Graded
+   Glass Panels & Cinematic Cards - Whitish Creamy Frosted
    ========================================================================= */
 
 .glass-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.05);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   position: relative;
+  color: #0f172a;
 }
 
 .glass-panel:hover {
-  border-color: var(--border-strong);
-  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.12);
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 0 20px rgba(2, 132, 199, 0.06);
 }
 
 .glass-panel-subtle {
-  background: rgba(8, 16, 38, 0.45);
-  border: 1px solid var(--border-subtle);
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-sm);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  color: #1e293b;
 }
 
 .cinematic-card {
-  background: rgba(8, 18, 44, 0.65);
-  border: 1px solid rgba(56, 189, 248, 0.18);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.07);
+  box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #0f172a;
 }
 
 .cinematic-card:hover {
-  border-color: rgba(56, 189, 248, 0.38);
-  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.16);
-  transform: translateY(-4px);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 18px 40px -8px rgba(0, 0, 0, 0.09), 0 0 25px rgba(2, 132, 199, 0.08);
+  transform: translateY(-3px);
 }
 
 /* Interactive Tile Effects */
@@ -205,33 +209,33 @@ input, textarea, select {
 }
 
 .tile-gold {
-  background: rgba(245, 158, 11, 0.04);
-  border: 1px solid rgba(245, 158, 11, 0.22);
+  background: #fffbeb;
+  border: 1px solid rgba(217, 119, 6, 0.22);
 }
 
 .tile-gold:hover {
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.12);
+  border-color: rgba(217, 119, 6, 0.45);
+  box-shadow: 0 12px 30px -6px rgba(217, 119, 6, 0.15);
 }
 
 .tile-purple {
-  background: rgba(56, 189, 248, 0.04);
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: #f0f9ff;
+  border: 1px solid rgba(2, 132, 199, 0.22);
 }
 
 .tile-purple:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.12);
+  border-color: rgba(2, 132, 199, 0.45);
+  box-shadow: 0 12px 30px -6px rgba(2, 132, 199, 0.15);
 }
 
 .tile-silver {
-  background: rgba(148, 163, 184, 0.04);
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.22);
 }
 
 .tile-silver:hover {
   border-color: rgba(148, 163, 184, 0.35);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================================================================
@@ -383,16 +387,16 @@ input, textarea, select {
 }
 
 .btn-secondary {
-  background: rgba(8, 18, 44, 0.65);
-  color: #e0f2fe;
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  backdrop-filter: blur(14px);
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .btn-secondary:hover {
-  background: rgba(14, 28, 64, 0.85);
-  border-color: rgba(56, 189, 248, 0.4);
-  color: #ffffff;
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
   transform: translateY(-2px);
 }
 
@@ -414,9 +418,9 @@ input, textarea, select {
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  background: rgba(8, 20, 48, 0.9);
-  color: #bae6fd;
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: rgba(2, 132, 199, 0.1);
+  color: #0369a1;
+  border: 1px solid rgba(2, 132, 199, 0.3);
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
@@ -424,13 +428,13 @@ input, textarea, select {
 }
 
 .ref-pill:hover {
-  background: #0369a1;
+  background: #0284c7;
   color: #ffffff;
-  border-color: #38bdf8;
+  border-color: #0284c7;
 }
 
 /* =========================================================================
-   Tables - Clean Financial Grid
+   Tables - Clean Financial Grid (Whitish Creamy Gray)
    ========================================================================= */
 
 .desk-table {
@@ -442,41 +446,42 @@ input, textarea, select {
 
 .desk-table th {
   padding: 12px 16px;
-  background: rgba(8, 16, 38, 0.85);
-  color: #94a3b8;
+  background: #f8fafc;
+  color: #475569;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .desk-table td {
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid #f1f5f9;
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: #334155;
   line-height: 1.5;
 }
 
 .desk-table tr:hover td {
-  background: rgba(14, 28, 64, 0.4);
-  color: #ffffff;
+  background: #f1f5f9;
+  color: #0f172a;
 }
 
 /* =========================================================================
-   Ticker Tape - Understated Financial Feed
+   Ticker Tape - Understated Financial Feed (Whitish Creamy Theme)
    ========================================================================= */
 
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
-  background: #020409;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
   padding: 8px 0;
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
   white-space: nowrap;
+  color: #1e293b;
 }
 
 .ticker-content {
@@ -495,18 +500,18 @@ input, textarea, select {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0f1f45;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: #94a3b8;
 }
 
 /* =========================================================================
-   Curved Glass Header & Smooth Keyframe Transitions
+   Curved Glass Header & Smooth Keyframe Transitions (Frosted Whitish Creamy Glass)
    ========================================================================= */
 
 .glass-header-curved {
@@ -516,14 +521,14 @@ input, textarea, select {
   max-width: 1240px;
   margin: 12px auto 0 auto;
   border-radius: 20px;
-  background: rgba(6, 12, 30, 0.78);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(56, 189, 248, 0.24);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.65),
-    0 0 25px rgba(56, 189, 248, 0.08),
-    inset 0 1px 1px rgba(255, 255, 255, 0.22);
+    0 16px 36px -8px rgba(0, 0, 0, 0.08),
+    0 0 20px rgba(2, 132, 199, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

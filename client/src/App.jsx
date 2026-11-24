@@ -358,9 +358,9 @@ export default function App() {
         {/* Analysis Desk View */}
         {currentPage === 'desk' && (
           initialLoading ? (
-            <div style={{ textAlign: 'center', padding: '80px 20px', color: '#94a3b8' }}>
-              <TrendingUp size={40} color="#6366f1" style={{ margin: '0 auto 16px', display: 'block' }} />
-              <div className="font-grelify" style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc' }}>
+            <div style={{ textAlign: 'center', padding: '80px 20px', color: '#64748b' }}>
+              <TrendingUp size={40} color="#0284c7" style={{ margin: '0 auto 16px', display: 'block' }} />
+              <div className="font-grelify" style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a' }}>
                 Connecting to JH Analytics Database...
               </div>
               <div style={{ fontSize: '0.875rem', color: '#64748b', marginTop: 6 }}>
@@ -369,11 +369,11 @@ export default function App() {
             </div>
           ) : !currentReport ? (
             <div className="glass-panel" style={{ padding: '64px 32px', textAlign: 'center' }}>
-              <FileText size={48} color="#818cf8" style={{ margin: '0 auto 16px' }} />
-              <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f8fafc', marginBottom: 10 }}>
+              <FileText size={48} color="#0284c7" style={{ margin: '0 auto 16px' }} />
+              <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0f172a', marginBottom: 10 }}>
                 No Earnings Reports Found in Database
               </h2>
-              <p style={{ color: '#94a3b8', maxWidth: 500, margin: '0 auto 24px', fontSize: '0.92rem' }}>
+              <p style={{ color: '#475569', maxWidth: 500, margin: '0 auto 24px', fontSize: '0.92rem' }}>
                 Load pre-packaged portfolio samples or upload a new earnings press release to run the multi-agent analysis.
               </p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -394,7 +394,7 @@ export default function App() {
               <div style={{
                 display: 'flex',
                 gap: 6,
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                borderBottom: '1px solid #e2e8f0',
                 overflowX: 'auto',
                 paddingBottom: 2
               }}>
@@ -412,17 +412,18 @@ export default function App() {
                         padding: '10px 18px',
                         borderRadius: '6px 6px 0 0',
                         border: 'none',
-                        background: isActive ? 'rgba(30, 41, 59, 0.6)' : 'transparent',
-                        color: isActive ? '#f8fafc' : '#94a3b8',
-                        fontWeight: isActive ? 600 : 500,
+                        background: isActive ? '#ffffff' : 'transparent',
+                        color: isActive ? '#0f172a' : '#64748b',
+                        fontWeight: isActive ? 700 : 500,
                         fontSize: '0.875rem',
-                        borderBottom: isActive ? '2px solid #6366f1' : '2px solid transparent',
+                        borderBottom: isActive ? '2px solid #0284c7' : '2px solid transparent',
+                        boxShadow: isActive ? '0 1px 4px rgba(0, 0, 0, 0.05)' : 'none',
                         cursor: 'pointer',
                         whiteSpace: 'nowrap',
                         transition: 'all 0.15s ease'
                       }}
                     >
-                      <Icon size={16} color={isActive ? '#818cf8' : '#64748b'} />
+                      <Icon size={16} color={isActive ? '#0284c7' : '#94a3b8'} />
                       <span>{tab.label}</span>
                     </button>
                   );

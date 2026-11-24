@@ -104,13 +104,13 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
         flexWrap: 'wrap',
         gap: 12,
         paddingBottom: 14,
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        borderBottom: '1px solid #e2e8f0'
       }}>
         <div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em' }}>
-            {report.company} — <span style={{ color: '#fbbf24' }}>{report.period}</span> Research Note
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', letterSpacing: '-0.02em' }}>
+            {report.company} — <span style={{ color: '#d97706' }}>{report.period}</span> Research Note
           </h2>
-          <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
             Specialist Multi-Agent Synthesis · Deterministic Provenance Grounding
           </p>
         </div>
@@ -121,11 +121,11 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
             onClick={handleToggleAudio}
             className="btn btn-secondary btn-sm"
             style={{
-              borderColor: isPlayingAudio ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255, 255, 255, 0.12)',
-              color: isPlayingAudio ? '#10b981' : '#cbd5e1'
+              borderColor: isPlayingAudio ? '#10b981' : '#cbd5e1',
+              color: isPlayingAudio ? '#10b981' : '#334155'
             }}
           >
-            {isPlayingAudio ? <VolumeX size={14} /> : <Volume2 size={14} color="#818cf8" />}
+            {isPlayingAudio ? <VolumeX size={14} /> : <Volume2 size={14} color="#0284c7" />}
             <span style={{ fontWeight: 600 }}>{isPlayingAudio ? 'Stop Briefing' : 'Audio Briefing'}</span>
             {isPlayingAudio && (
               <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginLeft: 4 }}>
@@ -136,7 +136,7 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
             )}
           </button>
 
-          <button onClick={handleCopy} className="btn btn-silver btn-sm">
+          <button onClick={handleCopy} className="btn btn-secondary btn-sm">
             {copied ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
             <span>{copied ? 'Copied' : 'Copy'}</span>
           </button>
@@ -151,11 +151,11 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
       {/* Floating Ref Preview Card */}
       {activeRefInfo && (
         <div className="glass-panel no-print" style={{
-          background: 'rgba(15, 18, 38, 0.95)',
-          border: '1px solid #fbbf24',
+          background: '#ffffff',
+          border: '1px solid #d97706',
           borderRadius: 10,
           padding: '14px 20px',
-          boxShadow: '0 8px 25px rgba(245, 158, 11, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
+          boxShadow: '0 8px 25px rgba(217, 119, 6, 0.15)',
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'space-between',
@@ -163,21 +163,21 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
-              <span className="ref-pill" style={{ background: '#7e22ce', color: '#fff', fontSize: '0.85rem' }}>
+              <span className="ref-pill" style={{ background: '#0284c7', color: '#fff', fontSize: '0.85rem' }}>
                 {activeRefInfo.id}
               </span>
-              <span style={{ fontWeight: 800, color: '#ffffff' }}>{activeRefInfo.label}</span>
-              <span style={{ color: '#fbbf24', fontWeight: 800 }}>
+              <span style={{ fontWeight: 800, color: '#0f172a' }}>{activeRefInfo.label}</span>
+              <span style={{ color: '#d97706', fontWeight: 800 }}>
                 {activeRefInfo.display || activeRefInfo.value} {activeRefInfo.unit}
               </span>
             </div>
-            <div style={{ fontSize: '0.84rem', color: '#cbd5e1', fontStyle: 'italic' }}>
+            <div style={{ fontSize: '0.84rem', color: '#475569', fontStyle: 'italic' }}>
               &ldquo;{activeRefInfo.source}&rdquo;
             </div>
           </div>
           <button
             onClick={() => setActiveRefInfo(null)}
-            style={{ background: 'transparent', border: 'none', color: '#94a3b8', fontSize: '1.3rem', cursor: 'pointer' }}
+            style={{ background: 'transparent', border: 'none', color: '#64748b', fontSize: '1.3rem', cursor: 'pointer' }}
           >
             ×
           </button>
@@ -185,16 +185,16 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
       )}
 
       {/* Executive Summary Card */}
-      <div className="glass-panel tile-interactive" style={{ padding: 26, borderLeft: '5px solid #fbbf24' }}>
+      <div className="glass-panel tile-interactive" style={{ padding: 26, borderLeft: '5px solid #d97706' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-          <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#d97706', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Executive Summary
           </h3>
           <span className={`badge ${note.verdict?.toLowerCase().includes('positive') ? 'badge-positive' : note.verdict?.toLowerCase().includes('negative') ? 'badge-negative' : 'badge-gold'}`}>
             Stance: {note.verdict}
           </span>
         </div>
-        <div style={{ fontSize: '1.05rem', lineHeight: 1.75, color: '#ffffff' }}>
+        <div style={{ fontSize: '1.05rem', lineHeight: 1.75, color: '#0f172a' }}>
           {renderTextWithRefs(note.summary)}
         </div>
       </div>
@@ -203,20 +203,20 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 22 }}>
         {/* 1. Revenue Analyst */}
         {views.revenue && (
-          <div className="glass-panel tile-interactive tile-gold" style={{ padding: 24, borderTop: '4px solid #fbbf24' }}>
+          <div className="glass-panel tile-interactive tile-gold" style={{ padding: 24, borderTop: '4px solid #d97706' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontSize: '1.3rem' }}>📈</span>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff' }}>1. Revenue Analyst</h4>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>1. Revenue Analyst</h4>
               </div>
               <span className="badge badge-gold">Positive</span>
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', marginBottom: 14, fontStyle: 'italic' }}>
+            <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: 14, fontStyle: 'italic' }}>
               {views.revenue.headline}
             </div>
             <ul style={{ paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 10 }}>
               {(views.revenue.claims || []).map((c, i) => (
-                <li key={i} style={{ fontSize: '0.88rem', color: '#ffffff', lineHeight: 1.55 }}>
+                <li key={i} style={{ fontSize: '0.88rem', color: '#0f172a', lineHeight: 1.55 }}>
                   {renderTextWithRefs(c.rendered || c.text)}
                 </li>
               ))}
@@ -230,16 +230,16 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontSize: '1.3rem' }}>⚠️</span>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff' }}>2. Risk Analyst</h4>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>2. Risk Analyst</h4>
               </div>
               <span className="badge badge-negative">{views.risk.stance === 'negative' ? 'High Risk' : views.risk.stance}</span>
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', marginBottom: 14, fontStyle: 'italic' }}>
+            <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: 14, fontStyle: 'italic' }}>
               {views.risk.headline}
             </div>
             <ul style={{ paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 10 }}>
               {(views.risk.claims || []).map((c, i) => (
-                <li key={i} style={{ fontSize: '0.88rem', color: '#ffffff', lineHeight: 1.55 }}>
+                <li key={i} style={{ fontSize: '0.88rem', color: '#0f172a', lineHeight: 1.55 }}>
                   {renderTextWithRefs(c.rendered || c.text)}
                 </li>
               ))}
@@ -249,20 +249,20 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
 
         {/* 3. Outlook Analyst */}
         {views.outlook && (
-          <div className="glass-panel tile-interactive tile-purple" style={{ padding: 24, borderTop: '4px solid #c084fc' }}>
+          <div className="glass-panel tile-interactive tile-purple" style={{ padding: 24, borderTop: '4px solid #0284c7' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontSize: '1.3rem' }}>🔭</span>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff' }}>3. Outlook Analyst</h4>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>3. Outlook Analyst</h4>
               </div>
               <span className="badge badge-purple">Positive</span>
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#cbd5e1', marginBottom: 14, fontStyle: 'italic' }}>
+            <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: 14, fontStyle: 'italic' }}>
               {views.outlook.headline}
             </div>
             <ul style={{ paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 10 }}>
               {(views.outlook.claims || []).map((c, i) => (
-                <li key={i} style={{ fontSize: '0.88rem', color: '#ffffff', lineHeight: 1.55 }}>
+                <li key={i} style={{ fontSize: '0.88rem', color: '#0f172a', lineHeight: 1.55 }}>
                   {renderTextWithRefs(c.rendered || c.text)}
                 </li>
               ))}
@@ -274,9 +274,9 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
       {/* 4. Quarter-over-quarter Comparison Table */}
       {views.comparison && views.comparison.table && views.comparison.table.length > 0 && (
         <div className="glass-panel" style={{ overflow: 'hidden' }}>
-          <div style={{ padding: '18px 24px', borderBottom: '1px solid rgba(168, 85, 247, 0.25)', display: 'flex', alignItems: 'center', gap: 10 }}>
-            <FileSpreadsheet size={19} color="#fbbf24" />
-            <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff' }}>
+          <div style={{ padding: '18px 24px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: 10 }}>
+            <FileSpreadsheet size={19} color="#d97706" />
+            <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a' }}>
               4. Quarter-over-Quarter Trend Analysis
             </h4>
           </div>
@@ -295,10 +295,10 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
               <tbody>
                 {views.comparison.table.map((row, i) => (
                   <tr key={i}>
-                    <td style={{ fontWeight: 700, color: '#ffffff' }}>{row.metric}</td>
-                    <td style={{ color: '#cbd5e1' }}>{row.prior}</td>
-                    <td style={{ fontWeight: 800, color: '#ffffff' }}>{row.current}</td>
-                    <td style={{ fontWeight: 700, color: row.change?.startsWith('+') ? '#34d399' : row.change?.startsWith('-') ? '#fb7185' : '#cbd5e1' }}>
+                    <td style={{ fontWeight: 700, color: '#0f172a' }}>{row.metric}</td>
+                    <td style={{ color: '#475569' }}>{row.prior}</td>
+                    <td style={{ fontWeight: 800, color: '#0f172a' }}>{row.current}</td>
+                    <td style={{ fontWeight: 700, color: row.change?.startsWith('+') ? '#059669' : row.change?.startsWith('-') ? '#e11d48' : '#475569' }}>
                       {row.change}
                     </td>
                     <td>
@@ -325,20 +325,20 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
 
       {/* 5. Analyst Disagreements */}
       {note.disagreements && note.disagreements.length > 0 && (
-        <div className="glass-panel tile-interactive tile-gold" style={{
+        <div className="glass-panel tile-interactive" style={{
           padding: 24,
-          background: 'linear-gradient(180deg, rgba(245, 158, 11, 0.12) 0%, rgba(13, 19, 38, 0.85) 100%)',
-          border: '1px solid rgba(251, 191, 36, 0.45)'
+          background: '#fffbeb',
+          border: '1px solid rgba(217, 119, 6, 0.3)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-            <AlertCircle size={22} color="#fbbf24" />
-            <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fbbf24' }}>
+            <AlertCircle size={22} color="#d97706" />
+            <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#b45309' }}>
               Specialist Agent Disagreements Flagged by Editor
             </h4>
           </div>
           <ul style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
             {note.disagreements.map((d, i) => (
-              <li key={i} style={{ fontSize: '0.9rem', color: '#fffbeb', lineHeight: 1.65 }}>
+              <li key={i} style={{ fontSize: '0.9rem', color: '#78350f', lineHeight: 1.65 }}>
                 {renderTextWithRefs(d)}
               </li>
             ))}
@@ -348,11 +348,11 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
 
       {/* 6. Provenance Sources Registry */}
       <div className="glass-panel" style={{ overflow: 'hidden' }}>
-        <div style={{ padding: '18px 24px', borderBottom: '1px solid rgba(168, 85, 247, 0.25)' }}>
-          <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff' }}>
+        <div style={{ padding: '18px 24px', borderBottom: '1px solid #e2e8f0' }}>
+          <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a' }}>
             Sources & Fact Registry (100% Provenance Audit Trail)
           </h4>
-          <p style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
+          <p style={{ fontSize: '0.82rem', color: '#64748b' }}>
             All claims reference one or more verified IDs from this table
           </p>
         </div>
@@ -374,9 +374,9 @@ export default function AnalystNoteTab({ report, onSelectRef }) {
                       {item.id}
                     </span>
                   </td>
-                  <td style={{ fontWeight: 700, color: '#ffffff' }}>{item.label}</td>
-                  <td style={{ color: '#fbbf24', fontWeight: 800 }}>{item.display || item.value}</td>
-                  <td style={{ fontSize: '0.83rem', color: '#cbd5e1', fontStyle: 'italic' }}>
+                  <td style={{ fontWeight: 700, color: '#0f172a' }}>{item.label}</td>
+                  <td style={{ color: '#d97706', fontWeight: 800 }}>{item.display || item.value}</td>
+                  <td style={{ fontSize: '0.83rem', color: '#475569', fontStyle: 'italic' }}>
                     {item.source}
                   </td>
                 </tr>

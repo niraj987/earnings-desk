@@ -29,25 +29,25 @@ export default function DatabaseModal({
         maxHeight: '90vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        background: '#0f172a'
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.15)',
+        border: '1px solid #e2e8f0',
+        background: '#ffffff'
       }}>
         {/* Modal Header */}
         <div style={{
           padding: '18px 24px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid #e2e8f0',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <Database size={20} color="#818cf8" />
+            <Database size={20} color="#0284c7" />
             <div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>
                 SQLite Database Management
               </h3>
-              <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+              <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
                 Tables: reports · analyses · figures · agent_views · scenarios · qa_history
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function DatabaseModal({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#94a3b8',
+              color: '#64748b',
               cursor: 'pointer'
             }}
           >
@@ -68,29 +68,29 @@ export default function DatabaseModal({
         {/* Database info banner */}
         <div style={{
           padding: '16px 28px',
-          background: 'rgba(9, 13, 28, 0.85)',
-          borderBottom: '1px solid rgba(168, 85, 247, 0.2)',
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: 16
         }}>
           <div>
-            <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Database Engine</div>
-            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff' }}>Node.js Native SQLite (`node:sqlite`)</div>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Database Engine</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>Node.js Native SQLite (`node:sqlite`)</div>
           </div>
           <div>
-            <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>DB File Path</div>
-            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#c084fc' }}>server/earnings_desk.db</div>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>DB File Path</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0284c7' }}>server/earnings_desk.db</div>
           </div>
           <div>
-            <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Stored Reports</div>
-            <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#fbbf24' }}>{reports.length} Reports</div>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Stored Reports</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#d97706' }}>{reports.length} Reports</div>
           </div>
         </div>
 
         {/* Reports Table in SQLite */}
         <div style={{ padding: 24, overflowY: 'auto', flex: 1 }}>
-          <h4 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 12 }}>
+          <h4 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', marginBottom: 12 }}>
             Saved Earnings Analyses ({reports.length})
           </h4>
 
@@ -118,19 +118,19 @@ export default function DatabaseModal({
                   {reports.map((r) => {
                     const isSelected = r.id === currentReportId;
                     return (
-                      <tr key={r.id} style={{ background: isSelected ? 'rgba(56, 189, 248, 0.1)' : 'transparent' }}>
-                        <td style={{ fontWeight: 600, color: '#38bdf8' }}>#{r.id}</td>
-                        <td style={{ fontWeight: 600, color: '#f8fafc' }}>{r.company}</td>
-                        <td style={{ color: '#cbd5e1' }}>{r.period}</td>
+                      <tr key={r.id} style={{ background: isSelected ? 'rgba(2, 132, 199, 0.08)' : 'transparent' }}>
+                        <td style={{ fontWeight: 600, color: '#0284c7' }}>#{r.id}</td>
+                        <td style={{ fontWeight: 600, color: '#0f172a' }}>{r.company}</td>
+                        <td style={{ color: '#475569' }}>{r.period}</td>
                         <td>
                           <span className={`badge ${r.verdict?.toLowerCase().includes('positive') ? 'badge-positive' : r.verdict?.toLowerCase().includes('negative') ? 'badge-negative' : 'badge-mixed'}`}>
                             {r.verdict || 'Mixed'}
                           </span>
                         </td>
                         <td style={{ color: '#10b981', fontWeight: 600 }}>{r.coverage}%</td>
-                        <td style={{ color: '#94a3b8' }}>{r.figure_count}</td>
-                        <td style={{ color: '#a855f7' }}>{r.scenario_count}</td>
-                        <td style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                        <td style={{ color: '#64748b' }}>{r.figure_count}</td>
+                        <td style={{ color: '#8b5cf6' }}>{r.scenario_count}</td>
+                        <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
                           {new Date(r.created_at).toLocaleDateString()}
                         </td>
                         <td style={{ textAlign: 'right' }}>
@@ -142,8 +142,9 @@ export default function DatabaseModal({
                               }}
                               className="btn btn-secondary btn-sm"
                               style={{
-                                borderColor: isSelected ? '#38bdf8' : '#334155',
-                                color: isSelected ? '#38bdf8' : '#e2e8f0'
+                                borderColor: isSelected ? '#0284c7' : '#cbd5e1',
+                                color: isSelected ? '#0284c7' : '#334155',
+                                fontWeight: isSelected ? 700 : 500
                               }}
                             >
                               {isSelected ? 'Active' : 'Load'}
@@ -155,7 +156,7 @@ export default function DatabaseModal({
                                 }
                               }}
                               className="btn btn-secondary btn-sm"
-                              style={{ borderColor: '#e11d48', color: '#fb7185' }}
+                              style={{ borderColor: '#fca5a5', color: '#e11d48' }}
                               title="Delete from SQLite"
                             >
                               <Trash2 size={14} />
@@ -174,7 +175,7 @@ export default function DatabaseModal({
         {/* Modal Footer */}
         <div style={{
           padding: '14px 24px',
-          borderTop: '1px solid #1e293b',
+          borderTop: '1px solid #e2e8f0',
           display: 'flex',
           justifyContent: 'flex-end'
         }}>

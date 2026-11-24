@@ -92,7 +92,7 @@ export default function AgentTerminal({ onOpenDesk }) {
           <div style={{
             fontSize: '0.8rem',
             fontWeight: 700,
-            color: '#38bdf8',
+            color: '#0284c7',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             marginBottom: 8
@@ -102,12 +102,12 @@ export default function AgentTerminal({ onOpenDesk }) {
           <h2 style={{
             fontSize: 'clamp(2rem, 3.8vw, 2.8rem)',
             fontWeight: 800,
-            color: '#ffffff',
+            color: '#0f172a',
             letterSpacing: '-0.025em'
           }}>
             Agent Execution Terminal
           </h2>
-          <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: 4 }}>
+          <p style={{ fontSize: '0.95rem', color: '#475569', marginTop: 4 }}>
             Observe specialist agents deliberating, deriving formulas, and enforcing the Grounding Gate in real time.
           </p>
         </div>
@@ -121,9 +121,9 @@ export default function AgentTerminal({ onOpenDesk }) {
               borderRadius: 6,
               fontSize: '0.8rem',
               fontWeight: 600,
-              background: activeCompany === 'acme' ? '#0284c7' : 'rgba(15, 23, 42, 0.7)',
-              color: '#ffffff',
-              border: `1px solid ${activeCompany === 'acme' ? '#38bdf8' : 'rgba(255, 255, 255, 0.1)'}`,
+              background: activeCompany === 'acme' ? '#0284c7' : '#ffffff',
+              color: activeCompany === 'acme' ? '#ffffff' : '#334155',
+              border: `1px solid ${activeCompany === 'acme' ? '#0284c7' : '#cbd5e1'}`,
               cursor: 'pointer'
             }}
           >
@@ -136,9 +136,9 @@ export default function AgentTerminal({ onOpenDesk }) {
               borderRadius: 6,
               fontSize: '0.8rem',
               fontWeight: 600,
-              background: activeCompany === 'cloudscale' ? '#0284c7' : 'rgba(15, 23, 42, 0.7)',
-              color: '#ffffff',
-              border: `1px solid ${activeCompany === 'cloudscale' ? '#38bdf8' : 'rgba(255, 255, 255, 0.1)'}`,
+              background: activeCompany === 'cloudscale' ? '#0284c7' : '#ffffff',
+              color: activeCompany === 'cloudscale' ? '#ffffff' : '#334155',
+              border: `1px solid ${activeCompany === 'cloudscale' ? '#0284c7' : '#cbd5e1'}`,
               cursor: 'pointer'
             }}
           >
@@ -151,9 +151,9 @@ export default function AgentTerminal({ onOpenDesk }) {
               borderRadius: 6,
               fontSize: '0.8rem',
               fontWeight: 600,
-              background: activeCompany === 'novaretail' ? '#0284c7' : 'rgba(15, 23, 42, 0.7)',
-              color: '#ffffff',
-              border: `1px solid ${activeCompany === 'novaretail' ? '#38bdf8' : 'rgba(255, 255, 255, 0.1)'}`,
+              background: activeCompany === 'novaretail' ? '#0284c7' : '#ffffff',
+              color: activeCompany === 'novaretail' ? '#ffffff' : '#334155',
+              border: `1px solid ${activeCompany === 'novaretail' ? '#0284c7' : '#cbd5e1'}`,
               cursor: 'pointer'
             }}
           >

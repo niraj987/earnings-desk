@@ -5,10 +5,10 @@ export default function Footer({ onNavigate, currentPage }) {
   return (
     <footer className="no-print" style={{
       marginTop: 'auto',
-      background: 'rgba(10, 14, 23, 0.95)',
-      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+      background: '#f1f5f9',
+      borderTop: '1px solid #e2e8f0',
       padding: '40px 24px 28px',
-      color: '#94a3b8'
+      color: '#64748b'
     }}>
       <div style={{
         maxWidth: 1280,
@@ -35,12 +35,13 @@ export default function Footer({ onNavigate, currentPage }) {
                 background: '#4f46e5',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(79, 70, 229, 0.25)'
               }}>
                 <TrendingUp size={16} color="#ffffff" />
               </div>
               <div>
-                <span className="font-grelify" style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc' }}>
+                <span className="font-grelify" style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a' }}>
                   Earnings Desk
                 </span>
                 <span
@@ -48,7 +49,7 @@ export default function Footer({ onNavigate, currentPage }) {
                     marginLeft: 8,
                     fontSize: '0.72rem',
                     fontWeight: 700,
-                    color: '#fbbf24',
+                    color: '#d97706',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em'
                   }}
@@ -57,7 +58,7 @@ export default function Footer({ onNavigate, currentPage }) {
                 </span>
               </div>
             </div>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6 }}>
               Autonomous financial intelligence platform. Every claim formulated across specialist agents
               strictly traces to primary figures with deterministic provenance.
             </p>
@@ -66,7 +67,7 @@ export default function Footer({ onNavigate, currentPage }) {
           {/* Navigation Links */}
           <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap' }}>
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
                 Navigation
               </div>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem' }}>
@@ -76,10 +77,10 @@ export default function Footer({ onNavigate, currentPage }) {
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: currentPage === 'home' ? '#f8fafc' : '#94a3b8',
+                      color: currentPage === 'home' ? '#0284c7' : '#64748b',
                       cursor: 'pointer',
                       padding: 0,
-                      fontWeight: currentPage === 'home' ? 600 : 400
+                      fontWeight: currentPage === 'home' ? 700 : 400
                     }}
                   >
                     Home Overview
@@ -91,10 +92,10 @@ export default function Footer({ onNavigate, currentPage }) {
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: currentPage === 'desk' ? '#f8fafc' : '#94a3b8',
+                      color: currentPage === 'desk' ? '#0284c7' : '#64748b',
                       cursor: 'pointer',
                       padding: 0,
-                      fontWeight: currentPage === 'desk' ? 600 : 400
+                      fontWeight: currentPage === 'desk' ? 700 : 400
                     }}
                   >
                     Analysis Desk
@@ -106,10 +107,10 @@ export default function Footer({ onNavigate, currentPage }) {
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: currentPage === 'about' ? '#f8fafc' : '#94a3b8',
+                      color: currentPage === 'about' ? '#0284c7' : '#64748b',
                       cursor: 'pointer',
                       padding: 0,
-                      fontWeight: currentPage === 'about' ? 600 : 400
+                      fontWeight: currentPage === 'about' ? 700 : 400
                     }}
                   >
                     About Methodology
@@ -119,10 +120,10 @@ export default function Footer({ onNavigate, currentPage }) {
             </div>
 
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#f8fafc', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
                 System Architecture
               </div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem', color: '#94a3b8' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem', color: '#64748b' }}>
                 <li>Deterministic Grounding Gate (100% Provenance)</li>
                 <li>Multi-Agent Concurrency (Revenue, Risk, Outlook)</li>
                 <li>What-If Parameter Stress Testing</li>
@@ -135,7 +136,7 @@ export default function Footer({ onNavigate, currentPage }) {
         {/* Divider */}
         <div style={{
           height: 1,
-          background: 'rgba(255, 255, 255, 0.08)'
+          background: '#e2e8f0'
         }} />
 
         {/* Bottom Copyright & Disclaimer */}
@@ -147,10 +148,10 @@ export default function Footer({ onNavigate, currentPage }) {
           gap: 16,
           fontSize: '0.8rem'
         }}>
-          <div style={{ color: '#94a3b8' }}>
-            © {new Date().getFullYear()} <strong style={{ color: '#f8fafc' }}>JH Analytics</strong>. All rights reserved.
-          </div>
           <div style={{ color: '#64748b' }}>
+            © {new Date().getFullYear()} <strong style={{ color: '#0f172a' }}>JH Analytics</strong>. All rights reserved.
+          </div>
+          <div style={{ color: '#94a3b8' }}>
             All claims mathematically validated against primary disclosures.
           </div>
         </div>
